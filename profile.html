@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - CodeFinity</title>
+    <link rel="icon" type="image/png" href="img/logo_website.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .background-wave {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .background-wave img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .profile-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 2;
+        }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            border: 3px solid #4CAF50;
+            padding: 3px;
+            position: relative;
+            cursor: pointer;
+        }
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .avatar-upload {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: #4CAF50;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .avatar-upload:hover {
+            background: #45a049;
+        }
+        .profile-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .info-group {
+            margin-bottom: 15px;
+        }
+        .info-label {
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .info-value {
+            color: #333;
+            font-size: 16px;
+        }
+        .info-value input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .profile-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        .profile-actions button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .edit-profile {
+            background: #4CAF50;
+            color: white;
+        }
+        .edit-profile:hover {
+            background: #45a049;
+        }
+        .back-home {
+            background: #f8f9fa;
+            color: #333;
+        }
+        .back-home:hover {
+            background: #e9ecef;
+        }
+        .not-logged-in {
+            text-align: center;
+            color: #ff3333;
+            padding: 20px;
+            background: rgba(255, 51, 51, 0.1);
+            border-radius: 10px;
+        }
+        .save-changes {
+            display: none;
+            background: #4CAF50;
+            color: white;
+        }
+        .save-changes:hover {
+            background: #45a049;
+        }
+        #avatarInput {
+            display: none;
+        }
+        .additional-info {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-wave">
+        <img src="img/backgroundwave.png" alt="Background Wave">
+    </div>
+    <div class="profile-container">
+        <div id="profileContent">
+            <!-- Content will be dynamically inserted by JavaScript -->
+        </div>
+    </div>
+    <script>
+        // Kiểm tra đăng nhập
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const profileContent = document.getElementById('profileContent');
+
+        if (currentUser) {
+            // Tìm thông tin đầy đủ của user
+            const userInfo = users.find(user => user.email === currentUser.email);
+
+            if (userInfo) {
+                profileContent.innerHTML = `
+                    <div class="profile-header">
+                        <div class="profile-avatar" onclick="document.getElementById('avatarInput').click()">
+                            <img src="${userInfo.avatar || 'img/avatar_user.png'}" alt="Profile Avatar" id="avatarPreview">
+                            <div class="avatar-upload">+</div>
+                        </div>
+                        <input type="file" id="avatarInput" accept="image/*" onchange="updateAvatar(this)">
+                        <h2>${userInfo.username}</h2>
+                    </div>
+                    <div class="profile-info">
+                        <div class="info-group">
+                            <div class="info-label">Username</div>
+                            <div class="info-value">
+                                <input type="text" id="usernameInput" value="${userInfo.username}" onchange="enableSave()">
+                            </div>
+                        </div>
+                        <div class="info-group">
+                            <div class="info-label">Email</div>
+                            <div class="info-value">${userInfo.email}</div>
+                        </div>
+                        <div class="info-group">
+                            <div class="info-label">Member Since</div>
+                            <div class="info-value">${new Date().toLocaleDateString()}</div>
+                        </div>
+                        <div class="additional-info">
+                            <div class="info-group">
+                                <div class="info-label">Bio</div>
+                                <div class="info-value">
+                                    <textarea id="bioInput" rows="3" onchange="enableSave()">${userInfo.bio || ''}</textarea>
+                                </div>
+                            </div>
+                            <div class="info-group">
+                                <div class="info-label">Location</div>
+                                <div class="info-value">
+                                    <input type="text" id="locationInput" value="${userInfo.location || ''}" onchange="enableSave()">
+                                </div>
+                            </div>
+                            <div class="info-group">
+                                <div class="info-label">Website</div>
+                                <div class="info-value">
+                                    <input type="url" id="websiteInput" value="${userInfo.website || ''}" onchange="enableSave()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="save-changes" id="saveButton" onclick="saveChanges()">Save Changes</button>
+                        <button class="back-home" onclick="window.location.href='index.html'">Back to Home</button>
+                    </div>
+                `;
+            }
+        } else {
+            profileContent.innerHTML = `
+                <div class="not-logged-in">
+                    <h2>Please Log In</h2>
+                    <p>You need to be logged in to view your profile.</p>
+                    <button class="edit-profile" onclick="window.location.href='login.html'">Go to Login</button>
+                </div>
+            `;
+        }
+
+        function updateAvatar(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('avatarPreview').src = e.target.result;
+                    enableSave();
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function enableSave() {
+            document.getElementById('saveButton').style.display = 'inline-block';
+        }
+
+        function saveChanges() {
+            const userInfo = users.find(user => user.email === currentUser.email);
+            if (userInfo) {
+                userInfo.username = document.getElementById('usernameInput').value;
+                userInfo.bio = document.getElementById('bioInput').value;
+                userInfo.location = document.getElementById('locationInput').value;
+                userInfo.website = document.getElementById('websiteInput').value;
+                userInfo.avatar = document.getElementById('avatarPreview').src;
+
+                // Cập nhật localStorage
+                localStorage.setItem('users', JSON.stringify(users));
+                localStorage.setItem('currentUser', JSON.stringify({
+                    username: userInfo.username,
+                    email: userInfo.email
+                }));
+
+                // Ẩn nút Save
+                document.getElementById('saveButton').style.display = 'none';
+                
+                // Hiển thị thông báo thành công
+                alert('Profile updated successfully!');
+                
+                // Chuyển về trang chủ
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+</html> 
