@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeFinity</title>
+    <link rel="icon" type="image/png" href="img/logo_website.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main-content">
+      <header class="header">
+        <div class="logo-namewebsite">
+          <a href="index.html" style="opacity: 1">
+            <img src="img/logo_website.png" alt="Logo" width="30" />
+          </a>
+          C O D E F I N I T Y
+        </div>
+
+        <div class="signup-login-avatar">
+          <div>
+            <button class="signup">Sign Up</button>
+            <button class="login">Log In</button>
+          </div>
+          <div class="avatar">
+            <img src="img/avatar_user.png" width="27px" alt="User" />
+          </div>
+        </div>
+      </header>
+
+      <div class="sidebar" id="sidebar">
+        <h3>Lesson List</h3>
+        <ul id="lesson-list"></ul>
+      </div>
+
+      <div class="lesson-content" id="lesson-content">
+        <!-- Nội dung bài học sẽ được hiển thị ở đây -->
+      </div>
+
+      <div>
+        <div>
+          <ul>
+            <li><button class="toggleSidebar" data-lang="c">C</button></li>
+            <li><button class="toggleSidebar" data-lang="cpp">C++</button></li>
+            <li>
+              <button class="toggleSidebar" data-lang="python">Python</button>
+            </li>
+            <li>
+              <button class="toggleSidebar" data-lang="java">Java</button>
+            </li>
+            <li>
+              <button class="toggleSidebar" data-lang="html">HTML</button>
+            </li>
+            <li><button class="toggleSidebar" data-lang="css">CSS</button></li>
+            <li>
+              <button class="toggleSidebar" data-lang="javascript">
+                JavaScript
+              </button>
+            </li>
+            <li><button class="toggleSidebar" data-lang="sql">SQL</button></li>
+          </ul>
+        </div>
+        <div class="img-background" id="img-background">
+          <img src="img/backgroundwave.png" alt="error" />
+        </div>
+      </div>
+      <div class="search-container">
+        <form class="Search" action="search.html" method="GET">
+          <input type="text" name="q" placeholder="Search . . ." required />
+        </form>
+        <a href="">Don't know where to start</a>
+      </div>
+      <div class="text-img-bottomcontent">
+        <div class="text-bottomcontent">
+          <h1>
+            <span class="gradient-text">Master Code</span><br />Master The
+            Future
+          </h1>
+          <p>
+            The future belongs to those who know how to code. Learn to code
+            today, upgrade your skills, and open up a world of exciting career
+            opportunities.
+          </p>
+          <div class="buttons-bottom">
+            <button class="buttons-lotrinhhoc">Lộ trình học</button>
+            <button class="buttons-thuthach">Thử thách và bài tập</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+    <script src="learning.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-html.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning History - CodeFinity</title>
+    <link rel="icon" type="image/png" href="img/logo_website.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        position: relative;
+      }
+      .background-wave {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: #242145;
+      }
+      .background-wave img {
+        width: 100vw;
+        height: auto;
+        object-fit: cover;
+      }
+      .history-container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        position: relative;
+        z-index: 2;
+        animation: slideIn 0.5s ease;
+      }
+      .history-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .history-header h2 {
+        color: #333;
+        font-family: "Montserrat", sans-serif;
+        margin-bottom: 10px;
+      }
+      .history-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .history-item {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .history-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .history-info {
+        flex: 1;
+      }
+      .history-title {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 5px;
+      }
+      .history-language {
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 5px;
+      }
+      .history-date {
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        color: #666;
+      }
+      .history-actions {
+        display: flex;
+        gap: 10px;
+      }
+      .history-actions button {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        font-family: "Montserrat", sans-serif;
+      }
+      .continue-btn {
+        background: #4caf50;
+        color: white;
+      }
+      .continue-btn:hover {
+        background: #45a049;
+        transform: translateY(-2px);
+      }
+      .delete-btn {
+        background: #ff3333;
+        color: white;
+      }
+      .delete-btn:hover {
+        background: #ff0000;
+        transform: translateY(-2px);
+      }
+      .back-btn {
+        background: #f8f9fa;
+        color: #333;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-top: 20px;
+        font-family: "Montserrat", sans-serif;
+      }
+      .back-btn:hover {
+        background: #e9ecef;
+        transform: translateY(-2px);
+      }
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .empty-history {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+        font-family: "Montserrat", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-wave">
+      <img src="img/background_login_signup.png" alt="Background Wave" />
+    </div>
+    <div class="history-container">
+      <div class="history-header">
+        <h2>Learning History</h2>
+      </div>
+      <div id="historyList" class="history-list">
+        <!-- History items will be dynamically inserted here -->
+      </div>
+      <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
+    </div>
+    <script>
+      // Lấy thông tin người dùng hiện tại
+      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+      const historyList = document.getElementById("historyList");
+
+      // Lấy lịch sử học tập từ localStorage
+      const learningHistory = JSON.parse(localStorage.getItem("learningHistory")) || {};
+      const userHistory = learningHistory[currentUser?.email] || [];
+
+      // Sắp xếp lịch sử theo thời gian mới nhất
+      userHistory.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      if (userHistory.length === 0) {
+        historyList.innerHTML = `
+          <div class="empty-history">
+            <h3>No learning history yet</h3>
+            <p>Start learning and save your progress to see it here!</p>
+          </div>
+        `;
+      } else {
+        // Hiển thị lịch sử học tập
+        historyList.innerHTML = userHistory.map((item, index) => `
+          <div class="history-item">
+            <div class="history-info">
+              <div class="history-title">${item.title}</div>
+              <div class="history-language">Language: ${item.language.toUpperCase()}</div>
+              <div class="history-date">Last accessed: ${new Date(item.date).toLocaleString()}</div>
+            </div>
+            <div class="history-actions">
+              <button class="continue-btn" onclick="window.location.href='index.html#${item.language}-${item.id}'">Continue</button>
+              <button class="delete-btn" onclick="deleteHistory(${index})">Delete</button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Hàm xóa lịch sử
+      function deleteHistory(index) {
+        if (confirm('Are you sure you want to delete this history item?')) {
+          userHistory.splice(index, 1);
+          learningHistory[currentUser.email] = userHistory;
+          localStorage.setItem("learningHistory", JSON.stringify(learningHistory));
+          window.location.reload();
+        }
+      }
+    </script>
+  </body>
+</html> 
