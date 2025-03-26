@@ -110,10 +110,12 @@ function displayLessonList(language) {
   lessonList.innerHTML = "";
   lessonsData[language].forEach((lesson) => {
     const li = document.createElement("li");
-    li.textContent = lesson.title;
+    li.innerHTML = `
+          <span class="lesson-number">${lesson.id}</span>
+          <span class="lesson-title">${lesson.title}</span>
+      `;
     li.onclick = () => {
       loadLessonContent(language, lesson.id);
-
       document
         .querySelectorAll("#lesson-list li")
         .forEach((item) => item.classList.remove("active"));

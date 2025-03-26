@@ -17,6 +17,7 @@ body {
   min-width: 1450px;
   overflow-x: auto;
   height: 100vh;
+  scrollbar-width: none;
 }
 
 .img-background img {
@@ -287,35 +288,53 @@ p {
 }
 .sidebar {
   position: absolute;
-  top: 200px;
+  top: 180px;
   left: -400px;
-  width: 200px;
-  height: calc(100% - 100px);
-
+  width: 50px;
+  height: calc(100% - 290px);
   color: rgb(190, 189, 189);
-  transition: left 0.3s ease-in-out;
-  padding: 40px;
+  transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
+  padding: 15px;
   z-index: 10;
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
   font-weight: 280;
-
-  border-right: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
 }
 
 .sidebar.active {
   left: 60px;
 }
+.sidebar:hover {
+  width: 240px;
+}
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  white-space: nowrap;
+}
+.sidebar-icon {
+  padding: 13px;
+  display: block;
+}
 
-.sidebar h3 {
-  margin: 0 0 20px;
+.sidebar-title {
+  display: none;
+  padding: 12px;
   font-size: 23px;
-  font-weight: 700;
+  font-weight: 550;
   color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   font-family: "Montserrat", sans-serif;
+}
+.sidebar:hover .sidebar-icon {
+  display: none;
+}
+
+.sidebar:hover .sidebar-title {
+  display: block;
 }
 
 #lesson-list {
@@ -323,18 +342,36 @@ p {
   flex-direction: column;
   padding: 0;
   margin: 0;
-  max-height: calc(100% - 60px);
+  max-height: calc(100% - 70px);
   overflow-y: auto;
+  scrollbar-width: none;
 }
 
 #lesson-list li {
-  padding: 8px 10px;
+  padding: 8px 15px;
   cursor: pointer;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: background 0.3s, padding-left 0.3s;
   font-size: 15px;
   color: rgba(179, 176, 176, 0.9);
-  border-radius: 13px;
+  border-radius: 10px;
+}
+.lesson-number {
+  display: block;
+  text-align: center;
+}
+
+.lesson-title {
+  display: none;
+  white-space: nowrap;
+}
+
+.sidebar:hover #lesson-list li .lesson-number {
+  display: none;
+}
+
+.sidebar:hover #lesson-list li .lesson-title {
+  display: block;
 }
 
 #lesson-list li:hover {
@@ -349,8 +386,8 @@ p {
 
 .lesson-content {
   position: absolute;
-  top: 200px;
-  left: 400px;
+  top: 170px;
+  left: 350px;
   right: 250px;
   color: white;
   font-family: "Poppins", sans-serif;
@@ -358,7 +395,6 @@ p {
   z-index: 5;
   padding: 30px;
   border-radius: 10px;
-  max-height: calc(100vh - 150px);
   overflow-y: auto;
 }
 
@@ -371,7 +407,6 @@ p {
   margin: 0 0 20px;
   font-family: "Montserrat", sans-serif;
   color: #ffffff;
-  border-bottom: 1px solid rgba(166, 166, 166, 0.3);
   padding-bottom: 10px;
 }
 
