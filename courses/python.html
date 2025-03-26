@@ -1,0 +1,3641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="lesson-1">
+        <h1>Python Syntax</h1>
+        <hr>
+        <h2>Python Indentation</h2>
+        <p>
+            Indentation refers to the spaces at the beginning of a code line.<br>
+            Where in other programming languages the indentation in code is for readability only, the indentation in Python is very important.<br>
+            Python uses indentation to indicate a block of code.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="language-python">
+                <pre>
+                    if 5 > 2:
+                        print("Five is greater than two!")  
+                </pre>
+            </div>
+        </div>
+        <p>
+            Python will give you an error if you skip the indentation
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p></p>
+            <p>Syntax Error:</p>
+            <div class="code-block">
+                <pre>
+                    if 5 > 2:
+                    print("Five is greater than two!")  
+                </pre>
+            </div>
+        </div>
+        <p>
+            The number of spaces is up to you as a programmer, the most common use is four, but it has to be at least one.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    if 5 > 2:
+                        print("Five is greater than two!") 
+                    if 5 > 2:
+                            print("Five is greater than two!") 
+                </pre>
+            </div>
+        </div>
+        <p>
+            You have to use the same number of spaces in the same block of code, otherwise Python will give you an error:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Syntax Error:</p>
+            <div class="code-block">
+                <pre>
+                    if 5 > 2:
+                        print("Five is greater than two!")
+                            print("Five is greater than two!")
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div id="lesson-2">
+        <h1>Python Comments</h1>
+        <hr>
+        <ul>
+            <li>Comments can be used to explain Python code.</li>
+            <li>Comments can be used to make the code more readable.</li>
+            <li>Comments can be used to prevent execution when testing code.</li>
+        </ul>
+        <hr>
+        <h2>Creating a Comment</h2>
+        <p>
+            Comments starts with a <mark style="background-color: red;" >#</mark> , and Python will ignore them:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    <span style="opacity: 0.5;">#This is a comment</span>
+                    print("Hello, World!")
+                </pre>
+            </div>
+        </div>
+        <p>
+            Comments can be placed at the end of a line, and Python will ignore the rest of the line:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    print("Hello, World!") <span style="opacity: 0.5;">#This is a comment</span>
+                </pre>
+            </div>
+        </div>
+        <p>
+            A comment does not have to be text that explains the code, it can also be used to prevent Python from executing code:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    <span style="opacity: 0.5;">#print("Hello, World!")</span>
+                    print("Cheers, Mate!")
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Multiline Comments</h2>
+        <p>
+            Python does not really have a syntax for multiline comments.<br>
+            To add a multiline comment you could insert a <mark style="background-color: red;">#</mark> for each line:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    <span style="opacity: 0.5;">
+                    #This is a comment
+                    #written in
+                    #more than just one line
+                    </span>print("Hello, World!")
+                </pre>
+            </div>
+        </div>
+        <p>
+            Or, not quite as intended, you can use a multiline string.<br>
+            Since Python will ignore string literals that are not assigned to a variable, you can add a multiline string (triple quotes) in your code, and place your comment inside it:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    """
+                    This is a comment
+                    written in
+                    more than just one line
+                    """
+                    print("Hello, World!")
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div id="lesson-3">
+        <h1>Python Variables</h1>
+        <hr>
+        <h2>Variables</h2>
+        <p>
+            Variables are containers for storing data values.
+        </p>
+        <hr>
+        <h2>Creating Variables</h2>
+        <p>
+            Python has no command for declaring a variable.<br>
+            A variable is created the moment you first assign a value to it.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    x = 5
+                    y = "John"
+                    print(x)
+                    print(y)
+                </pre>
+            </div>
+        </div>
+        <p>Variables do not need to be declared with any particular type, and can even change type after they have been set.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    x = 4       <span # style="opacity: 0.5;"> # x is of type int </span>
+                    x = "Sally" <span # style="opacity: 0.5;"> # x is now of type str </span>
+                    print(x)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Casting</h2>
+        <p>If you want to specify the data type of a variable, this can be done with casting.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    x = str(3)    <span style="opacity: 0.5;"> #x will be '3'</span>
+                    y = int(3)    <span style="opacity: 0.5;"> #y will be 3</span>
+                    z = float(3)  <span style="opacity: 0.5;"> #z will be 3.0</span>
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Get the Type</h2>
+        <p>You can get the data type of a variable with the type() function.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    x = 5
+                    y = "John"
+                    print(type(x))
+                    print(type(y))
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Single or Double Quotes?</h2>
+        <p>String variables can be declared either by using single or double quotes:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    x = "John"
+                    <span style="opacity: 0.5;"># is the same as</span> 
+                    x = 'John'
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Case-Sensitive</h2>
+        <p>Variable names are case-sensitive.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>This will create two variables:</p>
+            <div class="code-block">
+                <pre>
+                    a = 4
+                    A = "Sally"
+                    <span style="opacity: 0.5;">#A will not overwrite a</span>
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Variable Names</h2>
+        <p>
+            A variable can have a short name (like x and y) or a more descriptive name (age, carname, total_volume).<br>
+            Rules for Python variables:
+        </p>
+        <ul>
+            <li>A variable name must start with a letter or the underscore character</li>
+            <li>A variable name cannot start with a number</li>
+            <li>A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )</li>
+            <li>Variable names are case-sensitive (age, Age and AGE are three different variables)</li>
+            <li>A variable name cannot be any of the Python keywords.</li>
+        </ul>
+        <hr>
+        <h2>Many Values to Multiple Variables</h2>
+        <p>Python allows you to assign values to multiple variables in one line:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    x, y, z = "Orange", "Banana", "Cherry"
+                    print(x)
+                    print(y)
+                    print(z)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>One Value to Multiple Variables</h2>
+        <p>And you can assign the same value to multiple variables in one line:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    x = y = z = "Orange"
+                    print(x)
+                    print(y)
+                    print(z)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Unpack a Collection</h2>
+        <p>If you have a collection of values in a list, tuple etc. Python allows you to extract the values into variables. This is called unpacking.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Unpack a list:</p>
+            <div class="code-block">
+                <pre>
+                    fruits = ["apple", "banana", "cherry"]
+                    x, y, z = fruits
+                    print(x)
+                    print(y)
+                    print(z)
+                </pre>
+            </div>
+        </div>
+    </div>
+        
+        <div id="lesson-4">
+            <h1>Python Data Types</h1>
+            <hr>
+            <h2>Built-in Data Types</h2>
+            <p>
+                In programming, data type is an important concept.<br>
+                Variables can store data of different types, and different types can do different things.<br>
+                Python has the following data types built-in by default, in these categories:
+            </p>
+            <table>
+                <tr>
+                  <td>Text Type:</td>
+                  <td>str</td>
+                </tr>
+                <tr>
+                  <td>Numeric Types:</td>
+                  <td>int, float, complex</td>
+                </tr>
+                <tr>
+                  <td>Sequence Types:</td>
+                  <td>list, tuple, range</td>
+                </tr>
+                <tr>
+                  <td>Mapping Type:</td>
+                  <td>dict</td>
+                </tr>
+                <tr>
+                  <td>Set Types:</td>
+                  <td>set, frozenset</td>
+                </tr>
+                <tr>
+                  <td>Boolean Type:</td>
+                  <td>bool</td>
+                </tr>
+                <tr>
+                  <td>Binary Types:</td>
+                  <td>bytes, bytearray, memoryview</td>
+                </tr>
+                <tr>
+                  <td>None Type:</td>
+                  <td>NoneType</td>
+                </tr>
+            </table>
+            <hr>
+            <h2>Getting the Data Type</h2>
+            <p>You can get the data type of any object by using the type() function:</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>Print the data type of the variable x:</p>
+                <div class="code-block">
+                    <pre>
+            x = 5
+            print(type(x))
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <div id="lesson-5">
+            <h1>Python number</h1>
+            <hr>
+            <p>There are three numeric types in Python:</p>
+            <ul>
+                <li>int</li>
+                <li>float</li>
+                <li>complex</li>
+            </ul>
+            <p>Variables of numeric types are created when you assign a value to them:</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <div class="code-block">
+                    <pre>
+                        x = 1    <span style="opacity:  0.5"> #int</span>
+                        y = 2.8  <span style="opacity:  0.5"> #float</span>
+                        z = 1j   <span style="opacity:  0.5"> #complex</span>
+                    </pre>
+                </div>
+            </div>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <div class="code-block">
+                    <pre>
+                        print(type(x))
+                        print(type(y))
+                        print(type(z))
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Int</h2>
+            <p>Int, or integer, is a whole number, positive or negative, without decimals, of unlimited length.</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>Integers:</p>
+                <div class="code-block">
+                    <pre>
+                        x = 1
+                        y = 35656222554887711
+                        z = -3255522
+
+                        print(type(x))
+                        print(type(y))
+                        print(type(z))
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Float</h2>
+            <p>Float, or "floating point number" is a number, positive or negative, containing one or more decimals.</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>Float</p>
+                <div class="code-block">
+                    <pre>
+                        x = 1.10
+                        y = 1.0
+                        z = -35.59
+
+                        print(type(x))
+                        print(type(y))
+                        print(type(z))
+                    </pre>
+                </div>
+            </div>
+            <p>Float can also be scientific numbers with an "e" to indicate the power of 10.</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>Float</p>
+                <div class="code-block">
+                    <pre>
+                        x = 35e3
+                        y = 12E4
+                        z = -87.7e100
+
+                        print(type(x))
+                        print(type(y))
+                        print(type(z))
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Complex</h2>
+            <p>Complex numbers are written with a "j" as the imaginary part:</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>Complex</p>
+                <div class="code-block">
+                    <pre>
+                        x = 3+5j
+                        y = 5j
+                        z = -5j
+
+                        print(type(x))
+                        print(type(y))
+                        print(type(z))
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Type Conversion</h2>
+            <p>You can convert from one type to another with the int(), float(), and complex() methods:</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>Convert from one type to another:</p>
+                <div class="code-block">
+                    <pre>
+                        x = 1    <span style="opacity: 0.5;"># int</span> 
+                        y = 2.8  <span style="opacity: 0.5;"># float</span>
+                        z = 1j   <span style="opacity: 0.5;"># complex</span>
+
+                        <span style="opacity: 0.5;">#convert from int to float:</span> 
+                        a = float(x)
+
+                        <span style="opacity: 0.5;">#convert from float to int::</span> 
+                        b = int(y)
+
+                        <span style="opacity: 0.5;">#convert from int to complex:</span> 
+                        c = complex(x)
+
+                        print(a)
+                        print(b)
+                        print(c)
+
+                        print(type(a))
+                        print(type(b))
+                        print(type(c))
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Random Number</h2>
+            <p>Python does not have a random() function to make a random number, but Python has a built-in module called random that can be used to make random numbers:</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>Import the random module, and display a random number from 1 to 9:</p>
+                <div class="code-block">
+                    <pre>
+                        import random
+                        print(random.randrange(1, 10))
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <div id="lesson-6">
+            <h1>Python Strings(part1)</h1>
+            <hr>
+            <h2>Strings</h2>
+            <p>
+                Strings in python are surrounded by either single quotation marks, or double quotation marks.<br>
+                'hello' is the same as "hello".<br>
+                You can display a string literal with the print() function:
+            </p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <div class="code-block">
+                    <pre>
+                        print("Hello")
+                        print('Hello')
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Quotes Inside Quotes</h2>
+            <p>You can use quotes inside a string, as long as they don't match the quotes surrounding the string:</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <div class="code-block">
+                    <pre>
+                        a = "Hello"
+                        print(a)
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Multiline Strings</h2>
+            <p>You can assign a multiline string to a variable by using three quotes:</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>You can use three double quotes:</p>
+                <div class="code-block">
+                    <pre>
+                        a = """Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt
+                        ut labore et dolore magna aliqua."""
+                        print(a)
+                    </pre>
+                </div>
+            </div>
+            <p>Or three single quotes:</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>You can use three double quotes:</p>
+                <div class="code-block">
+                    <pre>
+                        a = '''Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt
+                        ut labore et dolore magna aliqua.'''
+                        print(a)
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Strings are Arrays</h2>
+            <p>
+                Like many other popular programming languages, strings in Python are arrays of bytes representing unicode characters.<br>
+                However, Python does not have a character data type, a single character is simply a string with a length of 1.<br>
+                Square brackets can be used to access elements of the string.
+            </p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>Get the character at position 1 (remember that the first character has the position 0):</p>
+                <div class="code-block">
+                    <pre>
+                        a = "Hello, World!"
+                        print(a[1])
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Looping Through a String</h2>
+            <p>Since strings are arrays, we can loop through the characters in a string, with a for loop.</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>Loop through the letters in the word "banana":</p>
+                <div class="code-block">
+                    <pre>
+                        for x in "banana":
+                            print(x)
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>String Length</h2>
+            <p>To get the length of a string, use the len() function.</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>The len() function returns the length of a string:</p>
+                <div class="code-block">
+                    <pre>
+                        a = "Hello, World!"
+                        print(len(a))
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Check String</h2>
+            <p>To check if a certain phrase or character is present in a string, we can use the keyword in.</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>Check if "free" is present in the following text:</p>
+                <div class="code-block">
+                    <pre>
+                        txt = "The best things in life are free!"
+                        print("free" in txt)
+                    </pre>
+                </div>
+            </div>
+            <p>Use it in an if statement:</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>Print only if "free" is present::</p>
+                <div class="code-block">
+                    <pre>
+                        txt = "The best things in life are free!"
+                        if "free" in txt:
+                            print("Yes, 'free' is present.")
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Check if NOT</h2>
+            <p>To check if a certain phrase or character is NOT present in a string, we can use the keyword not in.</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>Check if "expensive" is NOT present in the following text:</p>
+                <div class="code-block">
+                    <pre>
+                        txt = "The best things in life are free!"
+                        print("expensive" not in txt)
+                    </pre>
+                </div>
+            </div>
+            <p>Use it in an if statement:</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>print only if "expensive" is NOT present:</p>
+                <div class="code-block">
+                    <pre>
+                        txt = "The best things in life are free!"
+                        if "expensive" not in txt:
+                            print("No, 'expensive' is NOT present.")
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <div id="lesson-7">
+            <h1>Python Strings(part2)</h1>
+            <hr>
+            <h2>Slicing</h2>
+            <p>
+                You can return a range of characters by using the slice syntax.<br>
+                Specify the start index and the end index, separated by a colon, to return a part of the string.
+            </p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>Get the characters from position 2 to position 5 (not included):</p>
+                <div class="code-block">
+                    <pre>
+                        b = "Hello, World!"
+                        print(b[2:5])
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Slice From the Start</h2>
+            <p>By leaving out the start index, the range will start at the first character:</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>Get the characters from the start to position 5 (not included):</p>
+                <div class="code-block">
+                    <pre>
+                        b = "Hello, World!"
+                        print(b[:5])
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Slice To the End</h2>
+            <p>By leaving out the end index, the range will go to the end</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>Get the characters from position 2, and all the way to the end:</p>
+                <div class="code-block">
+                    <pre>
+                        b = "Hello, World!"
+                        print(b[2:])
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Negative Indexing</h2>
+            <p>Use negative indexes to start the slice from the end of the string:</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>
+                    Get the characters:<br>
+                    From: "o" in "World!" (position -5)<br>
+                    To, but not included: "d" in "World!" (position -2):
+                </p>
+                <div class="code-block">
+                    <pre>
+                        b = "Hello, World!"
+                        print(b[-5:-2])
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Upper Case</h2>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>The upper() method returns the string in upper case:</p>
+                <div class="code-block">
+                    <pre>
+                        a = "Hello, World!"
+                        print(a.upper())
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Lower Case</h2>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>The lower() method returns the string in lower case:</p>
+                <div class="code-block">
+                    <pre>
+                        a = "Hello, World!"
+                        print(a.lower())
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Remove Whitespace</h2>
+            <p>Whitespace is the space before and/or after the actual text, and very often you want to remove this space.</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>The strip() method removes any whitespace from the beginning or the end:</p>
+                <div class="code-block">
+                    <pre>
+                        a = "Hello, World!"
+                        print(a.strip()) <span style="opacity: 0.5;"># returns "Hello, World!"</span>
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Replace String</h2>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>The replace() method replaces a string with another string:</p>
+                <div class="code-block">
+                    <pre>
+                        a = "Hello, World!"
+                        print(a.replace("H", "J"))
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>Split String</h2>
+            <p>The split() method returns a list where the text between the specified separator becomes the list items.</p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>The split() method splits the string into substrings if it finds instances of the separator:</p>
+                <div class="code-block">
+                    <pre>
+                        a = "Hello, World!"
+                        print(a.split(",")) <span style="opacity: 0.5;"># returns ['Hello', ' World!']</span>
+                    </pre>
+                </div>
+            </div>
+            </div>
+
+        <div id="lesson-8">
+            <h1>Python Operators</h1>
+            <hr>
+            <h2>Python Operators</h2>
+            <p>
+                Operators are used to perform operations on variables and values.<br>
+                In the example below, we use the + operator to add together two values:
+            </p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <div class="code-block">
+                    <pre>
+                        print(10 + 5)
+                    </pre>
+                </div>
+        </div>
+        <p>Python divides the operators in the following groups:</p>
+        <ul>
+            <li>Arithmetic operators</li>
+            <li>Assignment operators</li>
+            <li>Comparison operators</li>
+            <li>Logical operators</li>
+            <li>Identity operators</li>
+            <li>Membership operators</li>
+            <li>Bitwise operators</li>
+        </ul>
+        <table>
+            <tr>
+                <th>Operator</th>
+                <th>Name</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>+</td>
+                <td>Addition</td>
+                <td>x + y</td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>Subtraction</td>
+                <td>x - y</td>
+            </tr>
+            <tr>
+                <td>*</td>
+                <td>Multiplication</td>
+                <td>x * y</td>
+            </tr>
+            <tr>
+                <td>/</td>
+                <td>Division</td>
+                <td>x / y</td>
+            </tr>
+                <tr>
+                <td>%</td>
+                <td>Modulus</td>
+                <td>x % y</td>
+            </tr>
+                <tr>
+                <td>**</td>
+                <td>Exponentiation</td>
+                <td>x ** y</td>
+            </tr>
+                <tr>
+                <td>//</td>
+                <td>Floor division</td>
+                <td>x // y</td>
+            </tr>
+            </table>
+            <hr>
+            <h2>Python Assignment Operators</h2>
+            <p>Assignment operators are used to assign values to variables:</p>
+            <table>
+                <tr>
+                  <th>Operator</th>
+                  <th>Example</th>
+                  <th>Same As</th>
+                </tr>
+                <tr>
+                  <td>=</td>
+                  <td>x = 5</td>
+                  <td>x = 5</td>
+                </tr>
+                <tr>
+                  <td>+=</td>
+                  <td>x += 3</td>
+                  <td>x = x + 3</td>
+                </tr>
+                <tr>
+                  <td>-=</td>
+                  <td>x -= 3</td>
+                  <td>x = x - 3</td>
+                </tr>
+                <tr>
+                  <td>*=</td>
+                  <td>x *= 3</td>
+                  <td>x = x * 3</td>
+                </tr>
+                <tr>
+                  <td>/=</td>
+                  <td>x /= 3</td>
+                  <td>x = x / 3</td>
+                </tr>
+                <tr>
+                  <td>%=</td>
+                  <td>x %= 3</td>
+                  <td>x = x % 3</td>
+                </tr>
+                <tr>
+                  <td>//=</td>
+                  <td>x //= 3</td>
+                  <td>x = x // 3</td>
+                </tr>
+                <tr>
+                  <td>**=</td>
+                  <td>x **= 3</td>
+                  <td>x = x ** 3</td>
+                </tr>
+                <tr>
+                  <td>&=</td>
+                  <td>x &= 3</td>
+                  <td>x = x & 3</td>
+                </tr>
+                <tr>
+                  <td>|=</td>
+                  <td>x |= 3</td>
+                  <td>x = x | 3</td>
+                </tr>
+                <tr>
+                  <td>^=</td>
+                  <td>x ^= 3</td>
+                  <td>x = x ^ 3</td>
+                </tr>
+                <tr>
+                  <td>>>=</td>
+                  <td>x >>= 3</td>
+                  <td>x = x >> 3</td>
+                </tr>
+                <tr>
+                  <td><<=</td>
+                  <td>x <<= 3</td>
+                  <td>x = x << 3</td>
+                </tr>
+                <tr>
+                  <td>:=</td>
+                  <td>print(x := 3)</td>
+                  <td>x = 3 <br> print(x)</td>
+                </tr>
+              </table>
+              <hr>
+            <h2>Python Comparison Operators</h2>
+            <p>Comparison operators are used to compare two values:</p>
+            <table>
+                <tr>
+                  <th>Operator</th>
+                  <th>Name</th>
+                  <th>Example</th>
+                </tr>
+                <tr>
+                  <td>==</td>
+                  <td>Equal</td>
+                  <td>x == y</td>
+                </tr>
+                <tr>
+                  <td>!=</td>
+                  <td>Not equal</td>
+                  <td>x != y</td>
+                </tr>
+                <tr>
+                  <td>></td>
+                  <td>Greater than</td>
+                  <td>x > y</td>
+                </tr>
+                <tr>
+                  <td><</td>
+                  <td>Less than</td>
+                  <td>x < y</td>
+                </tr>
+                <tr>
+                  <td>>=</td>
+                  <td>Greater than or equal to</td>
+                  <td>x >= y</td>
+                </tr>
+                <tr>
+                  <td><=</td>
+                  <td>Less than or equal to</td>
+                  <td>x <= y</td>
+                </tr>
+              </table>
+              <hr>
+            <h2>Python Bitwise Operators</h2>
+            <p>itwise operators are used to compare (binary) numbers:</p>
+            <table>
+                <tr>
+                  <th>Operator</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Example</th>
+                </tr>
+                <tr>
+                  <td>&</td>
+                  <td>AND</td>
+                  <td>Sets each bit to 1 if both bits are 1</td>
+                  <td>x & y</td>
+                </tr>
+                <tr>
+                  <td>|</td>
+                  <td>OR</td>
+                  <td>Sets each bit to 1 if one of two bits is 1</td>
+                  <td>x | y</td>
+                </tr>
+                <tr>
+                  <td>^</td>
+                  <td>XOR</td>
+                  <td>Sets each bit to 1 if only one of two bits is 1</td>
+                  <td>x ^ y</td>
+                </tr>
+                <tr>
+                  <td>~</td>
+                  <td>NOT</td>
+                  <td>Inverts all the bits</td>
+                  <td>~x</td>
+                </tr>
+                <tr>
+                  <td><<</td>
+                  <td>Zero fill left shift</td>
+                  <td>Shift left by pushing zeros in from the right and let the leftmost bits fall off</td>
+                  <td>x << 2</td>
+                </tr>
+                <tr>
+                  <td>>></td>
+                  <td>Signed right shift</td>
+                  <td>Shift right by pushing copies of the leftmost bit in from the left, and let the rightmost bits fall off</td>
+                  <td>x >> 2</td>
+                </tr>
+              </table>
+        </div>
+
+        <div id="lesson-9">
+            <h1>Python Lists(part1)</h1>
+            <hr>
+            <div class="container">
+                <div class="code-block">
+                    <pre>
+                        mylist = ["apple", "banana", "cherry"]
+                    </pre>
+                </div>
+            </div>
+            <hr>
+            <h2>List</h2>
+            <p>
+                Lists are used to store multiple items in a single variable.<br>
+                Lists are one of 4 built-in data types in Python used to store collections of data, the other 3 are Tuple, Set, and Dictionary, all with different qualities and usage.<br>
+                Lists are created using square brackets:
+            </p>
+            <div class="container">
+                <div class="example-header">
+                    <h3>Example</h3>
+                </div>
+                <p>Create a List:</p>
+                <div class="code-block">
+                    <pre>
+                        thislist = ["apple", "banana", "cherry"]
+                        print(thislist)
+                    </pre>
+                </div>
+        </div>
+        <hr>
+        <h2>List Items</h2>
+        <p>
+            List items are ordered, changeable, and allow duplicate values.<br>
+            List items are indexed, the first item has index [0], the second item has index [1] etc.
+        </p>
+        <hr>
+        <h2>Ordered</h2>
+        <p>
+            When we say that lists are ordered, it means that the items have a defined order, and that order will not change.<br>
+            If you add new items to a list, the new items will be placed at the end of the list.
+        </p>
+        <hr>
+        <h2>Changeable</h2>
+        <p>The list is changeable, meaning that we can change, add, and remove items in a list after it has been created.</p>
+        
+        <hr>
+        <h2>Allow Duplicates</h2>
+        <p>Since lists are indexed, lists can have items with the same value:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Lists allow duplicate values:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry", "apple", "cherry"]
+                    print(thislist)
+                </pre>
+            </div>
+    </div>
+    <hr>
+        <h2>List Length</h2>
+        <p>To determine how many items a list has, use the len() function:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print the number of items in the list:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    print(len(thislist))
+                </pre>
+            </div>
+    </div>
+    <hr>
+        <h2>List Items - Data Types</h2>
+        <p>List items can be of any data type:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>String, int and boolean data types</p>
+            <div class="code-block">
+                <pre>
+                    list1 = ["apple", "banana", "cherry"]
+                    list2 = [1, 5, 7, 9, 3]
+                    list3 = [True, False, False]
+                </pre>
+            </div>
+    </div>
+        <p>A list can contain different data types:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>A list with strings, integers and boolean values:</p>
+            <div class="code-block">
+                <pre>
+                    list1 = ["abc", 34, True, 40, "male"]
+                </pre>
+            </div>
+    </div>
+    <hr>
+        <h2>Access Items</h2>
+        <p>List items are indexed and you can access them by referring to the index number:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print the second item of the list:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    print(thislist[1])  
+                </pre>
+            </div>
+    </div>
+    <hr>
+        <h2>Negative Indexing</h2>
+        <p>
+            Negative indexing means start from the end<br>
+            -1 refers to the last item, -2 refers to the second last item etc.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print the last item of the list:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    print(thislist[-1])
+                </pre>
+            </div>
+    </div>
+    <hr>
+        <h2>Range of Indexes</h2>
+        <p>
+            You can specify a range of indexes by specifying where to start and where to end the range.<br>
+            When specifying a range, the return value will be a new list with the specified items.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Return the third, fourth, and fifth item:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
+                    print(thislist[2:5])
+                </pre>
+            </div>
+    </div>
+        <p>By leaving out the start value, the range will start at the first item:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>This example returns the items from the beginning to, but NOT including, "kiwi":</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
+                    print(thislist[:4])
+                </pre>
+            </div>
+    </div>
+        <p>By leaving out the end value, the range will go on to the end of the list:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>This example returns the items from "cherry" to the end:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
+                    print(thislist[2:])
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Check if Item Exists</h2>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Check if "apple" is present in the list:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    if "apple" in thislist:
+                        print("Yes, 'apple' is in the fruits list")
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div id="lesson-10">
+        <h1>Python Lists(part2)</h1>
+        <hr>
+        <h2>Change Item Value</h2>
+        <p>To change the value of a specific item, refer to the index number:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Change the second item::</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    thislist[1] = "blackcurrant"
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Change a Range of Item Values</h2>
+        <p>To change the value of items within a specific range, define a list with the new values, and refer to the range of index numbers where you want to insert the new values:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Change the values "banana" and "cherry" with the values "blackcurrant" and "watermelon"</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry", "orange", "kiwi", "mango"]
+                    thislist[1:3] = ["blackcurrant", "watermelon"]
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <p>If you insert more items than you replace, the new items will be inserted where you specified, and the remaining items will move accordingly:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Change the second value by replacing it with two new values:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    thislist[1:2] = ["blackcurrant", "watermelon"]
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <p>If you insert less items than you replace, the new items will be inserted where you specified, and the remaining items will move accordingly:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Change the second and third value by replacing it with one value:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    thislist[1:3] = ["watermelon"]
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Insert Items</h2>
+        <p>
+            To insert a new list item, without replacing any of the existing values, we can use the insert() method.<br>
+            The insert() method inserts an item at the specified index:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Insert "watermelon" as the third item:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    thislist.insert(2, "watermelon")
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Append Items</h2>
+        <p>To add an item to the end of the list, use the append() method:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Using the append() method to append an item:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    thislist.append("orange")
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Insert Items</h2>
+        <p>
+            To insert a list item at a specified index, use the insert() method.
+            The insert() method inserts an item at the specified index:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Insert an item as the second position:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    thislist.insert(1, "orange")
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Extend List</h2>
+        <p>To append elements from another list to the current list, use the extend() method.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Add the elements of tropical to thislist:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    tropical = ["mango", "pineapple", "papaya"]
+                    thislist.extend(tropical)
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <p>The elements will be added to the end of the list.</p>
+        <hr>
+        <h2>Add Any Iterable</h2>
+        <p>The extend() method does not have to append lists, you can add any iterable object (tuples, sets, dictionaries etc.).</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Add elements of a tuple to a list:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    thistuple = ("kiwi", "orange")
+                    thislist.extend(thistuple)
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Remove Specified Item</h2>
+        <p>The remove() method removes the specified item.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Remove "banana":</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    thislist.remove("banana")
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <p>If there are more than one item with the specified value, the remove() method removes the first occurrence:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Remove the first occurrence of "banana":</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry", "banana", "kiwi"]
+                    thislist.remove("banana")
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <h1>Remove Specified Index</h1>
+        <hr>
+        <p>The pop() method removes the specified index.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Remove the second item:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    thislist.pop(1)
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <p>If you do not specify the index, the pop() method removes the last item.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Remove the last item:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    thislist.pop()
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <p>The del keyword also removes the specified index:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Remove the first item:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    del thislist[0]
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <p>The del keyword can also delete the list completely.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Delete the entire list:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    del thislist
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Clear the List</h2>
+        <p>
+            The clear() method empties the list.<br>
+            The list still remains, but it has no content.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Clear the list content:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    thislist.clear()
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div id="lesson-11">
+        <h1>Python Lists(part3)</h1>
+        <hr>
+        <h2>Loop Through a List</h2>
+        <p>You can loop through the list items by using a for loop:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print all items in the list, one by one:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    for x in thislist:
+                        print(x)
+                </pre>
+            </div>
+        </div>
+        <p>Learn more about for loops in our Python For Loops Chapter.</p>
+        <hr>
+        <h2>Loop Through the Index Numbers</h2>
+        <p>
+            You can also loop through the list items by referring to their index number.<br>
+            Use the range() and len() functions to create a suitable iterable.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print all items by referring to their index number:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    for i in range(len(thislist)):
+                        print(thislist[i])
+                </pre>
+            </div>
+        </div>
+        <p>The iterable created in the example above is [0, 1, 2].</p>
+        <hr>
+        <h2>Using a While Loop</h2>
+        <p>
+            You can loop through the list items by using a while loop.<br>
+            Use the len() function to determine the length of the list, then start at 0 and loop your way through the list items by referring to their indexes.<br>
+            Remember to increase the index by 1 after each iteration.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print all items, using a while loop to go through all the index numbers</p>
+            <div class="code-block">
+                <pre>
+                    tthislist = ["apple", "banana", "cherry"]
+                    i = 0
+                    while i < len(thislist):
+                      print(thislist[i])
+                      i = i + 1
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Looping Using List Comprehension</h2>
+        <p>List Comprehension offers the shortest syntax for looping through lists:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>A short hand for loop that will print all items in a list:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    [print(x) for x in thislist]
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Sort List Alphanumerically</h2>
+        <p>List objects have a sort() method that will sort the list alphanumerically, ascending, by default:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Sort the list alphabetically:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["orange", "mango", "kiwi", "pineapple", "banana"]
+                    thislist.sort()
+                    print(thislist)
+                </pre>
+            </div>
+            <p>Sort the list numerically:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = [100, 50, 65, 82, 23]
+                    thislist.sort()
+                    print(thislist)
+                </pre>
+        </div>
+        <hr>
+        <h2>Sort Descending</h2>
+        <p>To sort descending, use the keyword argument reverse = True:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Sort the list descending:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["orange", "mango", "kiwi", "pineapple", "banana"]
+                    thislist.sort(reverse = True)
+                    print(thislist)
+                </pre>
+            </div>
+            <p>Sort the list descending:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = [100, 50, 65, 82, 23]
+                    thislist.sort(reverse = True)
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Customize Sort Function</h2>
+        <p>
+            You can also customize your own function by using the keyword argument key = function.<br>
+            The function will return a number that will be used to sort the list (the lowest number first):
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Sort the list based on how close the number is to 50:</p>
+            <div class="code-block">
+                <pre>
+                    def myfunc(n):
+                        return abs(n - 50)
+
+                    thislist = [100, 50, 65, 82, 23]
+                    thislist.sort(key = myfunc)
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Case Insensitive Sort</h2>
+        <p>By default the sort() method is case sensitive, resulting in all capital letters being sorted before lower case letters:</p>
+        <div class="example-header">
+            <h3>Example</h3>
+        </div>
+        <p>Case sensitive sorting can give an unexpected result:</p>
+        <div class="code-block">
+            <pre>
+                thislist = ["banana", "Orange", "Kiwi", "cherry"]
+                thislist.sort()
+                print(thislist)
+            </pre>
+        </div>
+    </div>
+        <p>
+            Luckily we can use built-in functions as key functions when sorting a list.         
+            So if you want a case-insensitive sort function, use str.lower as a key function:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Perform a case-insensitive sort of the list:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["banana", "Orange", "Kiwi", "cherry"]
+                    thislist.sort(key = str.lower)
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Reverse Order</h2>
+        <p>
+            What if you want to reverse the order of a list, regardless of the alphabet<br>
+            The verse() method reverses the current sorting order of the elements.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Reverse the order of the list items:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["banana", "Orange", "Kiwi", "cherry"]
+                    thislist.reverse()
+                    print(thislist)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Copy a List</h2>
+        <p>You cannot copy a list simply by typing list2 = list1, because: list2 will only be a reference to list1, and changes made in list1 will automatically also be made in list2</p>
+        
+        <hr>
+        <h2>Use the copy() method</h2>
+        <p>You can use the built-in List method copy() to copy a list.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Make a copy of a list with the copy() method:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    mylist = thislist.copy()
+                    print(mylist)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Use the list() method</h2>
+        <p>Another way to make a copy is to use the built-in method list().</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Make a copy of a list with the : operator:</p>
+            <div class="code-block">
+                <pre>
+                    thislist = ["apple", "banana", "cherry"]
+                    mylist = thislist[:]
+                    print(mylist)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Join Two Lists</h2>
+        <p>
+            There are several ways to join, or concatenate, two or more lists in Python.<br>
+            One of the easiest ways are by using the + operator.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Join two list:</p>
+            <div class="code-block">
+                <pre>
+                    list1 = ["a", "b", "c"]
+                    list2 = [1, 2, 3]
+
+                    list3 = list1 + list2
+                    print(list3)
+                </pre>
+            </div>
+        </div>
+        <p>Another way to join two lists is by appending all the items from list2 into list1, one by one:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Append list2 into list1:</p>
+            <div class="code-block">
+                <pre>
+                    list1 = ["a", "b" , "c"]
+                    list2 = [1, 2, 3]
+
+                    for x in list2:
+                        list1.append(x)
+
+                    print(list1)
+                </pre>
+            </div>
+        </div>
+        <p>Or you can use the extend() method, where the purpose is to add elements from one list to another list:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Use the extend() method to add list2 at the end of list1:</p>
+            <div class="code-block">
+                <pre>
+                    list1 = ["a", "b" , "c"]
+                    list2 = [1, 2, 3]
+
+                    list1.extend(list2)
+                    print(list1)
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div id="lesson-12">
+        <h1>Python Tuples(part1)</h1>
+        <hr>
+        <h2>Tuple</h2>
+        <p>
+            Tuples are used to store multiple items in a single variable.<br>
+            Tuple is one of 4 built-in data types in Python used to store collections of data, the other 3 are List, Set, and Dictionary, all with different qualities and usage.<br>
+            A tuple is a collection which is ordered and unchangeable.<br>
+            Tuples are written with round brackets.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Create a Tuple:</p>
+            <div class="code-block">
+                <pre>
+                    thistuple = ("apple", "banana", "cherry")
+                    print(thistuple)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Tuple Items</h2>
+        <p>
+            Tuple items are ordered, unchangeable, and allow duplicate values.<br>
+            Tuple items are indexed, the first item has index [0], the second item has index [1] etc.
+        </p>
+        <hr>
+        <h2>Ordered</h2>
+        <p>When we say that tuples are ordered, it means that the items have a defined order, and that order will not change.</p>
+        <hr>
+        <h2>Unchangeable</h2>
+        <p>Tuples are unchangeable, meaning that we cannot change, add or remove items after the tuple has been created.</p>
+        <hr>
+        <h2>Allow Duplicates</h2>
+        <p>Since tuples are indexed, they can have items with the same value:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Tuples allow duplicate values:</p>
+            <div class="code-block">
+                <pre>
+                    thistuple = ("apple", "banana", "cherry", "apple", "cherry")
+                    print(thistuple)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Tuple Length</h2>
+        <p>To determine how many items a tuple has, use the len() function:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print the number of items in the tuple:</p>
+            <div class="code-block">
+                <pre>
+                    thistuple = ("apple", "banana", "cherry")
+                    print(len(thistuple))
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Create Tuple With One Item</h2>
+        <p>To create a tuple with only one item, you have to add a comma after the item, otherwise Python will not recognize it as a tuple.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>One item tuple, remember the comma:</p>
+            <div class="code-block">
+                <pre>
+                    thistuple = ("apple",)
+                    print(type(thistuple))
+
+                    #NOT a tuple
+                    thistuple = ("apple")
+                    print(type(thistuple))
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Tuple Items - Data Types</h2>
+        <p>Tuple items can be of any data type:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>String, int and boolean data types:</p>
+            <div class="code-block">
+                <pre>
+                    tuple1 = ("apple", "banana", "cherry")
+                    tuple2 = (1, 5, 7, 9, 3)
+                    tuple3 = (True, False, False)
+                </pre>
+            </div>
+        </div>
+        <p>A tuple can contain different data types:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>A tuple with strings, integers and boolean values:</p>
+            <div class="code-block">
+                <pre>
+                    tuple1 = ("abc", 34, True, 40, "male")
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Access Tuple Items</h2>
+        <p>You can access tuple items by referring to the index number, inside square brackets:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print the second item in the tuple:</p>
+            <div class="code-block">
+                <pre>
+                    thistuple = ("apple", "banana", "cherry")
+                    print(thistuple[1])
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Negative Indexing</h2>
+        <p>
+            Negative indexing means start from the end.<br>
+            -1 refers to the last item, -2 refers to the second last item etc.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print the last item of the tuple:</p>
+            <div class="code-block">
+                <pre>
+                    thistuple = ("apple", "banana", "cherry")
+                    print(thistuple[-1])
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Range of Indexes</h2>
+        <p>
+            You can specify a range of indexes by specifying where to start and where to end the range.<br>
+            When specifying a range, the return value will be a new tuple with the specified items.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Return the third, fourth, and fifth item:</p>
+            <div class="code-block">
+                <pre>
+                    thistuple = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+                    print(thistuple[2:5])
+                </pre>
+            </div>
+        </div>
+        <p>By leaving out the start value, the range will start at the first item:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>This example returns the items from the beginning to, but NOT included, "kiwi":</p>
+            <div class="code-block">
+                <pre>
+                    thistuple = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+                    print(thistuple[:4])
+                </pre>
+            </div>
+        </div>
+        <p>By leaving out the end value, the range will go on to the end of the tuple:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>This example returns the items from "cherry" and to the end:</p>
+            <div class="code-block">
+                <pre>
+                    thistuple = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+                    print(thistuple[2:])
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Range of Negative Indexes</h2>
+        <p>Specify negative indexes if you want to start the search from the end of the tuple:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>This example returns the items from index -4 (included) to index -1 (excluded)</p>
+            <div class="code-block">
+                <pre>
+                    thistuple = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+                    print(thistuple[-4:-1])
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Check if Item Exists</h2>
+        <p>To determine if a specified item is present in a tuple use the in keyword:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Check if "apple" is present in the tuple:</p>
+            <div class="code-block">
+                <pre>
+                    thistuple = ("apple", "banana", "cherry")
+                    if "apple" in thistuple:
+                        print("Yes, 'apple' is in the fruits tuple")
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div id="lesson-13">
+        <h1>Python Tuples(part2)</h1>
+        <hr>
+        <h2>Update Tuples</h2>
+        <p>
+            Tuples are unchangeable, meaning that you cannot change, add, or remove items once the tuple is created.<br>
+            But there are some workarounds.
+        </p>
+        <h3>Change Tuple Values</h3>
+        <p>
+            Once a tuple is created, you cannot change its values. Tuples are unchangeable, or immutable as it also is called.<br>
+            But there is a workaround. You can convert the tuple into a list, change the list, and convert the list back into a tuple.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h4>Example</h4>
+            </div>
+            <p>Convert the tuple into a list to be able to change it:</p>
+            <div class="code-block">
+                <pre>
+                    x = ("apple", "banana", "cherry")
+                    y = list(x)
+                    y[1] = "kiwi"
+                    x = tuple(y)
+
+                    print(x)
+                </pre>
+            </div>
+        </div>
+        <h3>Add Items</h3>
+        <p>Since tuples are immutable, they do not have a built-in append() method, but there are other ways to add items to a tuple.</p>
+        <ol>
+            <li><b>Convert into a list:</b> Just like the workaround for changing a tuple, you can convert it into a list, add your item(s), and convert it back into a tuple.</li>
+            <div class="container">
+                <div class="example-header">
+                    <h4>Example</h4>
+                </div>
+                <p>Convert the tuple into a list, add "orange", and convert it back into a tuple:</p>
+                <div class="code-block">
+                    <pre>
+                        thistuple = ("apple", "banana", "cherry")
+                        y = list(thistuple)
+                        y.append("orange")
+                        thistuple = tuple(y)
+                    </pre>
+                </div>
+            </div>
+            <li><b>Add tuple to a tuple:</b> You are allowed to add tuples to tuples, so if you want to add one item, (or many), create a new tuple with the item(s), and add it to the existing tuple:</li>
+            <div class="container">
+                <div class="example-header">
+                    <h4>Example</h4>
+                </div>
+                <p>Create a new tuple with the value "orange", and add that tuple:</p>
+                <div class="code-block">
+                    <pre>
+                        thistuple = ("apple", "banana", "cherry")
+                        y = ("orange",)
+                        thistuple += y
+
+                        print(thistuple)
+                </div>
+            </div>
+        </ol>
+        <h3>Remove Items</h3>
+        <p>Tuples are <b>unchangeable</b>, so you cannot remove items from it, but you can use the same workaround as we used for changing and adding tuple items:</p>
+        <div class="container">
+                <div class="example-header">
+                    <h4>Example</h4>
+                </div>
+                <p>Convert the tuple into a list, remove "apple", and convert it back into a tuple:</p>
+                <div class="code-block">
+                    <pre>
+                        thistuple = ("apple", "banana", "cherry")
+                        y = list(thistuple)
+                        y.remove("apple")
+                        thistuple = tuple(y)
+                </div>
+            </div>
+        <p>Or you can delete the tuple completely:</p>
+        <div class="container">
+            <div class="example-header">
+                <h4>Example</h4>
+            </div>
+            <p>The del keyword can delete the tuple completely:</p>
+            <div class="code-block">
+                <pre>
+                    thistuple = ("apple", "banana", "cherry")
+                    del thistuple
+                    print(thistuple) <span style="opacity: 0.5;">#this will raise an error because the tuple no longer exists</span>
+            </div>
+        </div>
+        <hr>
+        <h2>Unpacking a Tuple</h2>
+        <p>When we create a tuple, we normally assign values to it. This is called "packing" a tuple:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Packing a tuple:</p>
+            <div class="code-block">
+                <pre>
+                    fruits = ("apple", "banana", "cherry")
+            </div>
+        </div>
+        <p>But, in Python, we are also allowed to extract the values back into variables. This is called "unpacking":</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Unpacking a tuple:</p>
+            <div class="code-block">
+                <pre>
+                    fruits = ("apple", "banana", "cherry")
+
+                    (green, yellow, red) = fruits
+
+                    print(green)
+                    print(yellow)
+                    print(red)
+            </div>
+        </div>
+        <hr>
+        <h2>Using Asterisk</h2>
+        <p>If the number of variables is less than the number of values, you can add an * to the variable name and the values will be assigned to the variable as a list:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Assign the rest of the values as a list called "red":</p>
+            <div class="code-block">
+                <pre>
+                    fruits = ("apple", "banana", "cherry", "strawberry", "raspberry")
+
+                    (green, yellow, *red) = fruits
+
+                    print(green)
+                    print(yellow)
+                    print(red)
+            </div>
+        </div>
+        <p>If the asterisk is added to another variable name than the last, Python will assign values to the variable until the number of values left matches the number of variables left.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Add a list of values the "tropic" variable:</p>
+            <div class="code-block">
+                <pre>
+                    fruits = ("apple", "mango", "papaya", "pineapple", "cherry")
+
+                    (green, *tropic, red) = fruits
+
+                    print(green)
+                    print(tropic)
+                    print(red)
+            </div>
+        </div>
+        <hr>
+        <h2>Loop Through a Tuple</h2>
+        <p>You can loop through the tuple items by using a for loop.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Iterate through the items and print the values:</p>
+            <div class="code-block">
+                <pre>
+                    thistuple = ("apple", "banana", "cherry")
+                    for x in thistuple:
+                        print(x)
+            </div>
+        </div>
+        <hr>
+        <h2>Loop Through the Index Numbers</h2>
+        <p>
+            You can also loop through the tuple items by referring to their index number.
+            Use the range() and len() functions to create a suitable iterable.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print all items by referring to their index number:</p>
+            <div class="code-block">
+                <pre>
+                    thistuple = ("apple", "banana", "cherry")
+                    for i in range(len(thistuple)):
+                        print(thistuple[i])
+            </div>
+        </div>
+        <hr>
+        <h2>Using a While Loop</h2>
+        <p>
+            You can loop through the tuple items by using a while loop.<br>
+            Use the len() function to determine the length of the tuple, then start at 0 and loop your way through the tuple items by referring to their indexes.<br>
+            Remember to increase the index by 1 after each iteration.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print all items, using a while loop to go through all the index numbers:</p>
+            <div class="code-block">
+                <pre>
+                    thistuple = ("apple", "banana", "cherry")
+                    i = 0
+                    while i < len(thistuple):
+                        print(thistuple[i])
+                        i = i + 1
+            </div>
+        </div>
+        <hr>
+        <h2>Join Two Tuples</h2>
+        <p>To join two or more tuples you can use the + operator:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Join two tuples:</p>
+            <div class="code-block">
+                <pre>
+                    tuple1 = ("a", "b" , "c")
+                    tuple2 = (1, 2, 3)
+
+                    tuple3 = tuple1 + tuple2
+                    print(tuple3)
+            </div>
+        </div>
+        <hr>
+        <h2>Multiply Tuples</h2>
+        <p>f you want to multiply the content of a tuple a given number of times, you can use the * operator:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Join two tuples:</p>
+            <div class="code-block">
+                <pre>
+                    fruits = ("apple", "banana", "cherry")
+                    mytuple = fruits * 2
+
+                    print(mytuple)
+            </div>
+        </div>
+    </div>
+
+    <div id="lesson-14">
+        <h1>Python If ... Else</h1>
+        <hr>
+        <h2>Python Conditions and If statements</h2>
+        <p>Python supports the usual logical conditions from mathematics:</p>
+        <ul>
+            <li>Equals: <span class="operator">a == b</span></li>
+            <li>Not Equals: <span class="operator">a != b</span></li>
+            <li>Less than: <span class="operator">a < b</span></li>
+            <li>Less than or equal to: <span class="operator">a <= b</span></li>
+            <li>Greater than: <span class="operator">a > b</span></li>
+            <li>Greater than or equal to: <span class="operator">a >= b</span></li>
+        </ul>
+        <p>
+            These conditions can be used in several ways, most commonly in "if statements" and loops.<br>
+            An "if statement" is written by using the if keyword.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>If statement:</p>
+            <div class="code-block">
+                <pre>
+                    a = 33
+                    b = 200
+                    if b > a:
+                        print("b is greater than a")
+            </div>
+        </div>
+        <p>In this example we use two variables, a and b, which are used as part of the if statement to test whether b is greater than a. As a is 33, and b is 200, we know that 200 is greater than 33, and so we print to screen that "b is greater than a".</p>
+        
+        <hr>
+        <h2>Elif</h2>
+        <p>The elif keyword is Python's way of saying "if the previous conditions were not true, then try this condition".</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    a = 33
+                    b = 33
+                    if b > a:
+                        print("b is greater than a")
+                    elif a == b:
+                        print("a and b are equal")
+            </div>
+        </div>
+        <p>In this example a is equal to b, so the first condition is not true, but the elif condition is true, so we print to screen that "a and b are equal".</p>
+        
+        <hr>
+        <h2>Else</h2>
+        <p>The else keyword catches anything which isn't caught by the preceding conditions.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    a = 200
+                    b = 33
+                    if b > a:
+                        print("b is greater than a")
+                    elif a == b:
+                        print("a and b are equal")
+                    else:
+                        print("a is greater than b")
+            </div>
+        </div>
+        <p>
+            In this example a is greater than b, so the first condition is not true, also the elif condition is not true, so we go to the else condition and print to screen that "a is greater than b".<br>
+            You can also have an else without the elif:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    a = 200
+                    b = 33
+                    if b > a:
+                        print("b is greater than a")
+                    else:
+                        print("b is not greater than a")
+            </div>
+        </div>
+        <hr>
+        <h2>Short Hand If</h2>
+        <p>If you have only one statement to execute, you can put it on the same line as the if statement.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>One line if statement:</p>
+            <div class="code-block">
+                <pre>
+                    if a > b: print("a is greater than b")
+            </div>
+        </div>
+        <hr>
+        <h2>Short Hand If ... Else</h2>
+        <p>If you have only one statement to execute, one for if, and one for else, you can put it all on the same line:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>One line if else statement:</p>
+            <div class="code-block">
+                <pre>
+                    a = 2
+                    b = 330
+                    print("A") if a > b else print("B")
+            </div>
+        </div>
+        <p>You can also have multiple else statements on the same line:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>One line if else statement, with 3 conditions:</p>
+            <div class="code-block">
+                <pre>
+                    a = 330
+                    b = 330
+                    print("A") if a > b else print("=") if a == b else print("B")
+            </div>
+        </div>
+        <hr>
+        <h2>And</h2>
+        <p>The and keyword is a logical operator, and is used to combine conditional statements:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Test if a is greater than b, AND if c is greater than a:</p>
+            <div class="code-block">
+                <pre>
+                    a = 200
+                    b = 33
+                    c = 500
+                    if a > b and c > a:
+                        print("Both conditions are True")
+            </div>
+        </div>
+        <h3>Or</h3>
+        <p>The or keyword is a logical operator, and is used to combine conditional statements:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Test if a is greater than b, OR if a is greater than c:</p>
+            <div class="code-block">
+                <pre>
+                    a = 200
+                    b = 33
+                    c = 500
+                    if a > b or a > c:
+                        print("At least one of the conditions is True")
+            </div>
+        </div>
+        <hr>
+        <h2>Not</h2>
+        <p>The not keyword is a logical operator, and is used to reverse the result of the conditional statement:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Test if a is NOT greater than b:</p>
+            <div class="code-block">
+                <pre>
+                    a = 33
+                    b = 200
+                    if not a > b:
+                        print("a is NOT greater than b")
+            </div>
+        </div>
+        <hr>
+        <h2>Nested If</h2>
+        <p>You can have if statements inside if statements, this is called nested if statements.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    x = 41
+
+                    if x > 10:
+                    print("Above ten,")
+                        if x > 20:
+                            print("and also above 20!")
+                        else:
+                            print("but not above 20.")
+            </div>
+        </div>
+        <hr>
+        <h2>The pass Statement</h2>
+        <p>if statements cannot be empty, but if you for some reason have an if statement with no content, put in the pass statement to avoid getting an error.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    a = 33
+                    b = 200
+
+                    if b > a:
+                        pass
+            </div>
+        </div>
+    </div>
+
+    <div id="lesson-15">
+        <h1>Python While Loops</h1>
+        <hr>
+        <h2>Python Loops</h2>
+        <p>Python has two primitive loop commands:</p>
+        <ul>
+            <li>while loops</li>
+            <li>for loops</li>
+        </ul>
+        <hr>
+        <h2>The while Loop</h2>
+        <p>With the while loop we can execute a set of statements as long as a condition is true.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print i as long as i is less than 6:</p>
+            <div class="code-block">
+                <pre>
+                    i = 1
+                    while i < 6:
+                        print(i)
+                        i += 1
+            </div>
+        </div>
+        <p>The while loop requires relevant variables to be ready, in this example we need to define an indexing variable, i, which we set to 1.</p>
+        <hr>
+        <h2>The break Statement</h2>
+        <p>With the break statement we can stop the loop even if the while condition is true:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Exit the loop when i is 3:</p>
+            <div class="code-block">
+                <pre>
+                    i = 1
+                    while i < 6:
+                        print(i)
+                        if i == 3:
+                            break
+                        i += 1
+            </div>
+        </div>
+        <hr>
+        <h2>The continue Statement</h2>
+        <p>With the continue statement we can stop the current iteration, and continue with the next:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Continue to the next iteration if i is 3:</p>
+            <div class="code-block">
+                <pre>
+                    i = 0
+                    while i < 6:
+                        i += 1
+                        if i == 3:
+                            continue
+                        print(i)
+            </div>
+        </div>
+        <hr>
+        <h2>The else Statement</h2>
+        <p>With the else statement we can run a block of code once when the condition no longer is true:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print a message once the condition is false:</p>
+            <div class="code-block">
+                <pre>
+                    i = 1
+                    while i < 6:
+                      print(i)
+                      i += 1
+                    else:
+                      print("i is no longer less than 6"))
+            </div>
+        </div>
+    </div>
+
+    <div id="lesson-16">
+        <h1>Python For Loops</h1>
+        <hr>
+        <h2>Python For Loops</h2>
+        <p>
+            A for loop is used for iterating over a sequence (that is either a list, a tuple, a dictionary, a set, or a string).<br>
+            This is less like the for keyword in other programming languages, and works more like an iterator method as found in other object-orientated programming languages.<br>
+            With the for loop we can execute a set of statements, once for each item in a list, tuple, set etc.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print each fruit in a fruit list:</p>
+            <div class="code-block">
+                <pre>
+                    fruits = ["apple", "banana", "cherry"]
+                    for x in fruits:
+                      print(x)
+            </div>
+        </div>
+        <p>The for loop does not require an indexing variable to set beforehand.</p>
+        <hr>
+        <h2>Looping Through a String</h2>
+        <p>Even strings are iterable objects, they contain a sequence of characters:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Loop through the letters in the word "banana":</p>
+            <div class="code-block">
+                <pre>
+                    for x in "banana":
+                        print(x)
+            </div>
+        </div>
+        <hr>
+        <h2>The break Statement</h2>
+        <p>With the break statement we can stop the loop before it has looped through all the items:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Exit the loop when x is "banana":</p>
+            <div class="code-block">
+                <pre>
+                    fruits = ["apple", "banana", "cherry"]
+                    for x in fruits:
+                      print(x)
+                      if x == "banana":
+                        break
+            </div>
+            <p>Exit the loop when x is "banana", but this time the break comes before the print:</p>
+            <div class="code-block">
+                <pre>
+                    fruits = ["apple", "banana", "cherry"]
+                    for x in fruits:
+                      if x == "banana":
+                        break
+                      print(x)
+            </div>
+        </div>
+        <hr>
+        <h2>The continue Statement</h2>
+        <p>With the continue statement we can stop the current iteration of the loop, and continue with the next:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Do not print banana:</p>
+            <div class="code-block">
+                <pre>
+                    fruits = ["apple", "banana", "cherry"]
+                    for x in fruits:
+                      if x == "banana":
+                        continue
+                      print(x)
+            </div>
+        </div>
+        <hr>
+        <h2>The range() Function</h2>
+        <p>
+            To loop through a set of code a specified number of times, we can use the range() function,<br>
+            The range() function returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and ends at a specified number.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Using the range() function::</p>
+            <div class="code-block">
+                <pre>
+                    for x in range(6):
+                        print(x)
+            </div>
+        </div>
+        <p>The range() function defaults to 0 as a starting value, however it is possible to specify the starting value by adding a parameter: range(2, 6), which means values from 2 to 6 (but not including 6):</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Using the start parameter:</p>
+            <div class="code-block">
+                <pre>
+                    for x in range(2, 6):
+                        print(x)
+            </div>
+        </div>
+        <p>The range() function defaults to increment the sequence by 1, however it is possible to specify the increment value by adding a third parameter: range(2, 30, 3):</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Increment the sequence with 3 (default is 1):</p>
+            <div class="code-block">
+                <pre>
+                    for x in range(2, 30, 3):
+                        int(x)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Else in For Loop</h2>
+        <p>The else keyword in a for loop specifies a block of code to be executed when the loop is finished:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print all numbers from 0 to 5, and print a message when the loop has ended:</p>
+            <div class="code-block">
+                <pre>
+                for x in range(6):
+                    print(x)
+                else:
+                    print("Finally finished!")
+            </div>
+            <p>Break the loop when x is 3, and see what happens with the else block:</p>
+            <div class="code-block">
+                <pre>
+            for x in range(6):
+                if x == 3: break
+                print(x)
+            else:
+                print("Finally finished!")
+            </div>
+        </div>
+        <hr>
+        <h2>Nested Loops</h2>
+        <p>
+            A nested loop is a loop inside a loop.<br>
+            The "inner loop" will be executed one time for each iteration of the "outer loop":
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print each adjective for every fruit:</p>
+            <div class="code-block">
+                <pre>
+                    adj = ["red", "big", "tasty"]
+                    fruits = ["apple", "banana", "cherry"]
+                    
+                    for x in adj:
+                      for y in fruits:
+                        print(x, y)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>The pass Statement</h2>
+        <p>for loops cannot be empty, but if you for some reason have a for loop with no content, put in the pass statement to avoid getting an error.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    for x in [0, 1, 2]:
+                        pass
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div id="lesson-17">
+        <h1>Python Functions</h1>
+        <hr>
+        <p>
+            A function is a block of code which only runs when it is called.<br>
+            You can pass data, known as parameters, into a function.<br>
+            A function can return data as a result.
+        </p>
+        <hr>
+        <h2>Creating a Function</h2>
+        <p>In Python a function is defined using the def keyword:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    def my_function():
+                        print("Hello from a function")
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Calling a Function</h2>
+        <p>To call a function, use the function name followed by parenthesis:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                def my_function():
+                    print("Hello from a function")
+                  
+                my_function()
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Arguments</h2>
+        <p>
+            Information can be passed into functions as arguments.<br>
+            Arguments are specified after the function name, inside the parentheses. You can add as many arguments as you want, just separate them with a comma.<br>
+            The following example has a function with one argument (fname). When the function is called, we pass along a first name, which is used inside the function to print the full name:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                def my_function(fname):
+                    print(fname + " Refsnes")
+                  
+                my_function("Emil")
+                my_function("Tobias")
+                my_function("Linus")
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Number of Arguments</h2>
+        <p>By default, a function must be called with the correct number of arguments. Meaning that if your function expects 2 arguments, you have to call the function with 2 arguments, not more, and not less.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>This function expects 2 arguments, and gets 2 arguments:</p>
+            <div class="code-block">
+                <pre>
+                def my_function(fname, lname):
+                    print(fname + " " + lname)
+                  
+                my_function("Emil", "Refsnes")
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Arbitrary Arguments, *args</h2>
+        <p>
+            If you do not know how many arguments that will be passed into your function, add a * before the parameter name in the function definition.<br>
+            This way the function will receive a tuple of arguments, and can access the items accordingly:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>If the number of arguments is unknown, add a * before the parameter name:</p>
+            <div class="code-block">
+                <pre>
+                def my_function(*kids):
+                    print("The youngest child is " + kids[2])
+                  
+                my_function("Emil", "Tobias", "Linus")
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Keyword Arguments</h2>
+        <p>
+            You can also send arguments with the <i>key = value syntax</i>.<br>
+            This way the order of the arguments does not matter.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                def my_function(child3, child2, child1):
+                    print("The youngest child is " + child3)
+                  
+                my_function(child1 = "Emil", child2 = "Tobias", child3 = "Linus")
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Arbitrary Keyword Arguments, **kwargs</h2>
+        <p>
+            If you do not know how many keyword arguments that will be passed into your function, add two asterisk: ** before the parameter name in the function definition.<br>
+            This way the function will receive a dictionary of arguments, and can access the items accordingly:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>If the number of keyword arguments is unknown, add a double ** before the parameter name:</p>
+            <div class="code-block">
+                <pre>
+                def my_function(**kid):
+                    print("His last name is " + kid["lname"])
+                  
+                my_function(fname = "Tobias", lname = "Refsnes")
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Default Parameter Value</h2>
+        <p>
+            The following example shows how to use a default parameter value.<br>
+            If we call the function without argument, it uses the default value:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                def my_function(country = "Norway"):
+                    print("I am from " + country)
+                  
+                my_function("Sweden")
+                my_function("India")
+                my_function()
+                my_function("Brazil")
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Passing a List as an Argument</h2>
+        <p>
+            You can send any data types of argument to a function (string, number, list, dictionary etc.), and it will be treated as the same data type inside the function.<br>    
+            E.g. if you send a List as an argument, it will still be a List when it reaches the function:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                def my_function(food):
+                    for x in food:
+                      print(x)
+                  
+                fruits = ["apple", "banana", "cherry"]
+                  
+                my_function(fruits)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Return Values</h2>
+        <p>To let a function return a value, use the return statement:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                def my_function(x):
+                    return 5 * x
+                  
+                print(my_function(3))
+                print(my_function(5))
+                print(my_function(9))
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>The pass Statement</h2>
+        <p>function definitions cannot be empty, but if you for some reason have a function definition with no content, put in the pass statement to avoid getting an error.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                def myfunction():
+                    pass
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Positional-Only Arguments</h2>
+        <p>
+            You can specify that a function can have ONLY positional arguments, or ONLY keyword arguments.<br>
+            To specify that a function can have only positional arguments, add , / after the arguments:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                def my_function(x, /):
+                    print(x)
+                  
+                my_function(3)
+                </pre>
+            </div>
+        </div>
+        <p>Without the , / you are actually allowed to use keyword arguments even if the function expects positional arguments:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                def my_function(x):
+                    print(x)
+                  
+                my_function(x = 3)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Keyword-Only Arguments</h2>
+        <p>To specify that a function can have only keyword arguments, add *, before the arguments:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                def my_function(*, x):
+                    print(x)
+                  
+                my_function(x = 3)
+                </pre>
+            </div>
+        </div>
+        <p>Without the *, you are allowed to use positionale arguments even if the function expects keyword arguments:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                def my_function(x):
+                    print(x)
+                  
+                my_function(3)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Combine Positional-Only and Keyword-Only</h2>
+        <p>
+            You can combine the two argument types in the same function.<br>
+            Any argument before the / , are positional-only, and any argument after the *, are keyword-only.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                def my_function(a, b, /, *, c, d):
+                    print(a + b + c + d)
+                  
+                my_function(5, 6, c = 7, d = 8)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Recursion</h2>
+        <p>
+            Python also accepts function recursion, which means a defined function can call itself.<br>
+            Recursion is a common mathematical and programming concept. It means that a function calls itself. This has the benefit of meaning that you can loop through data to reach a result.<br>
+            The developer should be very careful with recursion as it can be quite easy to slip into writing a function which never terminates, or one that uses excess amounts of memory or processor power. However, when written correctly recursion can be a very efficient and mathematically-elegant approach to programming.<br>
+            In this example, tri_recursion() is a function that we have defined to call itself ("recurse"). We use the k variable as the data, which decrements (-1) every time we recurse. The recursion ends when the condition is not greater than 0 (i.e. when it is 0).<br>
+            To a new developer it can take some time to work out how exactly this works, best way to find out is by testing and modifying it.
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Recursion Example</p>
+            <div class="code-block">
+                <pre>
+                def tri_recursion(k):
+                    if(k > 0):
+                      result = k + tri_recursion(k - 1)
+                      print(result)
+                    else:
+                      result = 0
+                    return result
+                  
+                print("Recursion Example Results:")
+                tri_recursion(6)
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div id="lesson-18">
+        <h1>Python Lambda</h1>
+        <hr>
+        <p>
+            A lambda function is a small anonymous function.<br>
+            A lambda function can take any number of arguments, but can only have one expression.
+        </p>
+        <hr>
+        <h2>Syntax</h2>
+        <p>The expression is executed and the result is returned:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Add 10 to argument a, and return the result:</p>
+            <div class="code-block">
+                <pre>
+                    x = lambda a : a + 10
+                    print(x(5))
+                </pre>
+            </div>
+        </div>
+        <p>Lambda functions can take any number of arguments:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Multiply argument a with argument b and return the result:</p>
+            <div class="code-block">
+                <pre>
+                    x = lambda a, b : a * b
+                    print(x(5, 6))
+                </pre>
+            </div>
+            <p>Summarize argument a, b, and c and return the result:</p>
+            <div class="code-block">
+                <pre>
+                    x = lambda a, b, c : a + b + c
+                    print(x(5, 6, 2))
+                </pre>
+        </div>
+        </div>
+        <hr>
+        <h2>Why Use Lambda Functions?</h2>
+        <p>
+            The power of lambda is better shown when you use them as an anonymous function inside another function.<br>
+            Say you have a function definition that takes one argument, and that argument will be multiplied with an unknown number:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    def myfunc(n):
+                        return lambda a : a * n
+                </pre>
+            </div>
+        </div>
+        <p>Use that function definition to make a function that always doubles the number you send in:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    def myfunc(n):
+                        return lambda a : a * n
+
+                    mydoubler = myfunc(2)
+
+                    print(mydoubler(11))
+                </pre>
+            </div>
+        </div>
+        <p>Or, use the same function definition to make a function that always triples the number you send in:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    def myfunc(n):
+                        return lambda a : a * n
+
+                    mytripler = myfunc(3)
+
+                    print(mytripler(11))
+                </pre>
+            </div>
+        </div>
+        <p>Or, use the same function definition to make both functions, in the same program:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    def myfunc(n):
+                        return lambda a : a * n
+
+                    mydoubler = myfunc(2)
+                    mytripler = myfunc(3)
+
+                    print(mydoubler(11))
+                    print(mytripler(11))
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div id="lesson-19">
+        <h1>Python Arrays</h1>
+        <hr>
+        <h2>Arrays</h2>
+        <p>Arrays are used to store multiple values in one single variable:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Create an array containing car names:</p>
+            <div class="code-block">
+                <pre>
+                    cars = ["Ford", "Volvo", "BMW"]
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>What is an Array?</h2>
+        <p>
+            An array is a special variable, which can hold more than one value at a time.<br>
+            If you have a list of items (a list of car names, for example), storing the cars in single variables could look like this:
+        </p>
+        <div class="code-block">
+                car1 = "Ford"<br>
+                car2 = "Volvo"<br>
+                car3 = "BMW"
+        </div>
+        <p>
+            However, what if you want to loop through the cars and find a specific one? And what if you had not 3 cars, but 300?<br>
+            The solution is an array!<br>
+            An array can hold many values under a single name, and you can access the values by referring to an index number.
+        </p>
+        <hr>
+        <h2>Access the Elements of an Array</h2>
+        <p>You refer to an array element by referring to the i<i>ndex number</i>.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Get the value of the first array item:</p>
+            <div class="code-block">
+                <pre>
+                    x = cars[0]
+                </pre>
+            </div>
+            <p>Modify the value of the first array item:</p>
+            <div class="code-block">
+                <pre>
+                    cars[0] = "Toyota"
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>The Length of an Array</h2>
+        <p>Use the len() method to return the length of an array (the number of elements in an array).</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Return the number of elements in the cars array:</p>
+            <div class="code-block">
+                <pre>
+                    x = len(cars)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Looping Array Elements</h2>
+        <p>You can use the for in loop to loop through all the elements of an array.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Print each item in the cars array:</p>
+            <div class="code-block">
+                <pre>
+                    for x in cars:
+                      print(x)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Adding Array Elements</h2>
+        <p>You can use the append() method to add an element to an array.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Add one more element to the cars array::</p>
+            <div class="code-block">
+                <pre>
+                    cars.append("Honda")
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Removing Array Elements</h2>
+        <p>You can use the pop() method to remove an element from the array.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Delete the second element of the cars array:</p>
+            <div class="code-block">
+                <pre>
+                    cars.pop(1)
+                </pre>
+            </div>
+        </div>
+        <p>You can also use the remove() method to remove an element from the array.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Delete the element that has the value "Volvo":</p>
+            <div class="code-block">
+                <pre>
+                    cars.remove("Volvo")
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Array Methods</h2>
+        <p>Python has a set of built-in methods that you can use on lists/arrays.</p>
+        <table>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>append()</td>
+              <td>Adds an element at the end of the list</td>
+            </tr>
+            <tr>
+              <td>clear()</td>
+              <td>Removes all the elements from the list</td>
+            </tr>
+            <tr>
+              <td>copy()</td>
+              <td>Returns a copy of the list</td>
+            </tr>
+            <tr>
+              <td>count()</td>
+              <td>Returns the number of elements with the specified value</td>
+            </tr>
+            <tr>
+              <td>extend()</td>
+              <td>Add the elements of a list (or any iterable), to the end of the current list</td>
+            </tr>
+            <tr>
+              <td>index()</td>
+              <td>Returns the index of the first element with the specified value</td>
+            </tr>
+            <tr>
+              <td>insert()</td>
+              <td>Adds an element at the specified position</td>
+            </tr>
+            <tr>
+              <td>pop()</td>
+              <td>Removes the element at the specified position</td>
+            </tr>
+            <tr>
+              <td>remove()</td>
+              <td>Removes the first item with the specified value</td>
+            </tr>
+            <tr>
+              <td>reverse()</td>
+              <td>Reverses the order of the list</td>
+            </tr>
+            <tr>
+              <td>sort()</td>
+              <td>Sorts the list</td>
+            </tr>
+          </table>
+    </div>
+
+    <div id="lesson-20">
+        <h1>Python Classes and Objects</h1>
+        <hr>
+        <h2>Python Classes/Objects</h2>
+        <hr>
+        <p>
+            Python is an object oriented programming language.<br>
+            Almost everything in Python is an object, with its properties and methods.<br>
+            A Class is like an object constructor, or a "blueprint" for creating objects.
+        </p>
+        <hr>
+        <h2>Create a Class</h2>
+        <p>To create a class, use the keyword class:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Create a class named MyClass, with a property named x:</p>
+            <div class="code-block">
+                <pre>
+                    class MyClass:
+                      x = 5
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Create Object</h2>
+        <p>Now we can use the class named MyClass to create objects:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Create an object named p1, and print the value of x:</p>
+            <div class="code-block">
+                <pre>
+                    p1 = MyClass()
+                    print(p1.x)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>The __init__() Function</h2>
+        <p>
+            The examples above are classes and objects in their simplest form, and are not really useful in real life applications.<br>
+            To understand the meaning of classes we have to understand the built-in __init__() function.<br>
+            All classes have a function called __init__(), which is always executed when the class is being initiated.<br>
+            Use the __init__() function to assign values to object properties, or other operations that are necessary to do when the object is being created:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Create a class named Person, use the __init__() function to assign values for name and age:</p>
+            <div class="code-block">
+                <pre>
+                    class Person:
+                        def __init__(self, name, age):
+                            self.name = name
+                            self.age = age
+
+                    p1 = Person("John", 36)
+
+                    print(p1.name)
+                    print(p1.age)
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>The __str__() Function</h2>
+        <p>
+            The __str__() function controls what should be returned when the class object is represented as a string.<br>
+            If the __str__() function is not set, the string representation of the object is returned:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>The string representation of an object WITHOUT the __str__() function:</p>
+            <div class="code-block">
+                <pre>
+                    class Person:
+                        def __init__(self, name, age):
+                            self.name = name
+                            self.age = age
+
+                    p1 = Person("John", 36)
+
+                    print(p1)
+                </pre>
+            </div>
+            <p>The string representation of an object WITH the __str__() function:</p>
+        <div class="code-block">
+            <pre>
+                class Person:
+                    def __init__(self, name, age):
+                        self.name = name
+                        self.age = age
+
+                def __str__(self):
+                    return f"{self.name}({self.age})"
+
+                p1 = Person("John", 36)
+
+                print(p1)
+            </pre>
+        </div>
+        </div>
+        <hr>
+        <h2>Object Methods</h2>
+        <p>
+            Objects can also contain methods. Methods in objects are functions that belong to the object.<br>   
+            Let us create a method in the Person class:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Insert a function that prints a greeting, and execute it on the p1 object:</p>
+            <div class="code-block">
+                <pre>
+                    class Person:
+                        def __init__(self, name, age):
+                            self.name = name
+                            self.age = age
+
+                    def myfunc(self):
+                        print("Hello my name is " + self.name)
+
+                    p1 = Person("John", 36)
+                    p1.myfunc()
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>The self Parameter</h2>
+        <p>
+            The self parameter is a reference to the current instance of the class, and is used to access variables that belong to the class.<br>
+            It does not have to be named self, you can call it whatever you like, but it has to be the first parameter of any function in the class:
+        </p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Use the words <i>mysillyobject</i> and <i>abc</i> instead of self:</p>
+            <div class="code-block">
+                <pre>
+                    class Person:
+                        def __init__(self, name, age):
+                            self.name = name
+                            self.age = age
+
+                    def myfunc(self):
+                        print("Hello my name is " + self.name)
+
+                    p1 = Person("John", 36)
+                    p1.myfunc()
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Modify Object Properties</h2>
+        <p>You can modify properties on objects like this:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Set the age of p1 to 40:</p>
+            <div class="code-block">
+                <pre>
+                    p1.age = 40
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Delete Object Properties</h2>
+        <p>You can delete properties on objects by using the del keyword:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Delete the age property from the p1 object:</p>
+            <div class="code-block">
+                <pre>
+                    del p1.age
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>Delete Objects</h2>
+        <p>You can delete objects by using the del keyword:</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <p>Delete the p1 object:</p>
+            <div class="code-block">
+                <pre>
+                    del p1
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h2>The pass Statement</h2>
+        <p>class definitions cannot be empty, but if you for some reason have a class definition with no content, put in the pass statement to avoid getting an error.</p>
+        <div class="container">
+            <div class="example-header">
+                <h3>Example</h3>
+            </div>
+            <div class="code-block">
+                <pre>
+                    class Person:
+                      pass
+                </pre>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

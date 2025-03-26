@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Tutorial</title>
+  </head>
+  <body>
+    <section id="lesson-1" class="container">
+      <h1>What is HTML?</h1>
+      <ul>
+        <li>HTML stands for Hyper Text Markup Language</li>
+        <li>HTML is the standard markup language for creating Web pages</li>
+        <li>HTML describes the structure of a Web page</li>
+        <li>HTML consists of a series of elements</li>
+        <li>HTML elements tell the browser how to display the content</li>
+        <li>
+          HTML elements label pieces of content such as "this is a heading",
+          "this is a paragraph", "this is a link", etc.
+        </li>
+      </ul>
+      <h1>A Simple HTML Document</h1>
+
+      <h2>Example</h2>
+      <div class="code-box">
+        <code>
+          &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt;Page
+          Title&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;h1&gt;My First
+          Heading&lt;/h1&gt; &lt;p&gt;My first paragraph.&lt;/p&gt;
+          &lt;/body&gt; &lt;/html&gt;
+        </code>
+      </div>
+
+      <a href="#" class="button">Try it Yourself »</a>
+
+      <h2>Example Explained</h2>
+      <ul>
+        <li>
+          The <span class="highlight">&lt;!DOCTYPE html&gt;</span> declaration
+          defines that this document is an HTML5 document
+        </li>
+        <li>
+          The <span class="highlight">&lt;html&gt;</span> element is the root
+          element of an HTML page
+        </li>
+        <li>
+          The <span class="highlight">&lt;head&gt;</span> element contains meta
+          information about the HTML page
+        </li>
+        <li>
+          The <span class="highlight">&lt;title&gt;</span> element specifies a
+          title for the HTML page
+        </li>
+        <li>
+          The <span class="highlight">&lt;body&gt;</span> element defines the
+          document's body
+        </li>
+        <li>
+          The <span class="highlight">&lt;h1&gt;</span> element defines a large
+          heading
+        </li>
+      </ul>
+      <h1>What is an HTML Element?</h1>
+      <p>
+        An HTML element is defined by a start tag, some content, and an end tag:
+      </p>
+      <div class="code-box">
+        <code> &lt;tagname&gt; Content goes here... &lt;/tagname&gt; </code>
+      </div>
+      <p>
+        The HTML <strong>element</strong> is everything from the start tag to
+        the end tag:
+      </p>
+      <div class="code-box">
+        <code>
+          &lt;h1&gt;My First Heading&lt;/h1&gt; &lt;p&gt;My first
+          paragraph.&lt;/p&gt;
+        </code>
+      </div>
+
+      <table>
+        <tr>
+          <th>Start tag</th>
+          <th>Element content</th>
+          <th>End tag</th>
+        </tr>
+        <tr>
+          <td>&lt;h1&gt;</td>
+          <td>My First Heading</td>
+          <td>&lt;/h1&gt;</td>
+        </tr>
+        <tr>
+          <td>&lt;p&gt;</td>
+          <td>My first paragraph.</td>
+          <td>&lt;/p&gt;</td>
+        </tr>
+        <tr>
+          <td>&lt;br&gt;</td>
+          <td>none</td>
+          <td>none</td>
+        </tr>
+      </table>
+
+      <div class="note">
+        <strong>Note:</strong> Some HTML elements have no content (like the
+        &lt;br&gt; element). These elements are called empty elements. Empty
+        elements do not have an end tag!
+      </div>
+
+      <h1>Web Browsers</h1>
+      <p>
+        The purpose of a web browser (Chrome, Edge, Firefox, Safari) is to read
+        HTML documents and display them correctly.
+      </p>
+      <p>
+        A browser does not display the HTML tags, but uses them to determine how
+        to display the document:
+      </p>
+      <img
+        src="browser-example.png"
+        alt="Browser rendering HTML example"
+        class="browser-image"
+      />
+
+      <h1>HTML Page Structure</h1>
+      <p>Below is a visualization of an HTML page structure:</p>
+      <div class="code-box">
+        <code>
+          &lt;html&gt; &lt;head&gt; &lt;title&gt;Page Title&lt;/title&gt;
+          &lt;/head&gt; &lt;body&gt; &lt;h1&gt;This is a heading&lt;/h1&gt;
+          &lt;p&gt;This is a paragraph.&lt;/p&gt; &lt;p&gt;This is another
+          paragraph.&lt;/p&gt; &lt;/body&gt; &lt;/html&gt;
+        </code>
+      </div>
+    </section>
+
+    <section id="lesson-2" class="container">
+      <h1>HTML Documents</h1>
+      <p>
+        All HTML documents must start with a document type declaration:
+        <span class="highlight">&lt;!DOCTYPE html&gt;</span>.
+      </p>
+      <p>
+        The HTML document itself begins with
+        <span class="highlight">&lt;html&gt;</span> and ends with
+        <span class="highlight">&lt;html&gt;</span>.
+      </p>
+      <p>
+        The visible part of the HTML document is between
+        <span class="highlight">&lt;body&gt;</span> and
+        <span class="highlight">&lt;body&gt;</span>.
+      </p>
+      <div class="code-box">
+        <code>
+          &lt;html&gt; &lt;head&gt; &lt;title&gt;Page Title&lt;/title&gt;
+          &lt;/head&gt; &lt;body&gt; &lt;h1&gt;This is a heading&lt;/h1&gt;
+          &lt;p&gt;This is a paragraph.&lt;/p&gt; &lt;p&gt;This is another
+          paragraph.&lt;/p&gt; &lt;/body&gt; &lt;/html&gt;
+        </code>
+      </div>
+
+      <h1>The &lt;!DOCTYPE&gt; Declaration</h1>
+      <p>
+        The <span class="highlight">&lt;!DOCTYPE&gt;</span> declaration
+        represents the document type, and helps browsers to display web pages
+        correctly.
+      </p>
+      <p>
+        It must only appear once, at the top of the page (before any HTML tags).
+      </p>
+      <p>
+        The <span class="highlight">&lt;!DOCTYPE&gt;</span> declaration is not
+        case sensitive.
+      </p>
+      <p>
+        The <span class="highlight">&lt;!DOCTYPE&gt;</span> declaration for
+        HTML5 is:
+      </p>
+      <div class="code-box">
+        <code>&lt;!DOCTYPE html&gt;</code>
+      </div>
+
+      <h1>HTML Headings</h1>
+      <p>
+        HTML headings are defined with the
+        <span class="highlight">&lt;h1&gt;</span> to
+        <span class="highlight">&lt;h6&gt;</span> tags.
+      </p>
+      <p>
+        <span class="highlight">&lt;h1&gt;</span> defines the most important
+        heading. <span class="highlight">&lt;h6&gt;</span> defines the least
+        important heading:
+      </p>
+
+      <h2>Example</h2>
+      <div class="code-box">
+        <code>
+          &lt;h1&gt;This is heading 1&lt;/h1&gt; &lt;h2&gt;This is heading
+          2&lt;/h2&gt; &lt;h3&gt;This is heading 3&lt;/h3&gt;
+        </code>
+      </div>
+      <a href="#" class="button">Try it Yourself »</a>
+
+      <h1>HTML Paragraphs</h1>
+      <p>
+        HTML paragraphs are defined with the
+        <span class="highlight">&lt;p&gt;</span> tags.
+      </p>
+      <h2>Example</h2>
+      <div class="code-box">
+        <code>
+          &lt;p&gt;This is a paragraph.&lt;/p&gt; &lt;p&gt;This is another
+          paragraph.&lt;/p&gt;
+        </code>
+      </div>
+      <a href="#" class="button">Try it Yourself »</a>
+
+      <h1>HTML Links</h1>
+      <p>
+        HTML links are defined with the
+        <span class="highlight">&lt;a&gt;</span> tags.
+      </p>
+      <h2>Example</h2>
+      <div class="code-box">
+        <code>
+          &lt;a href="https://www.codefinity.com"> This is a link.&lt;/p&gt;
+        </code>
+      </div>
+      <a href="#" class="button">Try it Yourself »</a>
+      <p>The link's destination is specified in the href attribute.</p>
+      <p>
+        Attributes are used to provide additional information about HTML
+        elements.
+      </p>
+      <p>You will learn more about attributes in a later chapter.</p>
+
+      <h1>HTML Images</h1>
+      <p>
+        HTML images are defined with the
+        <span class="highlight">&lt;img&gt;</span> tags.
+      </p>
+      <p>
+        The source file <span class="highlight">&lt;src&gt;</span>, alternative
+        text<span class="highlight">&lt;alt&gt;</span>,
+        <span class="highlight">width</span> , and
+        <span class="highlight">&lt;height &gt;</span> are provided as
+        attributes:
+      </p>
+      <h2>Example</h2>
+      <div class="code-box">
+        <code>
+          &lt;img&gt; src="w3schools.jpg" alt="W3Schools.com" width="104"
+          height="142">&lt;/p&gt;
+        </code>
+      </div>
+      <a href="#" class="button">Try it Yourself »</a>
+    </section>
+
+    <section id="lesson-3" class="container">
+      <h1>Color Names</h1>
+      <p>In HTML, a color can be specified by using a color name:</p>
+      <div class="color-box" style="background-color: Tomato">Tomato</div>
+      <div class="color-box" style="background-color: Orange">Orange</div>
+      <div class="color-box" style="background-color: DodgerBlue">
+        DodgerBlue
+      </div>
+      <div class="color-box" style="background-color: MediumSeaGreen">
+        MediumSeaGreen
+      </div>
+      <div class="color-box" style="background-color: Gray">Gray</div>
+      <div class="color-box" style="background-color: SlateBlue">SlateBlue</div>
+      <div class="color-box" style="background-color: Violet">Violet</div>
+      <div class="color-box" style="background-color: LightGray; color: black">
+        LightGray
+      </div>
+      <br />
+      <a href="#" class="button">Try it Yourself »</a>
+
+      <h1>Background Color</h1>
+      <p>You can set the background color for HTML elements:</p>
+      <h2 style="background-color: DodgerBlue; color: white; padding: 10px">
+        Hello World
+      </h2>
+      <p style="background-color: Tomato; color: white; padding: 10px">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+      </p>
+      <div class="code-box">
+        <code>
+          &lt;h1 style="background-color: DodgerBlue;"&gt;Hello
+          World&lt;/h1&gt;<br />
+          &lt;p style="background-color: Tomato;"&gt;Lorem ipsum...&lt;/p&gt;
+        </code>
+      </div>
+      <a href="#" class="button">Try it Yourself »</a>
+
+      <h1>Text Color</h1>
+      <p>You can set the color of text:</p>
+      <h2 style="color: Tomato">Hello World</h2>
+      <p style="color: DodgerBlue">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+      </p>
+      <div class="code-box">
+        <code>
+          &lt;h1 style="color: Tomato;"&gt;Hello World&lt;/h1&gt;<br />
+          &lt;p style="color: DodgerBlue;"&gt;Lorem ipsum...&lt;/p&gt;
+        </code>
+      </div>
+      <a href="#" class="button">Try it Yourself »</a>
+    </section>
+
+    <section id="html_lesson4" class="container">
+      <h2>The &lt;form&gt; Element</h2>
+      <p>
+        The HTML <code>&lt;form&gt;</code> element is used to create an HTML
+        form for user input:
+      </p>
+      <div class="code-box">
+        <pre>
+    &lt;form&gt;
+        .
+        form elements
+        .
+    &lt;/form&gt;
+            </pre
+        >
+      </div>
+      <p>
+        The <span class="highlight">&lt;form&gt;</span> element is a container
+        for different types of input elements, such as: text fields, checkboxes,
+        radio buttons, submit buttons, etc.
+      </p>
+
+      <h2>The &lt;input&gt; Element</h2>
+      <p>
+        The HTML <span class="highlight">&lt;input&gt;</span> element is the
+        most used form element.
+      </p>
+      <p>
+        An <span class="highlight">&lt;input&gt;</span> element can be displayed
+        in many ways, depending on the
+        <span class="highlight">&lt;type&gt;</span> attribute.
+      </p>
+
+      <table>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><code>&lt;input type="text"&gt;</code></td>
+          <td>Displays a single-line text input field</td>
+        </tr>
+        <tr>
+          <td><code>&lt;input type="radio"&gt;</code></td>
+          <td>Displays a radio button (for selecting one of many choices)</td>
+        </tr>
+        <tr>
+          <td><code>&lt;input type="checkbox"&gt;</code></td>
+          <td>
+            Displays a checkbox (for selecting zero or more of many choices)
+          </td>
+        </tr>
+        <tr>
+          <td><code>&lt;input type="submit"&gt;</code></td>
+          <td>Displays a submit button (for submitting the form)</td>
+        </tr>
+        <tr>
+          <td><code>&lt;input type="button"&gt;</code></td>
+          <td>Displays a clickable button</td>
+        </tr>
+      </table>
+
+      <h1>Text Fields</h1>
+      <p>
+        The <span class="highlight">&lt;input type="text"&gt;</span> defines a
+        single-line input field for text input.
+      </p>
+
+      <h2>Example</h2>
+      <p>A form with input fields for text:</p>
+
+      <div class="code-box">
+        <code>
+          &lt;form&gt;<br />
+          &nbsp;&nbsp;&lt;label for="fname"&gt;First
+          name:&lt;/label&gt;&lt;br&gt;<br />
+          &nbsp;&nbsp;&lt;input type="text" id="fname"
+          name="fname"&gt;&lt;br&gt;<br />
+          &nbsp;&nbsp;&lt;label for="lname"&gt;Last
+          name:&lt;/label&gt;&lt;br&gt;<br />
+          &nbsp;&nbsp;&lt;input type="text" id="lname" name="lname"&gt;<br />
+          &lt;/form&gt;
+        </code>
+      </div>
+
+      <p>
+        <b>Note:</b> The form itself is not visible. Also note that the default
+        width of an input field is 20 characters.
+      </p>
+
+      <h2>The &lt;label&gt; Element</h2>
+      <p>
+        Notice the use of the
+        <span class="highlight">&lt;label&gt;</span> element in the example
+        above.
+      </p>
+      <p>
+        The <span class="highlight">&lt;label&gt;</span> tag defines a label for
+        many form elements.
+      </p>
+      <p>
+        The <span class="highlight">&lt;label&gt;</span> element is useful for
+        screen-reader users, because the screen-reader will read out loud the
+        label when the user focuses on the input element.
+      </p>
+      <p>
+        The <span class="highlight">&lt;label&gt;</span> element also helps
+        users who have difficulty clicking on very small regions (such as radio
+        buttons or checkboxes) - because when the user clicks the text within
+        the <span class="highlight">&lt;label&gt;</span> element, it toggles the
+        radio button/checkbox.
+      </p>
+      <p>
+        The <span class="highlight">&lt;for&gt;</span> attribute of the<span
+          class="highlight"
+          >&lt;label&gt;</span
+        >
+        tag should be equal to the
+        <span class="highlight">&lt;id&gt;</span> attribute of the
+        <span class="highlight">&lt;input&gt;</span> element to bind them
+        together.
+      </p>
+
+      <h1>Radio Buttons</h1>
+      <p>
+        The <span class="highlight">&lt;input type="radio"&gt;</span> defines a
+        radio button.
+      </p>
+      <p>Radio buttons let a user select ONE of a limited number of choices.</p>
+
+      <h2>Example</h2>
+      <p>A form with radio buttons:</p>
+
+      <div class="code-box">
+        <code>
+          &lt;p&gt;Choose your favorite Web language:&lt;/p&gt; &lt;form&gt;
+          &lt;input type="radio" id="html" name="fav_language" value="HTML"&gt;
+          &lt;label for="html"&gt;HTML&lt;/label&gt;&lt;br&gt; &lt;input
+          type="radio" id="css" name="fav_language" value="CSS"&gt; &lt;label
+          for="css"&gt;CSS&lt;/label&gt;&lt;br&gt; &lt;input type="radio"
+          id="javascript" name="fav_language" value="JavaScript"&gt; &lt;label
+          for="javascript"&gt;JavaScript&lt;/label&gt; &lt;/form&gt;
+        </code>
+      </div>
+
+      <a href="#" class="button">Try it Yourself »</a>
+
+      <h1>Checkboxes</h1>
+      <p>
+        The <span class="highlight">&lt;input type="checkbox"&gt;</span> defines
+        a checkbox.
+      </p>
+      <p>
+        Checkboxes let a user select ZERO or MORE options of a limited number of
+        choices.
+      </p>
+
+      <h2>Example</h2>
+      <p>A form with checkboxes:</p>
+
+      <div class="code-box">
+        <code>
+          &lt;form&gt; &lt;input type="checkbox" id="vehicle1" name="vehicle1"
+          value="Bike"&gt; &lt;label for="vehicle1"&gt;I have a
+          bike&lt;/label&gt;&lt;br&gt; &lt;input type="checkbox" id="vehicle2"
+          name="vehicle2" value="Car"&gt; &lt;label for="vehicle2"&gt;I have a
+          car&lt;/label&gt;&lt;br&gt; &lt;input type="checkbox" id="vehicle3"
+          name="vehicle3" value="Boat"&gt; &lt;label for="vehicle3"&gt;I have a
+          boat&lt;/label&gt; &lt;/form&gt;
+        </code>
+      </div>
+
+      <a href="#" class="button">Try it Yourself »</a>
+
+      <p>This is how the HTML code above will be displayed in a browser:</p>
+      <form>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+        <label for="vehicle1">I have a bike</label><br />
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
+        <label for="vehicle2">I have a car</label><br />
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
+        <label for="vehicle3">I have a boat</label>
+      </form>
+
+      <h1>The Submit Button</h1>
+      <p>
+        The <span class="highlight">&lt;input type="submit"&gt;</span> defines a
+        button for submitting the form data to a form-handler.
+      </p>
+      <p>
+        The form-handler is typically a file on the server with a script for
+        processing input data.
+      </p>
+      <p>
+        The form-handler is specified in the form's
+        <span class="highlight">action</span> attribute.
+      </p>
+
+      <h2>Example</h2>
+      <p>A form with a submit button:</p>
+
+      <div class="code-box">
+        <code>
+          &lt;form action="/action_page.php"&gt; &lt;label for="fname"&gt;First
+          name:&lt;/label&gt;&lt;br&gt; &lt;input type="text" id="fname"
+          name="fname" value="John"&gt;&lt;br&gt; &lt;label for="lname"&gt;Last
+          name:&lt;/label&gt;&lt;br&gt; &lt;input type="text" id="lname"
+          name="lname" value="Doe"&gt;&lt;br&gt;&lt;br&gt; &lt;input
+          type="submit" value="Submit"&gt; &lt;/form&gt;
+        </code>
+      </div>
+
+      <a href="#" class="button">Try it Yourself »</a>
+    </section>
+
+    <section id="html_lesson5" class="container">
+      <h1>The Method Attribute</h1>
+      <p>
+        The <span class="highlight">method</span> attribute specifies the HTTP
+        method to be used when submitting the form data.
+      </p>
+
+      <p>
+        The form-data can be sent as URL variables (with
+        <span class="highlight">method="get"</span>) or as HTTP post transaction
+        (with <span class="highlight">method="post"</span>).
+      </p>
+
+      <p>The default HTTP method when submitting form data is GET.</p>
+
+      <h2>Example</h2>
+      <p>This example uses the GET method when submitting the form data:</p>
+      <div class="code-box">
+        <code>&lt;form action="/action_page.php" method="get"&gt;</code>
+      </div>
+      <a href="#" class="button">Try it Yourself »</a>
+
+      <h2>Example</h2>
+      <p>This example uses the POST method when submitting the form data:</p>
+      <div class="code-box">
+        <code>&lt;form action="/action_page.php" method="post"&gt;</code>
+      </div>
+      <a href="#" class="button">Try it Yourself »</a>
+
+      <h2>Notes on GET:</h2>
+      <ul>
+        <li>Appends the form data to the URL in name/value pairs</li>
+        <li>
+          NEVER use GET to send sensitive data! (the submitted form data is
+          visible in the URL!)
+        </li>
+        <li>The length of a URL is limited (2048 characters)</li>
+        <li>
+          Useful for form submissions where a user wants to bookmark the result
+        </li>
+        <li>GET is good for non-secure data, like query strings in Google</li>
+      </ul>
+
+      <h2>Notes on POST:</h2>
+      <ul>
+        <li>
+          Appends the form data inside the body of the HTTP request (the
+          submitted form data is not shown in the URL)
+        </li>
+        <li>
+          POST has no size limitations, and can be used to send large amounts of
+          data.
+        </li>
+        <li>Form submissions with POST cannot be bookmarked</li>
+      </ul>
+
+      <div class="note">
+        <strong>Tip:</strong> Always use POST if the form data contains
+        sensitive or personal information!
+      </div>
+
+      <h1>The Autocomplete Attribute</h1>
+      <p>
+        The <span class="highlight">autocomplete</span> attribute specifies
+        whether a form should have autocomplete on or off.
+      </p>
+      <p>
+        When autocomplete is on, the browser automatically complete values based
+        on values that the user has entered before.
+      </p>
+
+      <h2>Example</h2>
+      <p>A form with autocomplete on:</p>
+      <div class="code-box">
+        <code>&lt;form action="/action_page.php" autocomplete="on"&gt;</code>
+      </div>
+      <a href="#" class="button">Try it Yourself »</a>
+
+      <h1>The Novalidate Attribute</h1>
+      <p>
+        The <span class="highlight">novalidate</span> attribute is a boolean
+        attribute.
+      </p>
+      <p>
+        When present, it specifies that the form-data (input) should not be
+        validated when submitted.
+      </p>
+
+      <h2>Example</h2>
+      <p>A form with a novalidate attribute:</p>
+      <div class="code-box">
+        <code>&lt;form action="/action_page.php" novalidate&gt;</code>
+      </div>
+      <a href="#" class="button">Try it Yourself »</a>
+    </section>
+  </body>
+</html>

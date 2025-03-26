@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Tutorial</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: auto;
+            font-family: Arial, sans-serif;
+        }
+        .code-box {
+            background-color: #f4f4f4;
+            border-left: 5px solid #4CAF50;
+            padding: 10px;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 0;
+            font-family: Arial, sans-serif;
+        }
+        .highlight {
+            background-color: #ffe5e5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #d63384;
+        }
+        .note {
+            background-color: #ffffcc;
+            padding: 10px;
+            border-left: 5px solid #ffcc00;
+            font-family: Arial, sans-serif;
+        }
+        .example-result {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .example-result h3,
+        .example-result div,
+        .example-result p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <section id="lesson-1" class="container">
+        <h1>What is CSS?</h1>
+        <ul>
+            <li>CSS stands for Cascading Style Sheets</li>
+            <li>CSS describes how HTML elements are to be displayed on screen, paper, or in other media</li>
+            <li>CSS saves a lot of work. It can control the layout of multiple web pages all at once</li>
+            <li>External stylesheets are stored in CSS files</li>
+        </ul>
+
+        <h2>CSS Demo</h2>
+        <div class="code-box">
+            <code>
+body {
+    background-color: lightblue;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+            </code>
+        </div>
+        <a href="#" class="button">Try it Yourself »</a>
+
+        <h2>Why Use CSS?</h2>
+        <p>CSS is used to define styles for your web pages, including the design, layout, and variations in display for different devices and screen sizes.</p>
+
+        <h2>CSS Syntax</h2>
+        <div class="code-box">
+            <code>
+selector {
+    property1: value1;
+    property2: value2;
+}
+            </code>
+        </div>
+
+        <div class="note">
+            <strong>Example Explained:</strong>
+            <ul>
+                <li><span class="highlight">selector</span> points to the HTML element you want to style</li>
+                <li>The declaration block contains one or more declarations separated by semicolons</li>
+                <li>Each declaration includes a CSS property name and a value, separated by a colon</li>
+            </ul>
+        </div>
+
+        <h2>CSS Selectors</h2>
+        <p>CSS selectors are used to "find" (or select) the HTML elements you want to style.</p>
+        <p>We can divide CSS selectors into five categories:</p>
+        <ul>
+            <li>Simple selectors (select elements based on name, id, class)</li>
+            <li>Combinator selectors (select elements based on a specific relationship between them)</li>
+            <li>Pseudo-class selectors (select elements based on a certain state)</li>
+            <li>Pseudo-elements selectors (select and style a part of an element)</li>
+            <li>Attribute selectors (select elements based on an attribute or attribute value)</li>
+        </ul>
+
+        <h2>The CSS element Selector</h2>
+        <p>The element selector selects HTML elements based on the element name.</p>
+        <div class="code-box">
+            <code>
+p {
+    text-align: center;
+    color: red;
+}
+            </code>
+        </div>
+        <a href="#" class="button">Try it Yourself »</a>
+
+        <h2>The CSS id Selector</h2>
+        <p>The id selector uses the id attribute of an HTML element to select a specific element.</p>
+        <div class="code-box">
+            <code>
+#para1 {
+    text-align: center;
+    color: red;
+}
+            </code>
+        </div>
+        <div class="note">
+            <strong>Note:</strong> An id name cannot start with a number!
+        </div>
+
+        <h2>The CSS class Selector</h2>
+        <p>The class selector selects HTML elements with a specific class attribute.</p>
+        <div class="code-box">
+            <code>
+.center {
+    text-align: center;
+    color: red;
+}
+            </code>
+        </div>
+        <a href="#" class="button">Try it Yourself »</a>
+
+        <h2>The CSS Universal Selector</h2>
+        <p>The universal selector (*) selects all HTML elements on the page.</p>
+        <div class="code-box">
+            <code>
+* {
+    text-align: center;
+    color: blue;
+}
+            </code>
+        </div>
+        <a href="#" class="button">Try it Yourself »</a>
+    </section>
+
+    <section id="lesson-2" class="container">
+        <h1>CSS Syntax</h1>
+        <p>A CSS rule consists of a selector and a declaration block.</p>
+
+        <div class="syntax-diagram">
+            <h2>CSS Syntax</h2>
+            <div class="code-box">
+                <code>
+    h1 { color:blue; font-size:12px; }
+                </code>
+            </div>
+            <div class="syntax-labels">
+                <span class="highlight">Selector</span>
+                <span class="highlight">Declaration</span>
+                <span class="highlight">Declaration</span>
+                <br>
+                <span class="highlight">Property</span>
+                <span class="highlight">Value</span>
+                <span class="highlight">Property</span>
+                <span class="highlight">Value</span>
+            </div>
+        </div>
+
+        <ul>
+            <li>The <span class="highlight">selector</span> points to the HTML element you want to style.</li>
+            <li>The declaration block contains one or more declarations separated by semicolons.</li>
+            <li>Each declaration includes a CSS property name and a value, separated by a colon.</li>
+            <li>Multiple CSS declarations are separated with semicolons, and declaration blocks are surrounded by curly braces.</li>
+        </ul>
+
+        <h2>Example</h2>
+        <p>In this example all &lt;p&gt; elements will be center-aligned, with a red text color:</p>
+
+        <div class="code-box">
+            <code>
+    p {
+        color: red;
+        text-align: center;
+    }
+            </code>
+        </div>
+        <a href="#" class="button">Try it Yourself »</a>
+
+        <h2>Example Explained</h2>
+        <ul>
+            <li><span class="highlight">p</span> is a selector in CSS (it points to the HTML element you want to style: &lt;p&gt;).</li>
+            <li><span class="highlight">color</span> is a property, and <span class="highlight">red</span> is the property value</li>
+            <li><span class="highlight">text-align</span> is a property, and <span class="highlight">center</span> is the property value</li>
+        </ul>
+
+        <div class="note">
+            <p>You will learn much more about CSS selectors and CSS properties in the next chapters!</p>
+        </div>
+
+    <section id="lesson-3" class="container">
+        <h1>CSS background-color</h1>
+        <p>The <span class="highlight">background-color</span> property specifies the background color of an element.</p>
+
+        <h2>Example</h2>
+        <p>The background color of a page is set like this:</p>
+
+        <div class="code-box">
+            <code>
+    body {
+        background-color: lightblue;
+    }
+            </code>
+        </div>
+        <a href="#" class="button">Try it Yourself »</a>
+
+        <h2>CSS Color Values</h2>
+        <p>With CSS, a color is most often specified by:</p>
+        <ul>
+            <li>a valid color name - like <span class="highlight">"red"</span></li>
+            <li>a HEX value - like <span class="highlight">"#ff0000"</span></li>
+            <li>an RGB value - like <span class="highlight">"rgb(255,0,0)"</span></li>
+        </ul>
+
+        <div class="note">
+            <p>Look at <a href="#">CSS Color Values</a> for a complete list of possible color values.</p>
+        </div>
+
+        <h2>Example with Different Elements</h2>
+        <p>Here are some elements with different background colors:</p>
+
+        <div class="code-box">
+            <code>
+    h1 {
+        background-color: green;
+        color: white;
+    }
+
+    div {
+        background-color: lightblue;
+    }
+
+    p {
+        background-color: yellow;
+    }
+            </code>
+        </div>
+        <a href="#" class="button">Try it Yourself »</a>
+
+        <div class="example-result">
+            <h3 style="background-color: green; color: white; padding: 10px;">This heading has a green background</h3>
+            <div style="background-color: lightblue; padding: 10px; margin: 10px 0;">This div has a light blue background</div>
+            <p style="background-color: yellow; padding: 10px;">This paragraph has a yellow background</p>
+        </div>
+
+        <div class="note">
+            <strong>Note:</strong> Make sure that the background color and text color have enough contrast to ensure readability.
+        </div>
+
+        <h1>CSS Opacity / Transparency</h1>
+        <p>The <span class="highlight">opacity</span> property specifies the opacity/transparency of an element. It can take a value from 0.0 - 1.0. The lower the value, the more transparent:</p>
+
+        <div class="example-result">
+            <div style="background-color: #00a86b; padding: 20px; color: black; margin: 5px;">opacity 1</div>
+            <div style="background-color: #00a86b; padding: 20px; color: black; margin: 5px; opacity: 0.6;">opacity 0.6</div>
+            <div style="background-color: #00a86b; padding: 20px; color: black; margin: 5px; opacity: 0.3;">opacity 0.3</div>
+            <div style="background-color: #00a86b; padding: 20px; color: black; margin: 5px; opacity: 0.1;">opacity 0.1</div>
+        </div>
+
+        <h2>Example</h2>
+        <div class="code-box">
+            <code>
+div {
+    background-color: green;
+    opacity: 0.3;
+}
+            </code>
+        </div>
+        <a href="#" class="button">Try it Yourself »</a>
+
+        <div class="note">
+            <strong>Note:</strong> When using the <span class="highlight">opacity</span> property to add transparency to the background of an element, all of its child elements inherit the same transparency. This can make the text inside a fully transparent element hard to read.
+        </div>
+
+        <h2>Transparency using RGBA</h2>
+        <p>If you do not want to apply opacity to child elements, use <span class="highlight">RGBA</span> color values. The following example sets the opacity for the background color and not the text:</p>
+
+        <div class="example-result">
+            <div style="background-color: rgba(0, 168, 107, 1); padding: 20px; color: black; margin: 5px;">100% opacity</div>
+            <div style="background-color: rgba(0, 168, 107, 0.6); padding: 20px; color: black; margin: 5px;">60% opacity</div>
+            <div style="background-color: rgba(0, 168, 107, 0.3); padding: 20px; color: black; margin: 5px;">30% opacity</div>
+            <div style="background-color: rgba(0, 168, 107, 0.1); padding: 20px; color: black; margin: 5px;">10% opacity</div>
+        </div>
+
+        <p>An RGBA color value is specified with: rgba(red, green, blue, <span class="highlight">alpha</span>). The <span class="highlight">alpha</span> parameter is a number between 0.0 (fully transparent) and 1.0 (fully opaque).</p>
+
+        <div class="note">
+            <strong>Tip:</strong> You will learn more about RGBA Colors in our CSS Colors Chapter.
+        </div>
+    </section>
+</body>
+</html>

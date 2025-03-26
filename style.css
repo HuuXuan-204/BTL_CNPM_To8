@@ -299,7 +299,7 @@ p {
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
   font-weight: 280;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.202);
   border-radius: 15px;
 }
 
@@ -421,6 +421,7 @@ p {
 .lesson-content ul {
   padding-left: 25px;
   margin: 15px 0;
+  flex-direction: column;
 }
 
 .lesson-content ul li {
