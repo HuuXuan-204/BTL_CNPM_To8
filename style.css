@@ -441,3 +441,70 @@ p {
 .lesson-content code {
   font-family: "Courier New", Courier, monospace;
 }
+.avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+.user-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: #2d2a58;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 8px;
+  margin-top: 10px;
+  padding: 8px 0;
+}
+
+.user-menu.show {
+  display: block;
+}
+
+.menu-item {
+  display: block;
+  padding: 12px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  opacity: 1;
+}
+
+.menu-item:hover {
+  background-color: #3d3a68;
+  color: #ffffff;
+}
+
+/* Styles for Save Lesson button in sidebar */
+.save-lesson-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: #e7005e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.save-lesson-btn:hover {
+  background: #ff0066;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(231, 0, 94, 0.3);
+}
+
+.save-lesson-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(231, 0, 94, 0.2);
+}

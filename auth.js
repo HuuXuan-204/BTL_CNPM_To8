@@ -1,6 +1,9 @@
 // Kiểm tra xem đang ở trang nào
 const isLoginPage = window.location.pathname.includes("login.html");
 const isRegisterPage = window.location.pathname.includes("register.html");
+const isChangePasswordPage = window.location.pathname.includes(
+  "change-password.html"
+);
 
 // Lấy danh sách users từ localStorage hoặc tạo mảng rỗng nếu chưa có
 let users = JSON.parse(localStorage.getItem("users")) || [];
@@ -36,7 +39,7 @@ if (isRegisterPage) {
     users.push({
       username,
       email,
-      password, // Trong thực tế nên mã hóa mật khẩu
+      password,
     });
 
     // Lưu vào localStorage
@@ -92,15 +95,21 @@ if (window.location.pathname.includes("index.html")) {
     const userInfo = users.find((user) => user.email === currentUser.email);
     signupLoginAvatar.innerHTML = `
             <div>
-                <span style = " font-family :"Montserrat", sans-serif; color : #ffffff; ">Welcome, ${
+                <span style="font-family: 'Montserrat', sans-serif;font-size: 14px; color:rgb(171, 170, 170);">Welcome, ${
                   currentUser.username
                 }</span>
-                <button class="logout" onclick="logout()">Logout</button>
             </div>
-            <div class="avatar" style="cursor: pointer" onclick="window.location.href='profile.html'">
-                <img src="${
-                  userInfo.avatar || "img/avatar_user.png"
-                }" width="27px" alt="User" />
+            <div class="avatar-container">
+                <div class="avatar" style="cursor: pointer" onclick="toggleUserMenu()">
+                    <img src="${
+                      userInfo.avatar || "img/avatar_user.png"
+                    }" width="27px" alt="User" />
+                </div>
+                <div class="user-menu" id="userMenu">
+                    <a href="profile.html" class="menu-item">View Profile</a>
+                    <a href="learning-history.html" class="menu-item">Learning History</a>
+                    <a href="#" class="menu-item" onclick="logout()">Logout</a>
+                </div>
             </div>
         `;
   } else {
@@ -117,8 +126,62 @@ if (window.location.pathname.includes("index.html")) {
   }
 }
 
+// Xử lý đổi mật khẩu
+if (isChangePasswordPage) {
+  const changePasswordForm = document.getElementById("changePasswordForm");
+  const errorMessage = document.getElementById("errorMessage");
+
+  changePasswordForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const currentPassword = document.getElementById("currentPassword").value;
+    const newPassword = document.getElementById("newPassword").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    // Kiểm tra mật khẩu mới và xác nhận
+    if (newPassword !== confirmPassword) {
+      errorMessage.textContent = "New passwords do not match!";
+      errorMessage.style.display = "block";
+      return;
+    }
+
+    // Tìm user
+    const userIndex = users.findIndex(
+      (u) => u.email === email && u.password === currentPassword
+    );
+
+    if (userIndex !== -1) {
+      // Cập nhật mật khẩu mới
+      users[userIndex].password = newPassword;
+      localStorage.setItem("users", JSON.stringify(users));
+
+      // Chuyển hướng về trang đăng nhập
+      window.location.href = "login.html";
+    } else {
+      errorMessage.textContent = "Invalid email or current password!";
+      errorMessage.style.display = "block";
+    }
+  });
+}
+
 // Hàm đăng xuất
 function logout() {
   localStorage.removeItem("currentUser");
   window.location.reload();
 }
+
+// Thêm hàm toggle menu
+function toggleUserMenu() {
+  const menu = document.getElementById("userMenu");
+  menu.classList.toggle("show");
+}
+
+// Đóng menu khi click ra ngoài
+document.addEventListener("click", function (event) {
+  const menu = document.getElementById("userMenu");
+  const avatar = document.querySelector(".avatar");
+  if (menu && !avatar.contains(event.target)) {
+    menu.classList.remove("show");
+  }
+});

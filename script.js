@@ -4,6 +4,15 @@ function setVH() {
 }
 setVH();
 
+function redirectIfLoggedIn(url) {
+  const isLoggedIn = JSON.parse(localStorage.getItem("currentUser"));
+  if (isLoggedIn) {
+    window.open(url, "_blank");
+  } else {
+    alert("Please log in to access this feature!");
+  }
+}
+
 let lessonsData = {};
 let lessonContents = {};
 let isSidebarVisible = false;
