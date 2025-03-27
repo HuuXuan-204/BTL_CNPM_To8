@@ -94,6 +94,35 @@ body {
   justify-content: center;
   cursor: pointer;
 }
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+.user-info .username {
+  font-size: 14px;
+  font-weight: 280;
+  color: #c6c4c4;
+}
+
+.logout {
+  background: #e7005e;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 60px;
+  font-weight: 350;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.logout:hover {
+  background: #be1458;
+}
 a {
   color: white;
   font-weight: 250;
@@ -265,14 +294,14 @@ p {
 }
 
 .toggleSidebar:hover {
-  background: #e7005e;
+  background: linear-gradient(90deg, #e7005e, #f07d18);
   transform: scale(1.05);
   opacity: 1;
   color: #ffffff;
 }
 
 .toggleSidebar.active {
-  background: #e7005e;
+  background: linear-gradient(90deg, #e7005e, #f07d18);
   opacity: 1;
   font-weight: 500;
   color: #ffffff;
@@ -356,6 +385,13 @@ p {
   color: rgba(179, 176, 176, 0.9);
   border-radius: 10px;
 }
+#lesson-list li:empty::before {
+  content: "Not Found!";
+  color: white;
+  text-align: center;
+  display: block;
+  padding: 15px;
+}
 .lesson-number {
   display: block;
   text-align: center;
@@ -386,7 +422,7 @@ p {
 
 .lesson-content {
   position: absolute;
-  top: 170px;
+  top: 120px;
   left: 350px;
   right: 250px;
   color: white;
@@ -441,70 +477,315 @@ p {
 .lesson-content code {
   font-family: "Courier New", Courier, monospace;
 }
-.avatar-container {
-  position: relative;
-  display: inline-block;
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.navigation-buttons.bottom {
+  justify-content: space-between;
+  align-items: center;
 }
 
-.user-menu {
-  display: none;
-  position: absolute;
-  right: 0;
-  top: 100%;
-  background: #2d2a58;
-  min-width: 200px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  border-radius: 8px;
-  margin-top: 10px;
-  padding: 8px 0;
+.navigation-buttons.bottom .left-buttons {
+  display: flex;
+  gap: 10px;
 }
-
-.user-menu.show {
-  display: block;
-}
-
-.menu-item {
-  display: block;
-  padding: 12px 20px;
-  color: #ffffff;
-  text-decoration: none;
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-  transition: background-color 0.3s;
-  opacity: 1;
-}
-
-.menu-item:hover {
-  background-color: #3d3a68;
-  color: #ffffff;
-}
-
-/* Styles for Save Lesson button in sidebar */
-.save-lesson-btn {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  margin-top: 20px;
-  background: #e7005e;
-  color: white;
+#prev-lesson-top,
+#next-lesson-top,
+#prev-lesson-bottom,
+#next-lesson-bottom {
+  background: linear-gradient(90deg, #e7005e, #f07d18);
   border: none;
-  border-radius: 8px;
+  color: white;
   font-family: "Montserrat", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
+  border-radius: 50px;
+  padding: 10px 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s, transform 0.3s ease-in-out;
+}
+
+#prev-lesson-top:hover,
+#next-lesson-top:hover,
+#prev-lesson-bottom:hover,
+#next-lesson-bottom:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+#prev-lesson-top:disabled,
+#next-lesson-top:disabled,
+#prev-lesson-bottom:disabled,
+#next-lesson-bottom:disabled {
+  background: rgba(255, 255, 255, 0.2);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: linear-gradient(180deg, #2d2a58 0%, #1b1834 100%);
+  padding: 30px;
+  border-radius: 16px;
+  width: 300px;
+  height: auto;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  color: rgb(0, 0, 0);
+  font-family: "Montserrat", sans-serif;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #e7005e;
+}
+
+.modal-content h2 {
+  margin: 0 0 20px;
+  font-size: 24px;
+  color: #eeeded;
   text-align: center;
 }
 
-.save-lesson-btn:hover {
-  background: #ff0066;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(231, 0, 94, 0.3);
+.form-group {
+  padding-bottom: 20px;
 }
 
-.save-lesson-btn:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 6px rgba(231, 0, 94, 0.2);
+.form-group label {
+  display: block;
+  padding-bottom: 20px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.form-group input {
+  width: 93%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+}
+
+.form-group input:focus {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-content button[type="submit"] {
+  width: 100%;
+  background: linear-gradient(90deg, #e7005e, #ff7a02);
+  border: none;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 350;
+  border-radius: 20px;
+  padding: 12px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.3s ease-in-out;
+}
+
+.modal-content button[type="submit"]:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.user-info .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: white;
+  overflow: hidden;
+}
+
+.user-info .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-preview {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.avatar-preview img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+#save-lesson-bottom {
+  background: linear-gradient(90deg, #00c4b4, #00e676);
+  border: none;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 50px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.3s ease-in-out;
+}
+
+#save-lesson-bottom:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.saved-lessons-btn {
+  background: rgba(0, 196, 180, 0.45);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 60px;
+  font-weight: 350;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background 0.3s;
+}
+
+.saved-lessons-btn:hover {
+  background: #00c4b4;
+}
+#saved-lessons-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 12px;
+}
+
+#saved-lessons-list li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+#saved-lessons-list li span {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#saved-lessons-list li div {
+  display: flex;
+  gap: 10px;
+}
+
+#saved-lessons-list li button {
+  background: linear-gradient(90deg, #e7005e, #ff7a02);
+  border: none;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 50px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.3s ease-in-out;
+}
+
+#saved-lessons-list li button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+#saved-lessons-list li button.delete-lesson {
+  background: linear-gradient(90deg, #ff1744, #d81b60);
+}
+
+#saved-lessons-list li button.delete-lesson:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+#search-results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+#search-results-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+}
+
+#search-results-list li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#search-results-list li span {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#search-results-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+#search-results-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+#search-results-list::-webkit-scrollbar-thumb {
+  background: #00c4b4;
+  border-radius: 10px;
+}
+
+#search-results-list::-webkit-scrollbar-thumb:hover {
+  background: #00e676;
 }

@@ -1,187 +1,280 @@
-// Kiểm tra xem đang ở trang nào
-const isLoginPage = window.location.pathname.includes("login.html");
-const isRegisterPage = window.location.pathname.includes("register.html");
-const isChangePasswordPage = window.location.pathname.includes(
-  "change-password.html"
-);
+const signupModal = document.getElementById("signup-modal");
+const loginModal = document.getElementById("login-modal");
+let signupBtn = document.querySelector(".signup");
+let loginBtn = document.querySelector(".login");
+const signupForm = document.getElementById("signup-form");
+const loginForm = document.getElementById("login-form");
+const signupLoginContainer = document.querySelector(".signup-login-avatar");
+const closeButtons = document.querySelectorAll(".close");
+const userInfoModal = document.getElementById("user-info-modal");
+const userInfoForm = document.getElementById("user-info-form");
+const avatarPreviewImg = document.getElementById("avatar-preview-img");
+const userAvatarInput = document.getElementById("user-avatar");
 
-// Lấy danh sách users từ localStorage hoặc tạo mảng rỗng nếu chưa có
-let users = JSON.parse(localStorage.getItem("users")) || [];
+// Mở modal đăng ký
+signupBtn.onclick = () => {
+  signupModal.style.display = "flex";
+};
+
+// Mở modal đăng nhập
+loginBtn.onclick = () => {
+  loginModal.style.display = "flex";
+};
+
+// Đóng modal khi bấm nút close
+closeButtons.forEach((button) => {
+  button.onclick = () => {
+    signupModal.style.display = "none";
+    loginModal.style.display = "none";
+  };
+});
+
+// Đóng modal khi bấm ra ngoài
+window.onclick = (event) => {
+  if (event.target === signupModal) {
+    signupModal.style.display = "none";
+  }
+  if (event.target === loginModal) {
+    loginModal.style.display = "none";
+  }
+};
 
 // Xử lý đăng ký
-if (isRegisterPage) {
-  const registerForm = document.getElementById("registerForm");
-  const errorMessage = document.getElementById("errorMessage");
+signupForm.onsubmit = (e) => {
+  e.preventDefault();
+  const email = document.getElementById("signup-email").value;
+  const username = document.getElementById("signup-username").value;
+  const password = document.getElementById("signup-password").value;
 
-  registerForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+  // Lưu thông tin người dùng vào localStorage
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  if (users.some((user) => user.email === email)) {
+    alert("Email đã được sử dụng!");
+    return;
+  }
 
-    const username = document.getElementById("username").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
-
-    // Kiểm tra mật khẩu xác nhận
-    if (password !== confirmPassword) {
-      errorMessage.textContent = "Passwords do not match!";
-      errorMessage.style.display = "block";
-      return;
-    }
-
-    // Kiểm tra email đã tồn tại chưa
-    if (users.some((user) => user.email === email)) {
-      errorMessage.textContent = "Email already exists!";
-      errorMessage.style.display = "block";
-      return;
-    }
-
-    // Thêm user mới
-    users.push({
-      username,
-      email,
-      password,
-    });
-
-    // Lưu vào localStorage
-    localStorage.setItem("users", JSON.stringify(users));
-
-    // Chuyển hướng đến trang đăng nhập
-    window.location.href = "login.html";
-  });
-}
+  users.push({ email, username, password, avatar: "img/avatar_user.png" }); // Thêm avatar mặc định
+  localStorage.setItem("users", JSON.stringify(users));
+  alert("Đăng ký thành công! Vui lòng đăng nhập.");
+  signupModal.style.display = "none";
+  signupForm.reset();
+};
 
 // Xử lý đăng nhập
-if (isLoginPage) {
-  const loginForm = document.getElementById("loginForm");
-  const errorMessage = document.getElementById("errorMessage");
+loginForm.onsubmit = (e) => {
+  e.preventDefault();
+  const email = document.getElementById("login-email").value;
+  const password = document.getElementById("login-password").value;
 
-  loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const user = users.find(
+    (user) => user.email === email && user.password === password
+  );
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    // Tìm user
-    const user = users.find(
-      (u) => u.email === email && u.password === password
-    );
-
-    if (user) {
-      // Lưu thông tin user đang đăng nhập
-      localStorage.setItem(
-        "currentUser",
-        JSON.stringify({
-          username: user.username,
-          email: user.email,
-        })
-      );
-
-      // Chuyển hướng về trang chủ
-      window.location.href = "index.html";
-    } else {
-      errorMessage.textContent = "Invalid email or password!";
-      errorMessage.style.display = "block";
-    }
-  });
-}
-
-// Kiểm tra trạng thái đăng nhập trên trang chủ
-if (window.location.pathname.includes("index.html")) {
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  const signupLoginAvatar = document.querySelector(".signup-login-avatar");
-
-  if (currentUser) {
-    // Nếu đã đăng nhập
-    const userInfo = users.find((user) => user.email === currentUser.email);
-    signupLoginAvatar.innerHTML = `
-            <div>
-                <span style="font-family: 'Montserrat', sans-serif;font-size: 14px; color:rgb(171, 170, 170);">Welcome, ${
-                  currentUser.username
-                }</span>
-            </div>
-            <div class="avatar-container">
-                <div class="avatar" style="cursor: pointer" onclick="toggleUserMenu()">
-                    <img src="${
-                      userInfo.avatar || "img/avatar_user.png"
-                    }" width="27px" alt="User" />
-                </div>
-                <div class="user-menu" id="userMenu">
-                    <a href="profile.html" class="menu-item">View Profile</a>
-                    <a href="learning-history.html" class="menu-item">Learning History</a>
-                    <a href="#" class="menu-item" onclick="logout()">Logout</a>
-                </div>
-            </div>
-        `;
+  if (user) {
+    localStorage.setItem("currentUser", JSON.stringify(user));
+    updateUserInterface(user);
+    loginModal.style.display = "none";
+    loginForm.reset();
   } else {
-    // Nếu chưa đăng nhập
-    signupLoginAvatar.innerHTML = `
-            <div>
-                <button class="signup" onclick="window.location.href='register.html'">Sign Up</button>
-                <button class="login" onclick="window.location.href='login.html'">Log In</button>
+    alert("Email hoặc mật khẩu không đúng!");
+  }
+};
+
+// Cập nhật giao diện sau khi đăng nhập
+function updateUserInterface(user) {
+  signupLoginContainer.innerHTML = `
+        <div class="user-info">
+            <span class="username">Welcome, ${user.username}</span>
+            <div class="avatar">
+              <img src="${
+                user.avatar || "img/avatar_user.png"
+              }" width="27px" alt="User" />
             </div>
-            <div class="avatar" style="cursor: pointer" onclick="window.location.href='login.html'">
-                <img src="img/avatar_user.png" width="27px" alt="User" />
+            <button class="saved-lessons-btn">Saved Lessons</button>
+            <button class="logout">Logout</button>
+        </div>
+    `;
+
+  // Xử lý bấm vào avatar để xem thông tin
+  const avatar = document.querySelector(".user-info .avatar");
+  avatar.onclick = () => {
+    document.getElementById("user-email").value = user.email;
+    document.getElementById("user-username").value = user.username;
+    document.getElementById("user-avatar").value = user.avatar || "";
+    avatarPreviewImg.src = user.avatar || "img/avatar_user.png";
+    avatarPreviewImg.style.display = user.avatar ? "block" : "none";
+    userInfoModal.style.display = "flex";
+  };
+
+  // Xử lý bấm vào nút Saved Lessons
+  const savedLessonsBtn = document.querySelector(".saved-lessons-btn");
+  savedLessonsBtn.onclick = () => {
+    const savedLessons =
+      JSON.parse(localStorage.getItem(`savedLessons_${user.email}`)) || [];
+    const savedLessonsList = document.getElementById("saved-lessons-list");
+    savedLessonsList.innerHTML = "";
+
+    if (savedLessons.length === 0) {
+      savedLessonsList.innerHTML =
+        '<li style="text-align: center;">Bạn chưa lưu bài học nào.</li>';
+    } else {
+      savedLessons.forEach((lesson, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <span>${lesson.language.toUpperCase()} - Lesson ${lesson.lessonId}: ${
+          lesson.title
+        }</span>
+          <div>
+            <button class="resume-lesson" data-index="${index}">Resume</button>
+            <button class="delete-lesson" data-index="${index}" style="margin-left: 10px;">Delete</button>
+          </div>
+        `;
+        savedLessonsList.appendChild(li);
+      });
+
+      // Thêm sự kiện cho các nút Resume
+      document.querySelectorAll(".resume-lesson").forEach((button) => {
+        button.onclick = () => {
+          const index = button.getAttribute("data-index");
+          const lesson = savedLessons[index];
+          toggleSidebar(lesson.language);
+          loadLessonContent(lesson.language, lesson.lessonId);
+          document.getElementById("saved-lessons-modal").style.display = "none";
+        };
+      });
+
+      // Thêm sự kiện cho các nút Delete
+      document.querySelectorAll(".delete-lesson").forEach((button) => {
+        button.onclick = () => {
+          const index = button.getAttribute("data-index");
+          savedLessons.splice(index, 1); // Xóa bài học khỏi mảng
+          localStorage.setItem(
+            `savedLessons_${user.email}`,
+            JSON.stringify(savedLessons)
+          ); // Cập nhật localStorage
+          // Cập nhật lại danh sách hiển thị
+          savedLessonsList.innerHTML = "";
+          if (savedLessons.length === 0) {
+            savedLessonsList.innerHTML =
+              '<li style="text-align: center;">Bạn chưa lưu bài học nào.</li>';
+          } else {
+            savedLessons.forEach((lesson, newIndex) => {
+              const li = document.createElement("li");
+              li.innerHTML = `
+                <span>${lesson.language.toUpperCase()} - Lesson ${
+                lesson.lessonId
+              }: ${lesson.title}</span>
+                <div>
+                  <button class="resume-lesson" data-index="${newIndex}">Resume</button>
+                  <button class="delete-lesson" data-index="${newIndex}" style="margin-left: 10px;">Delete</button>
+                </div>
+              `;
+              savedLessonsList.appendChild(li);
+            });
+
+            // Gán lại sự kiện cho các nút Resume và Delete sau khi cập nhật danh sách
+            document.querySelectorAll(".resume-lesson").forEach((button) => {
+              button.onclick = () => {
+                const index = button.getAttribute("data-index");
+                const lesson = savedLessons[index];
+                toggleSidebar(lesson.language);
+                loadLessonContent(lesson.language, lesson.lessonId);
+                document.getElementById("saved-lessons-modal").style.display =
+                  "none";
+              };
+            });
+
+            document.querySelectorAll(".delete-lesson").forEach((button) => {
+              button.onclick = () => {
+                const index = button.getAttribute("data-index");
+                savedLessons.splice(index, 1);
+                localStorage.setItem(
+                  `savedLessons_${user.email}`,
+                  JSON.stringify(savedLessons)
+                );
+                savedLessonsBtn.click(); // Gọi lại sự kiện để làm mới danh sách
+              };
+            });
+          }
+        };
+      });
+    }
+
+    document.getElementById("saved-lessons-modal").style.display = "flex";
+  };
+
+  // Xử lý đăng xuất
+  document.querySelector(".logout").onclick = () => {
+    localStorage.removeItem("currentUser");
+    signupLoginContainer.innerHTML = `
+            <div>
+              <button class="signup">Sign Up</button>
+              <button class="login">Login</button>
+            </div>
+            <div class="avatar">
+              <img src="img/avatar_user.png" width="27px" alt="User" />
             </div>
         `;
-  }
+    signupBtn = document.querySelector(".signup");
+    loginBtn = document.querySelector(".login");
+    signupBtn.onclick = () => {
+      signupModal.style.display = "flex";
+    };
+    loginBtn.onclick = () => {
+      loginModal.style.display = "flex";
+    };
+  };
 }
 
-// Xử lý đổi mật khẩu
-if (isChangePasswordPage) {
-  const changePasswordForm = document.getElementById("changePasswordForm");
-  const errorMessage = document.getElementById("errorMessage");
+// Đóng modal Saved Lessons
+document.querySelector("#saved-lessons-modal .close").onclick = () => {
+  document.getElementById("saved-lessons-modal").style.display = "none";
+};
 
-  changePasswordForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const email = document.getElementById("email").value;
-    const currentPassword = document.getElementById("currentPassword").value;
-    const newPassword = document.getElementById("newPassword").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
-
-    // Kiểm tra mật khẩu mới và xác nhận
-    if (newPassword !== confirmPassword) {
-      errorMessage.textContent = "New passwords do not match!";
-      errorMessage.style.display = "block";
-      return;
-    }
-
-    // Tìm user
-    const userIndex = users.findIndex(
-      (u) => u.email === email && u.password === currentPassword
-    );
-
-    if (userIndex !== -1) {
-      // Cập nhật mật khẩu mới
-      users[userIndex].password = newPassword;
-      localStorage.setItem("users", JSON.stringify(users));
-
-      // Chuyển hướng về trang đăng nhập
-      window.location.href = "login.html";
-    } else {
-      errorMessage.textContent = "Invalid email or current password!";
-      errorMessage.style.display = "block";
-    }
-  });
-}
-
-// Hàm đăng xuất
-function logout() {
-  localStorage.removeItem("currentUser");
-  window.location.reload();
-}
-
-// Thêm hàm toggle menu
-function toggleUserMenu() {
-  const menu = document.getElementById("userMenu");
-  menu.classList.toggle("show");
-}
-
-// Đóng menu khi click ra ngoài
-document.addEventListener("click", function (event) {
-  const menu = document.getElementById("userMenu");
-  const avatar = document.querySelector(".avatar");
-  if (menu && !avatar.contains(event.target)) {
-    menu.classList.remove("show");
+// Đóng modal khi bấm ra ngoài
+window.addEventListener("click", (event) => {
+  if (event.target === document.getElementById("saved-lessons-modal")) {
+    document.getElementById("saved-lessons-modal").style.display = "none";
   }
 });
+
+// Xem trước avatar khi nhập URL
+userAvatarInput.oninput = (e) => {
+  const url = e.target.value;
+  avatarPreviewImg.src = url;
+  avatarPreviewImg.style.display = url ? "block" : "none";
+};
+
+// Xử lý lưu thông tin người dùng
+userInfoForm.onsubmit = (e) => {
+  e.preventDefault();
+  const email = document.getElementById("user-email").value;
+  const username = document.getElementById("user-username").value;
+  const avatar = document.getElementById("user-avatar").value;
+
+  // Cập nhật thông tin người dùng
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const userIndex = users.findIndex((user) => user.email === currentUser.email);
+
+  if (userIndex !== -1) {
+    users[userIndex] = {
+      email,
+      username,
+      password: users[userIndex].password,
+      avatar,
+    };
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("currentUser", JSON.stringify(users[userIndex]));
+    updateUserInterface(users[userIndex]);
+    userInfoModal.style.display = "none";
+    alert("Cập nhật thông tin thành công!");
+  }
+};
+
+// Kiểm tra nếu đã đăng nhập khi tải trang
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+if (currentUser) {
+  updateUserInterface(currentUser);
+}

@@ -61,6 +61,92 @@
         <!-- Nội dung bài học sẽ được hiển thị ở đây -->
       </div>
 
+      <div id="signup-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Sign up</h2>
+          <form id="signup-form">
+            <div class="form-group">
+              <label for="signup-email">Email:</label>
+              <input type="email" id="signup-email" required />
+            </div>
+            <div class="form-group">
+              <label for="signup-username">Username:</label>
+              <input type="text" id="signup-username" required />
+            </div>
+            <div class="form-group">
+              <label for="signup-password">Password:</label>
+              <input type="password" id="signup-password" required />
+            </div>
+            <button type="submit">Register</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="login-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Log In</h2>
+          <form id="login-form">
+            <div class="form-group">
+              <label for="login-email">Email:</label>
+              <input type="email" id="login-email" required />
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password:</label>
+              <input type="password" id="login-password" required />
+            </div>
+            <button type="submit">Log In</button>
+          </form>
+        </div>
+      </div>
+      <div id="user-info-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">×</span>
+          <h2>User Information</h2>
+          <form id="user-info-form">
+            <div class="form-group">
+              <label for="user-email">Email:</label>
+              <input type="email" id="user-email" required />
+            </div>
+            <div class="form-group">
+              <label for="user-username">User Name:</label>
+              <input type="text" id="user-username" required />
+            </div>
+            <div class="form-group">
+              <label for="user-avatar">Avatar (URL):</label>
+              <input type="text" id="user-avatar" placeholder="URL Image" />
+              <div class="avatar-preview">
+                <img
+                  id="avatar-preview-img"
+                  src=""
+                  alt="Avatar Preview"
+                  style="display: none"
+                />
+              </div>
+            </div>
+            <button type="submit">Save</button>
+          </form>
+        </div>
+      </div>
+      <div id="saved-lessons-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">×</span>
+          <h2>Saved Lessons</h2>
+          <ul id="saved-lessons-list" style="list-style: none; padding: 0"></ul>
+        </div>
+      </div>
+
+      <div id="search-results-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">×</span>
+          <h2>Result</h2>
+          <ul
+            id="search-results-list"
+            style="list-style: none; padding: 0"
+          ></ul>
+        </div>
+      </div>
       <div>
         <div>
           <ul>
@@ -88,8 +174,9 @@
           <img src="img/backgroundwave.png" alt="error" />
         </div>
       </div>
+
       <div class="search-container">
-        <form class="Search" action="search.html" method="GET">
+        <form class="Search" id="search-form">
           <input type="text" name="q" placeholder="Search . . ." required />
         </form>
         <a href="https://www.youtube.com/watch?v=tGHYoae2P98" target="_blank"
@@ -107,11 +194,13 @@
             today, upgrade your skills, and open up a world of exciting career
             opportunities.
           </p>
-          <div
-            onclick="redirectIfLoggedIn('https://www.youtube.com/watch?v=NUuqAkFBHpg')"
-            class="buttons-bottom"
-          >
-            <button class="buttons-lotrinhhoc">Learning Path</button>
+          <div class="buttons-bottom">
+            <button
+              onclick="redirectIfLoggedIn('https://www.youtube.com/watch?v=NUuqAkFBHpg')"
+              class="buttons-lotrinhhoc"
+            >
+              Learning Path
+            </button>
             <button
               onclick="redirectIfLoggedIn('https://edabit.com/challenges')"
               class="buttons-thuthach"
