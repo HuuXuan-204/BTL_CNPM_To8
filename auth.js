@@ -49,13 +49,13 @@ signupForm.onsubmit = (e) => {
   // Lưu thông tin người dùng vào localStorage
   const users = JSON.parse(localStorage.getItem("users")) || [];
   if (users.some((user) => user.email === email)) {
-    alert("Email đã được sử dụng!");
+    alert("This email has already been used!");
     return;
   }
 
-  users.push({ email, username, password, avatar: "img/avatar_user.png" }); // Thêm avatar mặc định
+  users.push({ email, username, password, avatar: "img/avatar_user.png" });
   localStorage.setItem("users", JSON.stringify(users));
-  alert("Đăng ký thành công! Vui lòng đăng nhập.");
+  alert("Signed up successfully. Please log in to continue!");
   signupModal.style.display = "none";
   signupForm.reset();
 };
@@ -77,7 +77,7 @@ loginForm.onsubmit = (e) => {
     loginModal.style.display = "none";
     loginForm.reset();
   } else {
-    alert("Email hoặc mật khẩu không đúng!");
+    alert("Email or password is incorrect!");
   }
 };
 
@@ -117,7 +117,7 @@ function updateUserInterface(user) {
 
     if (savedLessons.length === 0) {
       savedLessonsList.innerHTML =
-        '<li style="text-align: center;">Bạn chưa lưu bài học nào.</li>';
+        '<li style="text-align: center;">No lessons saved yet</li>';
     } else {
       savedLessons.forEach((lesson, index) => {
         const li = document.createElement("li");
@@ -138,9 +138,38 @@ function updateUserInterface(user) {
         button.onclick = () => {
           const index = button.getAttribute("data-index");
           const lesson = savedLessons[index];
-          toggleSidebar(lesson.language);
-          loadLessonContent(lesson.language, lesson.lessonId);
-          document.getElementById("saved-lessons-modal").style.display = "none";
+
+          // Kiểm tra nếu đang ở đúng ngôn ngữ và bài học
+          if (
+            isSidebarVisible &&
+            currentLanguage === lesson.language &&
+            currentLessonId === lesson.lessonId
+          ) {
+            // Nếu đang ở đúng bài học, chỉ đóng modal
+            document.getElementById("saved-lessons-modal").style.display =
+              "none";
+          } else {
+            // Nếu không, kiểm tra trạng thái sidebar trước khi gọi toggleSidebar
+            if (isSidebarVisible && currentLanguage === lesson.language) {
+              // Nếu sidebar đang mở và cùng ngôn ngữ, chỉ cần load bài học mới
+              loadLessonContent(lesson.language, lesson.lessonId);
+              document
+                .querySelectorAll("#lesson-list li")
+                .forEach((item) => item.classList.remove("active"));
+              const activeLesson = document.querySelector(
+                `#lesson-list li:nth-child(${lesson.lessonId})`
+              );
+              if (activeLesson) activeLesson.classList.add("active");
+            } else {
+              // Nếu sidebar chưa mở hoặc ngôn ngữ khác, gọi toggleSidebar
+              currentLessonId = lesson.lessonId;
+              toggleSidebar(lesson.language);
+              loadLessonContent(lesson.language, lesson.lessonId);
+            }
+            currentLessonId = 1;
+            document.getElementById("saved-lessons-modal").style.display =
+              "none";
+          }
         };
       });
 
@@ -157,7 +186,7 @@ function updateUserInterface(user) {
           savedLessonsList.innerHTML = "";
           if (savedLessons.length === 0) {
             savedLessonsList.innerHTML =
-              '<li style="text-align: center;">Bạn chưa lưu bài học nào.</li>';
+              '<li style="text-align: center;">No lessons saved yet</li>';
           } else {
             savedLessons.forEach((lesson, newIndex) => {
               const li = document.createElement("li");
@@ -178,10 +207,33 @@ function updateUserInterface(user) {
               button.onclick = () => {
                 const index = button.getAttribute("data-index");
                 const lesson = savedLessons[index];
-                toggleSidebar(lesson.language);
-                loadLessonContent(lesson.language, lesson.lessonId);
-                document.getElementById("saved-lessons-modal").style.display =
-                  "none";
+                if (
+                  isSidebarVisible &&
+                  currentLanguage === lesson.language &&
+                  currentLessonId === lesson.lessonId
+                ) {
+                  document.getElementById("saved-lessons-modal").style.display =
+                    "none";
+                } else {
+                  currentLessonId = lesson.lessonId;
+                  currentLanguage = lesson.language;
+                  if (isSidebarVisible && currentLanguage === lesson.language) {
+                    loadLessonContent(lesson.language, lesson.lessonId);
+                    document
+                      .querySelectorAll("#lesson-list li")
+                      .forEach((item) => item.classList.remove("active"));
+                    const activeLesson = document.querySelector(
+                      `#lesson-list li:nth-child(${lesson.lessonId})`
+                    );
+                    if (activeLesson) activeLesson.classList.add("active");
+                    currentLessonId = lesson.lessonId;
+                  } else {
+                    toggleSidebar(lesson.language);
+                    loadLessonContent(lesson.language, lesson.lessonId);
+                  }
+                  document.getElementById("saved-lessons-modal").style.display =
+                    "none";
+                }
               };
             });
 
@@ -251,6 +303,7 @@ userInfoForm.onsubmit = (e) => {
   e.preventDefault();
   const email = document.getElementById("user-email").value;
   const username = document.getElementById("user-username").value;
+  const password = document.getElementById("user-password").value;
   const avatar = document.getElementById("user-avatar").value;
 
   // Cập nhật thông tin người dùng
@@ -262,17 +315,40 @@ userInfoForm.onsubmit = (e) => {
     users[userIndex] = {
       email,
       username,
-      password: users[userIndex].password,
+      password: password || users[userIndex].password,
       avatar,
     };
     localStorage.setItem("users", JSON.stringify(users));
     localStorage.setItem("currentUser", JSON.stringify(users[userIndex]));
     updateUserInterface(users[userIndex]);
     userInfoModal.style.display = "none";
-    alert("Cập nhật thông tin thành công!");
+    alert("Successfully updated!");
   }
 };
+// Đóng modal thông tin người dùng khi bấm dấu X
+document.querySelector("#user-info-modal .close").onclick = () => {
+  userInfoModal.style.display = "none";
+};
 
+// Đóng modal khi bấm ra ngoài
+window.addEventListener("click", (event) => {
+  if (event.target === userInfoModal) {
+    userInfoModal.style.display = "none";
+  }
+  // Đảm bảo các modal khác cũng đóng được
+  if (event.target === signupModal) {
+    signupModal.style.display = "none";
+  }
+  if (event.target === loginModal) {
+    loginModal.style.display = "none";
+  }
+  if (event.target === document.getElementById("saved-lessons-modal")) {
+    document.getElementById("saved-lessons-modal").style.display = "none";
+  }
+  if (event.target === document.getElementById("search-results-modal")) {
+    document.getElementById("search-results-modal").style.display = "none";
+  }
+});
 // Kiểm tra nếu đã đăng nhập khi tải trang
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 if (currentUser) {

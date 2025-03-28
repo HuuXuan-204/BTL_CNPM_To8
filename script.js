@@ -72,7 +72,7 @@ function loadLessons(language) {
     .then((response) => {
       if (!response.ok)
         throw new Error(
-          `Không tìm thấy file ${fileName}. Vui lòng kiểm tra lại thư mục dự án.`
+          `${fileName} not found. Please check the project folder.`
         );
       return response.text();
     })
@@ -96,13 +96,13 @@ function loadLessons(language) {
       }
 
       if (lessonsData[language].length === 0) {
-        throw new Error(`Không tìm thấy bài học nào trong file ${fileName}.`);
+        throw new Error(`No lessons found in ${fileName}.`);
       }
 
       displayLessonList(language);
     })
     .catch((error) => {
-      console.error("Lỗi:", error.message);
+      console.error("Error:", error.message);
       const lessonList = document.getElementById("lesson-list");
       lessonList.innerHTML = `<li style="color: red;">${error.message}</li>`;
     });
@@ -129,7 +129,24 @@ function displayLessonList(language) {
     lessonList.appendChild(li);
   });
 
-  if (lessonsData[language].length > 0) {
+  if (currentLessonId) {
+    const activeLesson = document.querySelector(
+      `#lesson-list li:nth-child(${currentLessonId})`
+    );
+    if (activeLesson) {
+      document
+        .querySelectorAll("#lesson-list li")
+        .forEach((item) => item.classList.remove("active"));
+      activeLesson.classList.add("active");
+      loadLessonContent(language, currentLessonId); // Tải nội dung bài học tương ứng
+    } else {
+      // Nếu currentLessonId không hợp lệ, chọn bài đầu tiên
+      loadLessonContent(language, lessonsData[language][0].id);
+      lessonList.firstChild.classList.add("active");
+      currentLessonId = lessonsData[language][0].id;
+    }
+  } else {
+    // Nếu không có currentLessonId, mặc định chọn bài đầu tiên
     loadLessonContent(language, lessonsData[language][0].id);
     lessonList.firstChild.classList.add("active");
     currentLessonId = lessonsData[language][0].id;
@@ -171,7 +188,7 @@ function loadLessonContent(language, lessonId) {
   saveButton.onclick = () => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     if (!currentUser) {
-      alert("Vui lòng đăng nhập để lưu bài học!");
+      alert("Please log in to save lesson!");
       return;
     }
 
@@ -194,9 +211,9 @@ function loadLessonContent(language, lessonId) {
         `savedLessons_${currentUser.email}`,
         JSON.stringify(savedLessons)
       );
-      alert("Đã lưu bài học!");
+      alert("Saved lesson!");
     } else {
-      alert("Bài học này đã được lưu rồi!");
+      alert("Saved lesson!");
     }
   };
 
@@ -295,7 +312,7 @@ function preloadLessons() {
       .then((response) => {
         if (!response.ok)
           throw new Error(
-            `Không tìm thấy file ${fileName}. Vui lòng kiểm tra lại thư mục dự án.`
+            `${fileName} not found. Please check the project folder.`
           );
         return response.text();
       })
@@ -318,11 +335,11 @@ function preloadLessons() {
         }
 
         if (lessonsData[language].length === 0) {
-          throw new Error(`Không tìm thấy bài học nào trong file ${fileName}.`);
+          throw new Error(`No lessons found in ${fileName}.`);
         }
       })
       .catch((error) => {
-        console.error("Lỗi khi tải dữ liệu bài học:", error.message);
+        console.error("Error loading lesson data:", error.message);
       });
   });
 }
@@ -343,7 +360,7 @@ function loadLessons(language) {
       .then((response) => {
         if (!response.ok)
           throw new Error(
-            `Không tìm thấy file ${fileName}. Vui lòng kiểm tra lại thư mục dự án.`
+            `${fileName} not found. Please check the project folder.`
           );
         return response.text();
       })
@@ -366,7 +383,7 @@ function loadLessons(language) {
         }
 
         if (lessonsData[language].length === 0) {
-          throw new Error(`Không tìm thấy bài học nào trong file ${fileName}.`);
+          throw new Error(`No lessons found in ${fileName}.`);
         }
 
         displayLessonList(language);

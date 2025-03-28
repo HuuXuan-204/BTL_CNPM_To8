@@ -789,3 +789,44 @@ p {
 #search-results-list::-webkit-scrollbar-thumb:hover {
   background: #00e676;
 }
+
+.datatype {
+  font-weight: bold;
+  color: #d63384; /* Màu hồng nổi bật */
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: #485460; /* Màu nền xám đậm */
+}
+
+th,
+td {
+  border: 1px solid #57606f;
+  padding: 12px;
+  text-align: left;
+  color: #f1f2f6; /* Màu chữ trắng */
+}
+
+th {
+  background-color: #227093; /* Màu xanh dương đậm */
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #2f3640; /* Màu xám đậm */
+}
+
+tr:hover {
+  background-color: #44bd32; /* Màu xanh lá khi hover */
+  transition: 0.3s;
+}
+.highlight {
+  color: red;
+  font-weight: bold;
+  background: #f8d7da;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
