@@ -441,9 +441,12 @@ searchInput.addEventListener("input", (e) => {
         result.lessonId
       }: ${result.title}</span>
             `;
+
       li.onclick = () => {
+        currentLessonId = result.lessonId;
         toggleSidebar(result.language);
         loadLessonContent(result.language, result.lessonId);
+        currentLessonId = 1;
         searchResultsModal.style.display = "none"; // Đóng modal sau khi chọn
       };
       searchResultsList.appendChild(li);
