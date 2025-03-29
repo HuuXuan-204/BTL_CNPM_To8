@@ -64,6 +64,7 @@ function loadLessons(language) {
   const fileName = `courses/${language}.html`;
 
   if (lessonsData[language]) {
+    currentLessonId = 1;
     displayLessonList(language);
     return;
   }
@@ -124,7 +125,7 @@ function displayLessonList(language) {
         .querySelectorAll("#lesson-list li")
         .forEach((item) => item.classList.remove("active"));
       li.classList.add("active");
-      currentLessonId = lesson.id;
+      currentLessonId = 1;
     };
     lessonList.appendChild(li);
   });
@@ -139,17 +140,20 @@ function displayLessonList(language) {
         .forEach((item) => item.classList.remove("active"));
       activeLesson.classList.add("active");
       loadLessonContent(language, currentLessonId); // Tải nội dung bài học tương ứng
+      currentLessonId = 1;
     } else {
       // Nếu currentLessonId không hợp lệ, chọn bài đầu tiên
       loadLessonContent(language, lessonsData[language][0].id);
       lessonList.firstChild.classList.add("active");
       currentLessonId = lessonsData[language][0].id;
+      currentLessonId = 1;
     }
   } else {
     // Nếu không có currentLessonId, mặc định chọn bài đầu tiên
     loadLessonContent(language, lessonsData[language][0].id);
     lessonList.firstChild.classList.add("active");
     currentLessonId = lessonsData[language][0].id;
+    currentLessonId = 1;
   }
 }
 /*-------------------------------------------------------------------------------*/

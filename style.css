@@ -541,8 +541,8 @@ p {
 .modal-content {
   background: linear-gradient(180deg, #2d2a58 0%, #1b1834 100%);
   padding: 30px;
-  border-radius: 16px;
-  width: 300px;
+  border-radius: 20px;
+  width: 450px;
   height: auto;
   position: relative;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -696,7 +696,7 @@ p {
   align-items: center;
   padding: 10px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  border-radius: 12px;
   color: white;
   font-family: "Montserrat", sans-serif;
 }
