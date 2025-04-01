@@ -4,6 +4,74 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML Tutorial</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+      }
+      h1 {
+        color: #000;
+      }
+      .code-box {
+        background-color: #f4f4f4;
+        border-left: 5px solid #4caf50;
+        padding: 10px;
+        white-space: pre-wrap;
+        font-family: monospace;
+      }
+      .button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 10px 0;
+      }
+      .button:hover {
+        background-color: #45a049;
+      }
+      .highlight {
+        background-color: #ffe5e5;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: monospace;
+        color: #d63384;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+      }
+      .note {
+        background-color: #ffffcc;
+        padding: 10px;
+        border-left: 5px solid #ffcc00;
+      }
+      .browser-image {
+        border: 1px solid #ccc;
+        padding: 10px;
+        display: block;
+        margin: 10px auto;
+        max-width: 100%;
+      }
+    </style>
   </head>
   <body>
     <section id="lesson-1" class="container">
@@ -19,8 +87,10 @@
           "this is a paragraph", "this is a link", etc.
         </li>
       </ul>
-      <h1>A Simple HTML Document</h1>
+    </section>
 
+    <section id="lesson-2" class="container">
+      <h1>A Simple HTML Document</h1>
       <h2>Example</h2>
       <div class="code-box">
         <code>
@@ -30,8 +100,6 @@
           &lt;/body&gt; &lt;/html&gt;
         </code>
       </div>
-
-      <a href="#" class="button">Try it Yourself »</a>
 
       <h2>Example Explained</h2>
       <ul>
@@ -60,6 +128,9 @@
           heading
         </li>
       </ul>
+    </section>
+
+    <section id="lesson-3" class="container">
       <h1>What is an HTML Element?</h1>
       <p>
         An HTML element is defined by a start tag, some content, and an end tag:
@@ -106,7 +177,9 @@
         &lt;br&gt; element). These elements are called empty elements. Empty
         elements do not have an end tag!
       </div>
+    </section>
 
+    <section id="lesson-4" class="container">
       <h1>Web Browsers</h1>
       <p>
         The purpose of a web browser (Chrome, Edge, Firefox, Safari) is to read
@@ -121,7 +194,9 @@
         alt="Browser rendering HTML example"
         class="browser-image"
       />
+    </section>
 
+    <section id="lesson-5" class="container">
       <h1>HTML Page Structure</h1>
       <p>Below is a visualization of an HTML page structure:</p>
       <div class="code-box">
@@ -134,7 +209,7 @@
       </div>
     </section>
 
-    <section id="lesson-2" class="container">
+    <section id="lesson-6" class="container">
       <h1>HTML Documents</h1>
       <p>
         All HTML documents must start with a document type declaration:
@@ -158,7 +233,9 @@
           paragraph.&lt;/p&gt; &lt;/body&gt; &lt;/html&gt;
         </code>
       </div>
+    </section>
 
+    <section id="lesson-7" class="container">
       <h1>The &lt;!DOCTYPE&gt; Declaration</h1>
       <p>
         The <span class="highlight">&lt;!DOCTYPE&gt;</span> declaration
@@ -179,7 +256,9 @@
       <div class="code-box">
         <code>&lt;!DOCTYPE html&gt;</code>
       </div>
+    </section>
 
+    <section id="lesson-8" class="container">
       <h1>HTML Headings</h1>
       <p>
         HTML headings are defined with the
@@ -199,8 +278,9 @@
           2&lt;/h2&gt; &lt;h3&gt;This is heading 3&lt;/h3&gt;
         </code>
       </div>
-      <a href="#" class="button">Try it Yourself »</a>
+    </section>
 
+    <section id="lesson-9" class="container">
       <h1>HTML Paragraphs</h1>
       <p>
         HTML paragraphs are defined with the
@@ -213,8 +293,9 @@
           paragraph.&lt;/p&gt;
         </code>
       </div>
-      <a href="#" class="button">Try it Yourself »</a>
+    </section>
 
+    <section id="lesson-10" class="container">
       <h1>HTML Links</h1>
       <p>
         HTML links are defined with the
@@ -226,14 +307,15 @@
           &lt;a href="https://www.codefinity.com"> This is a link.&lt;/p&gt;
         </code>
       </div>
-      <a href="#" class="button">Try it Yourself »</a>
       <p>The link's destination is specified in the href attribute.</p>
       <p>
         Attributes are used to provide additional information about HTML
         elements.
       </p>
       <p>You will learn more about attributes in a later chapter.</p>
+    </section>
 
+    <section id="lesson-11" class="container">
       <h1>HTML Images</h1>
       <p>
         HTML images are defined with the
@@ -253,10 +335,9 @@
           height="142">&lt;/p&gt;
         </code>
       </div>
-      <a href="#" class="button">Try it Yourself »</a>
     </section>
 
-    <section id="lesson-3" class="container">
+    <section id="lesson-12" class="container">
       <h1>Color Names</h1>
       <p>In HTML, a color can be specified by using a color name:</p>
       <div class="color-box" style="background-color: Tomato">Tomato</div>
@@ -274,8 +355,9 @@
         LightGray
       </div>
       <br />
-      <a href="#" class="button">Try it Yourself »</a>
+    </section>
 
+    <section id="lesson-13" class="container">
       <h1>Background Color</h1>
       <p>You can set the background color for HTML elements:</p>
       <h2 style="background-color: DodgerBlue; color: white; padding: 10px">
@@ -291,8 +373,9 @@
           &lt;p style="background-color: Tomato;"&gt;Lorem ipsum...&lt;/p&gt;
         </code>
       </div>
-      <a href="#" class="button">Try it Yourself »</a>
+    </section>
 
+    <section id="lesson-14" class="container">
       <h1>Text Color</h1>
       <p>You can set the color of text:</p>
       <h2 style="color: Tomato">Hello World</h2>
@@ -305,10 +388,9 @@
           &lt;p style="color: DodgerBlue;"&gt;Lorem ipsum...&lt;/p&gt;
         </code>
       </div>
-      <a href="#" class="button">Try it Yourself »</a>
     </section>
 
-    <section id="html_lesson4" class="container">
+    <section id="lesson-15" class="container">
       <h2>The &lt;form&gt; Element</h2>
       <p>
         The HTML <code>&lt;form&gt;</code> element is used to create an HTML
@@ -329,7 +411,9 @@
         for different types of input elements, such as: text fields, checkboxes,
         radio buttons, submit buttons, etc.
       </p>
+    </section>
 
+    <section id="lesson-16" class="container">
       <h2>The &lt;input&gt; Element</h2>
       <p>
         The HTML <span class="highlight">&lt;input&gt;</span> element is the
@@ -369,7 +453,9 @@
           <td>Displays a clickable button</td>
         </tr>
       </table>
+    </section>
 
+    <section id="lesson-17" class="container">
       <h1>Text Fields</h1>
       <p>
         The <span class="highlight">&lt;input type="text"&gt;</span> defines a
@@ -397,7 +483,9 @@
         <b>Note:</b> The form itself is not visible. Also note that the default
         width of an input field is 20 characters.
       </p>
+    </section>
 
+    <section id="lesson-18" class="container">
       <h2>The &lt;label&gt; Element</h2>
       <p>
         Notice the use of the
@@ -430,7 +518,9 @@
         <span class="highlight">&lt;input&gt;</span> element to bind them
         together.
       </p>
+    </section>
 
+    <section id="lesson-19" class="container">
       <h1>Radio Buttons</h1>
       <p>
         The <span class="highlight">&lt;input type="radio"&gt;</span> defines a
@@ -452,9 +542,9 @@
           for="javascript"&gt;JavaScript&lt;/label&gt; &lt;/form&gt;
         </code>
       </div>
+    </section>
 
-      <a href="#" class="button">Try it Yourself »</a>
-
+    <section id="lesson-20" class="container">
       <h1>Checkboxes</h1>
       <p>
         The <span class="highlight">&lt;input type="checkbox"&gt;</span> defines
@@ -480,8 +570,6 @@
         </code>
       </div>
 
-      <a href="#" class="button">Try it Yourself »</a>
-
       <p>This is how the HTML code above will be displayed in a browser:</p>
       <form>
         <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
@@ -491,7 +579,9 @@
         <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
         <label for="vehicle3">I have a boat</label>
       </form>
+    </section>
 
+    <section id="lesson-21" class="container">
       <h1>The Submit Button</h1>
       <p>
         The <span class="highlight">&lt;input type="submit"&gt;</span> defines a
@@ -519,11 +609,9 @@
           type="submit" value="Submit"&gt; &lt;/form&gt;
         </code>
       </div>
-
-      <a href="#" class="button">Try it Yourself »</a>
     </section>
 
-    <section id="html_lesson5" class="container">
+    <section id="lesson-22" class="container">
       <h1>The Method Attribute</h1>
       <p>
         The <span class="highlight">method</span> attribute specifies the HTTP
@@ -543,14 +631,12 @@
       <div class="code-box">
         <code>&lt;form action="/action_page.php" method="get"&gt;</code>
       </div>
-      <a href="#" class="button">Try it Yourself »</a>
 
       <h2>Example</h2>
       <p>This example uses the POST method when submitting the form data:</p>
       <div class="code-box">
         <code>&lt;form action="/action_page.php" method="post"&gt;</code>
       </div>
-      <a href="#" class="button">Try it Yourself »</a>
 
       <h2>Notes on GET:</h2>
       <ul>
@@ -583,7 +669,9 @@
         <strong>Tip:</strong> Always use POST if the form data contains
         sensitive or personal information!
       </div>
+    </section>
 
+    <section id="lesson-23" class="container">
       <h1>The Autocomplete Attribute</h1>
       <p>
         The <span class="highlight">autocomplete</span> attribute specifies
@@ -599,8 +687,9 @@
       <div class="code-box">
         <code>&lt;form action="/action_page.php" autocomplete="on"&gt;</code>
       </div>
-      <a href="#" class="button">Try it Yourself »</a>
+    </section>
 
+    <section id="lesson-24" class="container">
       <h1>The Novalidate Attribute</h1>
       <p>
         The <span class="highlight">novalidate</span> attribute is a boolean
@@ -616,7 +705,6 @@
       <div class="code-box">
         <code>&lt;form action="/action_page.php" novalidate&gt;</code>
       </div>
-      <a href="#" class="button">Try it Yourself »</a>
     </section>
   </body>
 </html>

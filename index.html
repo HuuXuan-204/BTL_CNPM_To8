@@ -62,9 +62,11 @@
       </div>
 
       <div id="signup-modal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
+        <div class="modal-header" style="width: 300px">
           <h2>Sign up</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-content" style="height: 400px; width: 300px">
           <form id="signup-form">
             <div class="form-group">
               <label for="signup-email">Email:</label>
@@ -84,9 +86,11 @@
       </div>
 
       <div id="login-modal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
+        <div class="modal-header" style="width: 300px">
           <h2>Log In</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-content" style="height: 350px; width: 300px">
           <form id="login-form">
             <div class="form-group">
               <label for="login-email">Email:</label>
@@ -101,9 +105,11 @@
         </div>
       </div>
       <div id="user-info-modal" class="modal">
-        <div class="modal-content">
-          <span class="close">×</span>
+        <div class="modal-header">
           <h2>User Information</h2>
+          <span class="close">×</span>
+        </div>
+        <div class="modal-content">
           <form id="user-info-form">
             <div class="form-group">
               <label for="user-email">Email:</label>
@@ -137,18 +143,23 @@
           </form>
         </div>
       </div>
+
       <div id="saved-lessons-modal" class="modal">
-        <div class="modal-content">
-          <span class="close">×</span>
+        <div class="modal-header">
           <h2>Saved Lessons</h2>
+          <span class="close">×</span>
+        </div>
+        <div class="modal-content">
           <ul id="saved-lessons-list" style="list-style: none; padding: 0"></ul>
         </div>
       </div>
 
       <div id="search-results-modal" class="modal">
-        <div class="modal-content">
-          <span class="close">×</span>
+        <div class="modal-header">
           <h2>Result</h2>
+          <span class="close">×</span>
+        </div>
+        <div class="modal-content">
           <ul
             id="search-results-list"
             style="list-style: none; padding: 0"
@@ -216,6 +227,35 @@
               Practice Challenges
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="chatbot-container">
+      <div class="chatbot-icon" onclick="toggleChatbot()">
+        <img
+          src="img/chatbot_icon.svg"
+          alt="Chat Icon"
+          width="27px"
+          height="27px"
+        />
+      </div>
+      <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-header">
+          <h3>Chatbot</h3>
+          <button class="chatbot-close" onclick="toggleChatbot()">✖</button>
+        </div>
+        <div class="chatbot-body" id="chatbot-messages"></div>
+        <div class="chatbot-footer">
+          <button class="chatbot-clear" onclick="clearChatHistory()">
+            Clear
+          </button>
+          <input
+            type="text"
+            id="chatbot-input"
+            placeholder="Type your message..."
+            onkeypress="if(event.key === 'Enter') sendMessage()"
+          />
+          <button onclick="sendMessage()">Send</button>
         </div>
       </div>
     </div>
