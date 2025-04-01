@@ -472,6 +472,7 @@ window.addEventListener("click", (event) => {
   }
 });
 
+//const GEMINI_API_KEY = "AIzaSyAhuGrC5PHUCJxfDszJuFh3U3_MzBuKU3Y";
 // Tải lịch sử trò chuyện khi mở chatbot
 function loadChatHistory() {
   const messagesDiv = document.getElementById("chatbot-messages");
@@ -580,10 +581,10 @@ async function sendMessage() {
   // Hiển thị hiệu ứng gõ
   const typingDiv = await showTypingEffect(messagesDiv);
 
-  // Gửi yêu cầu đến Gemini API
+  // Gửi yêu cầu
   try {
     const response = await fetch(
-      "https://gemini-api.nguyenhxuan204.workers.dev", // Thay bằng URL thực tế của Worker
+      "https://gemini-api.nguyenhxuan204.workers.dev",
       {
         method: "POST",
         headers: {
@@ -664,8 +665,7 @@ async function sendMessage() {
 
     const errorMessageDiv = document.createElement("div");
     errorMessageDiv.className = "chatbot-message bot";
-    errorMessageDiv.textContent =
-      "Sorry, something went wrong. Please try again.";
+    errorMessageDiv.textContent = `Error: ${error.message}. Please try again.`;
     messagesDiv.appendChild(errorMessageDiv);
 
     // Lưu lỗi vào lịch sử
