@@ -472,7 +472,7 @@ window.addEventListener("click", (event) => {
   }
 });
 
-//const GEMINI_API_KEY = "AIzaSyAhuGrC5PHUCJxfDszJuFh3U3_MzBuKU3Y";
+
 // Tải lịch sử trò chuyện khi mở chatbot
 function loadChatHistory() {
   const messagesDiv = document.getElementById("chatbot-messages");
