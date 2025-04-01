@@ -583,7 +583,7 @@ async function sendMessage() {
   // Gửi yêu cầu đến Gemini API
   try {
     const response = await fetch(
-      "https://gemini-api.nguyenhxuan204.workers.dev/", // Thay bằng URL thực tế của Worker
+      "https://gemini-api.nguyenhxuan204.workers.dev", // Thay bằng URL thực tế của Worker
       {
         method: "POST",
         headers: {

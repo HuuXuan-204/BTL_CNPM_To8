@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQL</title>
+  </head>
+  <body>
+    <div id="lesson-1">
+      <h1>SQL Intro</h1>
+      <p>
+        SQL is a standard language for accessing and manipulating databases.
+      </p>
+      <hr />
+      <h2>What is SQL?</h2>
+      <ul
+        class="datatype-list"
+        style="
+          display: block !important;
+          list-style-type: disc;
+          margin-left: 20px;
+        "
+      >
+        <li>SQL stands for Structured Query Language</li>
+        <li>SQL lets you access and manipulate databases</li>
+        <li>
+          SQL became a standard of the American National Standards Institute
+          (ANSI) in 1986, and of the International Organization for
+          Standardization (ISO) in 1987
+        </li>
+      </ul>
+      <hr />
+      <h2>What Can SQL do?</h2>
+      <ul
+        class="datatype-list"
+        style="
+          display: block !important;
+          list-style-type: disc;
+          margin-left: 20px;
+        "
+      >
+        <li>SQL can execute queries against a database</li>
+        <li>SQL can retrieve data from a database</li>
+        <li>SQL can insert records in a database</li>
+        <li>SQL can update records in a database</li>
+        <li>SQL can delete records from a database</li>
+        <li>SQL can create new databases</li>
+        <li>SQL can create new tables in a database</li>
+        <li>SQL can create stored procedures in a database</li>
+        <li>SQL can create views in a database</li>
+        <li>SQL can set permissions on tables, procedures, and views</li>
+      </ul>
+    </div>
+    <div id="lesson-2">
+      <h1>SQL Syntax</h1>
+      <h2>SQL Statement</h2>
+      <p>
+        Most of the actions you need to perform on a database are done with SQL
+        statements.
+      </p>
+      <p>SQL statements consist of keywords that are easy to understand.</p>
+      <p>
+        The following SQL statement returns all records from a table named
+        "Customers":
+      </p>
+      <h2>Example</h2>
+      <p>Select all records from the Customers table:</p>
+      <pre><code class="language-sql">
+        SELECT * FROM Customers;
+      </code></pre>
+      <h1>Keep in Mind That...</h1>
+      <p>
+        SQL keywords are NOT case sensitive:
+        <span class="datatype">select</span> is the same as
+        <span class="datatype">SELECT</span>.
+      </p>
+      <p>In this tutorial, we will write all SQL keywords in upper-case.</p>
+
+      <h2>Semicolon after SQL Statements?</h2>
+      <p>
+        Some database systems require a semicolon at the end of each SQL
+        statement.
+      </p>
+      <p>
+        Semicolon is the standard way to separate each SQL statement in database
+        systems that allow more than one SQL statement to be executed in the
+        same call to the server.
+      </p>
+      <p>
+        In this tutorial, we will use semicolon at the end of each SQL
+        statement.
+      </p>
+      <h2>Demo Database</h2>
+      <p>Below is a selection from the Customers table used in the examples:</p>
+      <table border="1">
+        <tr>
+          <th>CustomerID</th>
+          <th>CustomerName</th>
+          <th>ContactName</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>PostalCode</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Obere Str. 57</td>
+          <td>Berlin</td>
+          <td>12209</td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Ana Trujillo Emparedados y helados</td>
+          <td>Ana Trujillo</td>
+          <td>Avda. de la Constitución 2222</td>
+          <td>México D.F.</td>
+          <td>05021</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Antonio Moreno Taquería</td>
+          <td>Antonio Moreno</td>
+          <td>Mataderos 2312</td>
+          <td>México D.F.</td>
+          <td>05023</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Around the Horn</td>
+          <td>Thomas Hardy</td>
+          <td>120 Hanover Sq.</td>
+          <td>London</td>
+          <td>WA1 1DP</td>
+          <td>UK</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Berglunds snabbköp</td>
+          <td>Christina Berglund</td>
+          <td>Berguvsvägen 8</td>
+          <td>Luleå</td>
+          <td>S-958 22</td>
+          <td>Sweden</td>
+        </tr>
+      </table>
+
+      <h2>Some of The Most Important SQL Commands</h2>
+      <ul>
+        <li>
+          <span class="datatype">SELECT</span> - extracts data from a database
+        </li>
+        <li>
+          <span class="datatype">UPDATE</span> - updates data in a database
+        </li>
+        <li>
+          <span class="datatype">DELETE</span> - deletes data from a database
+        </li>
+        <li>
+          <span class="datatype">INSERT INTO</span> - inserts new data into a
+          database
+        </li>
+        <li><span class="datatype">DATABASE</span> - creates a new database</li>
+        <li>
+          <span class="datatype">ALTER DATABASE</span> - modifies a database
+        </li>
+        <li>
+          <span class="datatype">CREATE TABLE</span> - creates a new table
+        </li>
+        <li><span class="datatype">ALTER TABLE</span> - modifies a table</li>
+        <li><span class="datatype">DROP TABLE</span> - deletes a table</li>
+        <li>
+          <span class="datatype">CREATE INDEX</span> - creates an index (search
+          key)
+        </li>
+        <li><span class="datatype">DROP INDEX</span> - deletes an index</li>
+      </ul>
+    </div>
+    <div id="lesson-3">
+      <h1>SQL SELECT</h1>
+      <h2>The SQL SELECT Statement</h2>
+      <p>
+        The <span class="datatype">SELECT</span> statement is used to select
+        data from a database.
+      </p>
+
+      <h3>Example</h3>
+      <p>Return data from the Customers table:</p>
+      <pre><code class="language-sql">SELECT CustomerName, City FROM Customers;</code></pre>
+
+      <h3>Syntax</h3>
+      <pre><code class="language-sql">SELECT column1, column2, ...
+FROM table_name;</code></pre>
+
+      <p>
+        Here, <span class="datatype">column1</span>,
+        <span class="datatype">column2</span>, ... are the field names of the
+        table you want to select data from.
+      </p>
+      <p>
+        The <span class="datatype">table_name</span> represents the name of the
+        table you want to select data from.
+      </p>
+      <h2>Demo Database</h2>
+      <p>Below is a selection from the Customers table used in the examples:</p>
+      <table border="1">
+        <tr>
+          <th>CustomerID</th>
+          <th>CustomerName</th>
+          <th>ContactName</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>PostalCode</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Obere Str. 57</td>
+          <td>Berlin</td>
+          <td>12209</td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Ana Trujillo Emparedados y helados</td>
+          <td>Ana Trujillo</td>
+          <td>Avda. de la Constitución 2222</td>
+          <td>México D.F.</td>
+          <td>05021</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Antonio Moreno Taquería</td>
+          <td>Antonio Moreno</td>
+          <td>Mataderos 2312</td>
+          <td>México D.F.</td>
+          <td>05023</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Around the Horn</td>
+          <td>Thomas Hardy</td>
+          <td>120 Hanover Sq.</td>
+          <td>London</td>
+          <td>WA1 1DP</td>
+          <td>UK</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Berglunds snabbköp</td>
+          <td>Christina Berglund</td>
+          <td>Berguvsvägen 8</td>
+          <td>Luleå</td>
+          <td>S-958 22</td>
+          <td>Sweden</td>
+        </tr>
+      </table>
+    </div>
+    <div id="lesson-4">
+      <h1>SQL Select Distinct</h1>
+      <h2>The SQL SELECT DISTINCT Statement</h2>
+      <p>
+        The <span class="datatype">SELECT DISTINCT</span> statement is used to
+        return only distinct (different) values.
+      </p>
+
+      <h3>Example</h3>
+      <p>Select all the different countries from the "Customers" table:</p>
+      <pre><code class="language-sql">SELECT DISTINCT Country FROM Customers;</code></pre>
+
+      <h3>Syntax</h3>
+      <pre><code class="language-sql">SELECT DISTINCT column1, column2, ...
+FROM table_name;</code></pre>
+
+      <p>
+        Inside a table, a column often contains many duplicate values; and
+        sometimes you only want to list the different (distinct) values.
+      </p>
+      <h2>Demo Database</h2>
+      <p>Below is a selection from the Customers table used in the examples:</p>
+      <table border="1">
+        <tr>
+          <th>CustomerID</th>
+          <th>CustomerName</th>
+          <th>ContactName</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>PostalCode</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Obere Str. 57</td>
+          <td>Berlin</td>
+          <td>12209</td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Ana Trujillo Emparedados y helados</td>
+          <td>Ana Trujillo</td>
+          <td>Avda. de la Constitución 2222</td>
+          <td>México D.F.</td>
+          <td>05021</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Antonio Moreno Taquería</td>
+          <td>Antonio Moreno</td>
+          <td>Mataderos 2312</td>
+          <td>México D.F.</td>
+          <td>05023</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Around the Horn</td>
+          <td>Thomas Hardy</td>
+          <td>120 Hanover Sq.</td>
+          <td>London</td>
+          <td>WA1 1DP</td>
+          <td>UK</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Berglunds snabbköp</td>
+          <td>Christina Berglund</td>
+          <td>Berguvsvägen 8</td>
+          <td>Luleå</td>
+          <td>S-958 22</td>
+          <td>Sweden</td>
+        </tr>
+      </table>
+    </div>
+    <div id="lesson-5">
+      <h1>SQL Where</h1>
+      <h2>The SQL WHERE Clause</h2>
+      <p>
+        The <span class="datatype">WHERE</span> clause is used to filter
+        records.
+      </p>
+      <p>
+        It is used to extract only those records that fulfill a specified
+        condition.
+      </p>
+
+      <h3>Example</h3>
+      <p>Select all customers from Mexico:</p>
+      <pre><code class="language-sql">SELECT * FROM Customers
+WHERE Country='Mexico';</code></pre>
+
+      <h3>Syntax</h3>
+      <pre><code class="language-sql">SELECT column1, column2, ...
+FROM table_name
+WHERE condition;</code></pre>
+
+      <p>
+        Note: The <span class="datatype">WHERE</span> clause is not only used in
+        <span class="datatype">SELECT</span> statements, it is also used in
+        <span class="datatype">UPDATE</span>,
+        <span class="datatype">DELETE</span>, etc.!
+      </p>
+      <h2>Demo Database</h2>
+      <p>Below is a selection from the Customers table used in the examples:</p>
+      <table border="1">
+        <tr>
+          <th>CustomerID</th>
+          <th>CustomerName</th>
+          <th>ContactName</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>PostalCode</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Obere Str. 57</td>
+          <td>Berlin</td>
+          <td>12209</td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Ana Trujillo Emparedados y helados</td>
+          <td>Ana Trujillo</td>
+          <td>Avda. de la Constitución 2222</td>
+          <td>México D.F.</td>
+          <td>05021</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Antonio Moreno Taquería</td>
+          <td>Antonio Moreno</td>
+          <td>Mataderos 2312</td>
+          <td>México D.F.</td>
+          <td>05023</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Around the Horn</td>
+          <td>Thomas Hardy</td>
+          <td>120 Hanover Sq.</td>
+          <td>London</td>
+          <td>WA1 1DP</td>
+          <td>UK</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Berglunds snabbköp</td>
+          <td>Christina Berglund</td>
+          <td>Berguvsvägen 8</td>
+          <td>Luleå</td>
+          <td>S-958 22</td>
+          <td>Sweden</td>
+        </tr>
+      </table>
+    </div>
+    <div id="lesson-6">
+      <h1>SQL Order By</h1>
+      <h2>The SQL ORDER BY</h2>
+      <p>
+        The <span class="datatype">ORDER BY</span> keyword is used to sort the
+        result-set in ascending or descending order.
+      </p>
+
+      <h3>Example</h3>
+      <p>Sort the products by price:</p>
+      <pre><code class="language-sql"><span class="datatype">SELECT * FROM Products
+ORDER BY Price;</span></code></pre>
+
+      <h3>Syntax</h3>
+      <pre><code class="language-sql"><span class="datatype">SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;</span></code></pre>
+
+      <h2>Demo Database</h2>
+      <p>Below is a selection from the Products table used in the examples:</p>
+      <table border="1">
+        <tr>
+          <th>CustomerID</th>
+          <th>CustomerName</th>
+          <th>ContactName</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>PostalCode</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Obere Str. 57</td>
+          <td>Berlin</td>
+          <td>12209</td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Ana Trujillo Emparedados y helados</td>
+          <td>Ana Trujillo</td>
+          <td>Avda. de la Constitución 2222</td>
+          <td>México D.F.</td>
+          <td>05021</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Antonio Moreno Taquería</td>
+          <td>Antonio Moreno</td>
+          <td>Mataderos 2312</td>
+          <td>México D.F.</td>
+          <td>05023</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Around the Horn</td>
+          <td>Thomas Hardy</td>
+          <td>120 Hanover Sq.</td>
+          <td>London</td>
+          <td>WA1 1DP</td>
+          <td>UK</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Berglunds snabbköp</td>
+          <td>Christina Berglund</td>
+          <td>Berguvsvägen 8</td>
+          <td>Luleå</td>
+          <td>S-958 22</td>
+          <td>Sweden</td>
+        </tr>
+      </table>
+      <h3>DESC</h3>
+      <p>
+        The <span class="datatype">ORDER BY</span> keyword sorts the records in
+        ascending order by default. To sort the records in descending order, use
+        the <span class="datatype">DESC</span> keyword.
+      </p>
+
+      <h3>Example</h3>
+      <p>Sort the products from highest to lowest price:</p>
+      <pre><code class="language-sql"><span class="datatype">SELECT * FROM Products
+ORDER BY Price DESC;</span></code></pre>
+    </div>
+    <div id="lesson-7">
+      <h1>SQL And</h1>
+      <h2>The SQL AND Operator</h2>
+      <p>
+        The <span class="datatype">WHERE</span> clause can contain one or many
+        <span class="datatype">AND</span> operators.
+      </p>
+      <p>
+        The <span class="datatype">AND</span> operator is used to filter records
+        based on more than one condition, like if you want to return all
+        customers from Spain that start with the letter 'G'.
+      </p>
+
+      <h3>Example</h3>
+      <p>Select all customers from Spain that start with the letter 'G':</p>
+      <pre><code class="language-sql"><span class="datatype">SELECT *
+FROM Customers
+WHERE Country = 'Spain' AND CustomerName LIKE 'G%';</span></code></pre>
+
+      <h3>Syntax</h3>
+      <pre><code class="language-sql"><span class="datatype">SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 AND condition2 AND condition3 ...;</span></code></pre>
+
+      <h3>AND vs OR</h3>
+      <p>
+        The <span class="datatype">AND</span> operator displays a record if all
+        the conditions are <span class="datatype">TRUE</span>.
+      </p>
+      <p>
+        The <span class="datatype">OR</span> operator displays a record if any
+        of the conditions are <span class="datatype">TRUE</span>.
+      </p>
+
+      <h2>Demo Database</h2>
+      <p>Below is a selection from the Customers table used in the examples:</p>
+
+      <table border="1">
+        <tr>
+          <th>CustomerID</th>
+          <th>CustomerName</th>
+          <th>ContactName</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>PostalCode</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Obere Str. 57</td>
+          <td>Berlin</td>
+          <td>12209</td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Ana Trujillo Emparedados y helados</td>
+          <td>Ana Trujillo</td>
+          <td>Avda. de la Constitución 2222</td>
+          <td>México D.F.</td>
+          <td>05021</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Antonio Moreno Taquería</td>
+          <td>Antonio Moreno</td>
+          <td>Mataderos 2312</td>
+          <td>México D.F.</td>
+          <td>05023</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Around the Horn</td>
+          <td>Thomas Hardy</td>
+          <td>120 Hanover Sq.</td>
+          <td>London</td>
+          <td>WA1 1DP</td>
+          <td>UK</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Berglunds snabbköp</td>
+          <td>Christina Berglund</td>
+          <td>Berguvsvägen 8</td>
+          <td>Luleå</td>
+          <td>S-958 22</td>
+          <td>Sweden</td>
+        </tr>
+      </table>
+    </div>
+    <div id="lesson-8">
+      <h1>SQL Or</h1>
+      <h2>The SQL OR Operator</h2>
+      <p>
+        The <span class="datatype">WHERE</span> clause can contain one or more
+        <span class="datatype">OR</span> operators.
+      </p>
+      <p>
+        The <span class="datatype">OR</span> operator is used to filter records
+        based on more than one condition, like if you want to return all
+        customers from Germany but also those from Spain.
+      </p>
+
+      <h3>Example</h3>
+      <p>Select all customers from Germany or Spain:</p>
+      <pre><code class="language-sql"><span class="datatype">SELECT *
+FROM Customers
+WHERE Country = 'Germany' OR Country = 'Spain';</span></code></pre>
+
+      <h3>Syntax</h3>
+      <pre><code class="language-sql"><span class="datatype">SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 OR condition2 OR condition3 ...;</span></code></pre>
+
+      <h3>OR vs AND</h3>
+      <p>
+        The <span class="datatype">OR</span> operator displays a record if any
+        of the conditions are <span class="datatype">TRUE</span>.
+      </p>
+      <p>
+        The <span class="datatype">AND</span> operator displays a record if all
+        the conditions are <span class="datatype">TRUE</span>.
+      </p>
+
+      <h2>Demo Database</h2>
+      <p>Below is a selection from the Customers table used in the examples:</p>
+      <table border="1">
+        <tr>
+          <th>CustomerID</th>
+          <th>CustomerName</th>
+          <th>ContactName</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>PostalCode</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Obere Str. 57</td>
+          <td>Berlin</td>
+          <td>12209</td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Ana Trujillo Emparedados y helados</td>
+          <td>Ana Trujillo</td>
+          <td>Avda. de la Constitución 2222</td>
+          <td>México D.F.</td>
+          <td>05021</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Antonio Moreno Taquería</td>
+          <td>Antonio Moreno</td>
+          <td>Mataderos 2312</td>
+          <td>México D.F.</td>
+          <td>05023</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Around the Horn</td>
+          <td>Thomas Hardy</td>
+          <td>120 Hanover Sq.</td>
+          <td>London</td>
+          <td>WA1 1DP</td>
+          <td>UK</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Berglunds snabbköp</td>
+          <td>Christina Berglund</td>
+          <td>Berguvsvägen 8</td>
+          <td>Luleå</td>
+          <td>S-958 22</td>
+          <td>Sweden</td>
+        </tr>
+      </table>
+    </div>
+    <div id="lesson-9">
+      <h1>SQL Not</h1>
+      <h2>The NOT Operator</h2>
+      <p>
+        The <span class="datatype">NOT</span> operator is used in combination
+        with other operators to give the opposite result, also called the
+        negative result.
+      </p>
+
+      <p>
+        In the select statement below, we want to return all customers that are
+        NOT from Spain:
+      </p>
+
+      <h3>Example</h3>
+      <p>Select only the customers that are NOT from Spain:</p>
+      <pre><code class="language-sql"><span class="datatype">SELECT * FROM Customers
+WHERE NOT Country = 'Spain';</span></code></pre>
+
+      <p>
+        In the example above, the <span class="datatype">NOT</span> operator is
+        used in combination with the <span class="datatype">=</span> operator,
+        but it can be used in combination with other comparison and/or logical
+        operators. See examples below.
+      </p>
+
+      <h3>Syntax</h3>
+      <pre><code class="language-sql"><span class="datatype">SELECT column1, column2, ...
+FROM table_name
+WHERE NOT condition;</span></code></pre>
+
+      <h2>Demo Database</h2>
+      <p>Below is a selection from the Customers table used in the examples:</p>
+      <table border="1">
+        <tr>
+          <th>CustomerID</th>
+          <th>CustomerName</th>
+          <th>ContactName</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>PostalCode</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Obere Str. 57</td>
+          <td>Berlin</td>
+          <td>12209</td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Ana Trujillo Emparedados y helados</td>
+          <td>Ana Trujillo</td>
+          <td>Avda. de la Constitución 2222</td>
+          <td>México D.F.</td>
+          <td>05021</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Antonio Moreno Taquería</td>
+          <td>Antonio Moreno</td>
+          <td>Mataderos 2312</td>
+          <td>México D.F.</td>
+          <td>05023</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Around the Horn</td>
+          <td>Thomas Hardy</td>
+          <td>120 Hanover Sq.</td>
+          <td>London</td>
+          <td>WA1 1DP</td>
+          <td>UK</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Berglunds snabbköp</td>
+          <td>Christina Berglund</td>
+          <td>Berguvsvägen 8</td>
+          <td>Luleå</td>
+          <td>S-958 22</td>
+          <td>Sweden</td>
+        </tr>
+      </table>
+    </div>
+    <div id="lesson-10">
+      <h1>SQL Insert Into</h1>
+      <h2>The SQL INSERT INTO Statement</h2>
+      <p>
+        The <span class="datatype">INSERT INTO</span> statement is used to
+        insert new records in a table.
+      </p>
+
+      <h3>INSERT INTO Syntax</h3>
+      <p>
+        It is possible to write the
+        <span class="datatype">INSERT INTO</span> statement in two ways:
+      </p>
+
+      <p>
+        <strong
+          >1. Specify both the column names and the values to be
+          inserted:</strong
+        >
+      </p>
+      <pre><code class="language-sql"><span class="datatype">INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);</span></code></pre>
+
+      <p>
+        <strong
+          >2. Insert values for all columns without specifying column
+          names:</strong
+        >
+      </p>
+      <p>
+        If you are adding values for all the columns of the table, you do not
+        need to specify the column names in the SQL query. However, make sure
+        the order of the values matches the order of the columns in the table.
+      </p>
+      <pre><code class="language-sql"><span class="datatype">INSERT INTO table_name
+VALUES (value1, value2, value3, ...);</span></code></pre>
+
+      <h2>Demo Database</h2>
+      <p>Below is a selection from the Customers table used in the examples:</p>
+
+      <table>
+        <tr>
+          <th>CustomerID</th>
+          <th>CustomerName</th>
+          <th>ContactName</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>PostalCode</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>89</td>
+          <td>White Clover Markets</td>
+          <td>Karl Jablonski</td>
+          <td>305 - 14th Ave. S. Suite 3B</td>
+          <td>Seattle</td>
+          <td>98128</td>
+          <td>USA</td>
+        </tr>
+        <tr>
+          <td>90</td>
+          <td>Wilman Kala</td>
+          <td>Matti Karttunen</td>
+          <td>Keskuskatu 45</td>
+          <td>Helsinki</td>
+          <td>21240</td>
+          <td>Finland</td>
+        </tr>
+        <tr>
+          <td>91</td>
+          <td>Wolski</td>
+          <td>Zbyszek</td>
+          <td>ul. Filtrowa 68</td>
+          <td>Walla</td>
+          <td>01-012</td>
+          <td>Poland</td>
+        </tr>
+      </table>
+    </div>
+    <div id="lesson-11">
+      <h1>SQL Null Value</h1>
+      <h2>INSERT INTO Example</h2>
+      <p>
+        The following SQL statement inserts a new record in the "Customers"
+        table:
+      </p>
+
+      <h3>Example</h3>
+      <pre><code class="language-sql"><span class="datatype">INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');</span></code></pre>
+
+      <p>The selection from the "Customers" table will now look like this:</p>
+
+      <table>
+        <tr>
+          <th>CustomerID</th>
+          <th>CustomerName</th>
+          <th>ContactName</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>PostalCode</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>92</td>
+          <td>Cardinal</td>
+          <td>Tom B. Erichsen</td>
+          <td>Skagen 21</td>
+          <td>Stavanger</td>
+          <td>4006</td>
+          <td>Norway</td>
+        </tr>
+      </table>
+
+      <h2>Insert Data Only in Specified Columns</h2>
+      <p>It is also possible to only insert data in specific columns.</p>
+
+      <h3>Example</h3>
+      <pre><code class="language-sql"><span class="datatype">INSERT INTO Customers (CustomerName, City, Country)
+VALUES ('Cardinal', 'Stavanger', 'Norway');</span></code></pre>
+
+      <h2>Insert Multiple Rows</h2>
+      <p>It is also possible to insert multiple rows in one statement.</p>
+
+      <h3>Example</h3>
+      <pre><code class="language-sql"><span class="datatype">INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES
+('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway'),
+('Greasy Burger', 'Per Olsen', 'Gateveien 15', 'Sandnes', '4306', 'Norway'),
+('Tasty Tee', 'Finn Egan', 'Streetroad 19B', 'Liverpool', 'L1 0AA', 'UK');</span></code></pre>
+
+      <p>Make sure you separate each set of values with a comma (,).</p>
+
+      <table>
+        <tr>
+          <th>CustomerID</th>
+          <th>CustomerName</th>
+          <th>ContactName</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>PostalCode</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>93</td>
+          <td>Greasy Burger</td>
+          <td>Per Olsen</td>
+          <td>Gateveien 15</td>
+          <td>Sandnes</td>
+          <td>4306</td>
+          <td>Norway</td>
+        </tr>
+        <tr>
+          <td>94</td>
+          <td>Tasty Tee</td>
+          <td>Finn Egan</td>
+          <td>Streetroad 19B</td>
+          <td>Liverpool</td>
+          <td>L1 0AA</td>
+          <td>UK</td>
+        </tr>
+      </table>
+    </div>
+    <div id="lesson-12">
+      <h1>SQL Update</h1>
+      <h2>INSERT INTO Example</h2>
+      <p>
+        The following SQL statement inserts a new record in the "Customers"
+        table:
+      </p>
+
+      <h3>Example</h3>
+      <pre><code class="language-sql"><span class="datatype">INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');</span></code></pre>
+
+      <p>The selection from the "Customers" table will now look like this:</p>
+
+      <table>
+        <tr>
+          <th>CustomerID</th>
+          <th>CustomerName</th>
+          <th>ContactName</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>PostalCode</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>92</td>
+          <td>Cardinal</td>
+          <td>Tom B. Erichsen</td>
+          <td>Skagen 21</td>
+          <td>Stavanger</td>
+          <td>4006</td>
+          <td>Norway</td>
+        </tr>
+      </table>
+
+      <h2>Insert Data Only in Specified Columns</h2>
+      <p>It is also possible to only insert data in specific columns.</p>
+
+      <h3>Example</h3>
+      <pre><code class="language-sql"><span class="datatype">INSERT INTO Customers (CustomerName, City, Country)
+VALUES ('Cardinal', 'Stavanger', 'Norway');</span></code></pre>
+
+      <h2>Insert Multiple Rows</h2>
+      <p>It is also possible to insert multiple rows in one statement.</p>
+
+      <h3>Example</h3>
+      <pre><code class="language-sql"><span class="datatype">INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES
+('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway'),
+('Greasy Burger', 'Per Olsen', 'Gateveien 15', 'Sandnes', '4306', 'Norway'),
+('Tasty Tee', 'Finn Egan', 'Streetroad 19B', 'Liverpool', 'L1 0AA', 'UK');</span></code></pre>
+
+      <p>Make sure you separate each set of values with a comma (,).</p>
+
+      <table>
+        <tr>
+          <th>CustomerID</th>
+          <th>CustomerName</th>
+          <th>ContactName</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>PostalCode</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>93</td>
+          <td>Greasy Burger</td>
+          <td>Per Olsen</td>
+          <td>Gateveien 15</td>
+          <td>Sandnes</td>
+          <td>4306</td>
+          <td>Norway</td>
+        </tr>
+        <tr>
+          <td>94</td>
+          <td>Tasty Tee</td>
+          <td>Finn Egan</td>
+          <td>Streetroad 19B</td>
+          <td>Liverpool</td>
+          <td>L1 0AA</td>
+          <td>UK</td>
+        </tr>
+      </table>
+
+      <h2>UPDATE Example</h2>
+      <p>
+        The following SQL statement updates the first customer (CustomerID = 1)
+        with a new contact person and a new city.
+      </p>
+
+      <h3>Example</h3>
+      <pre><code class="language-sql"><span class="datatype">UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City = 'Frankfurt'
+WHERE CustomerID = 1;</span></code></pre>
+
+      <h2>UPDATE Multiple Records</h2>
+      <p>
+        The following SQL statement updates the ContactName to "Juan" for all
+        records where country is "Mexico":
+      </p>
+
+      <h3>Example</h3>
+      <pre><code class="language-sql"><span class="datatype">UPDATE Customers
+SET ContactName = 'Juan'
+WHERE Country = 'Mexico';</span></code></pre>
+
+      <h2>Update Warning!</h2>
+      <p>
+        Be careful when updating records. If you omit the WHERE clause, ALL
+        records will be updated!
+      </p>
+
+      <h3>Example</h3>
+      <pre><code class="language-sql"><span class="datatype">UPDATE Customers
+SET ContactName = 'Juan';</span></code></pre>
+    </div>
+    <div id="lesson-13">
+      <h1>SQL Delete</h1>
+      <h2>DELETE Example</h2>
+      <p>
+        The following SQL statement deletes the customer "Alfreds Futterkiste"
+        from the "Customers" table:
+      </p>
+
+      <h3>Example</h3>
+      <pre><code class="language-sql"><span class="datatype">DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';</span></code></pre>
+
+      <h2>Delete All Records</h2>
+      <p>
+        The following SQL statement deletes all rows in the "Customers" table,
+        without deleting the table:
+      </p>
+
+      <h3>Example</h3>
+      <pre><code class="language-sql"><span class="datatype">DELETE FROM Customers;</span></code></pre>
+
+      <h2>Delete a Table</h2>
+      <p>To delete the table completely, use the DROP TABLE statement:</p>
+
+      <h3>Example</h3>
+      <pre><code class="language-sql"><span class="datatype">DROP TABLE Customers;</span></code></pre>
+    </div>
+    <div id="lesson-14">
+      <h1>SQL Select Top</h1>
+      <h2>SQL SELECT TOP Clause</h2>
+
+      <p>
+        The <span class="datatype">SELECT TOP</span> clause is used to specify
+        the number of records to return.
+      </p>
+      <p>
+        The <span class="datatype">SELECT TOP</span> clause is useful on large
+        tables with thousands of records. Returning a large number of records
+        can impact performance.
+      </p>
+
+      <h3>Example</h3>
+      <p>Select only the first 3 records of the Customers table:</p>
+
+      <pre><code class="language-sql">
+  SELECT TOP 3 * FROM Customers;
+      </code></pre>
+
+      <p>
+        <strong>Note:</strong> Not all database systems support the
+        <span class="datatype">SELECT TOP</span> clause. MySQL supports the
+        <span class="datatype">LIMIT</span> clause, while Oracle uses
+        <span class="datatype">FETCH FIRST n ROWS ONLY</span> and
+        <span class="datatype">ROWNUM</span>.
+      </p>
+
+      <h3>SQL Server / MS Access Syntax:</h3>
+      <pre><code class="language-sql">
+  SELECT TOP number|percent column_name(s)
+  FROM table_name
+  WHERE condition;
+      </code></pre>
+
+      <h3>MySQL Syntax:</h3>
+      <pre><code class="language-sql">
+  SELECT column_name(s)
+  FROM table_name
+  WHERE condition
+  LIMIT number;
+      </code></pre>
+
+      <h3>Oracle 12 Syntax:</h3>
+      <pre><code class="language-sql">
+  SELECT column_name(s)
+  FROM table_name
+  ORDER BY column_name(s)
+  FETCH FIRST number ROWS ONLY;
+      </code></pre>
+
+      <h3>Older Oracle Syntax:</h3>
+      <pre><code class="language-sql">
+  SELECT column_name(s)
+  FROM table_name
+  WHERE ROWNUM <= number;
+      </code></pre>
+
+      <h3>Older Oracle Syntax (with ORDER BY):</h3>
+      <pre><code class="language-sql">
+  SELECT *
+  FROM (SELECT column_name(s) FROM table_name ORDER BY column_name(s))
+  WHERE ROWNUM <= number;
+      </code></pre>
+
+      <h3>Demo Database</h3>
+      <p>
+        Below is a selection from the
+        <span class="datatype">Customers</span> table used in the examples:
+      </p>
+    </div>
+  </body>
+</html>

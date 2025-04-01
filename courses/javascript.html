@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript</title>
+  </head>
+  <body>
+    <div id="lesson-1">
+      <h1>JS Introduction</h1>
+      <h2>What is JavaScript?</h2>
+      <p>
+        JavaScript is the programming language of the web. It can update and
+        change both HTML and CSS. It can calculate, manipulate, and validate
+        data.
+      </p>
+
+      <h2>Why Study JavaScript?</h2>
+      <p>JavaScript is one of the 3 languages all web developers must learn:</p>
+      <ul>
+        <li><strong>HTML</strong> to define the content of web pages</li>
+        <li><strong>CSS</strong> to specify the layout of web pages</li>
+        <li>
+          <strong>JavaScript</strong> to program the behavior of web pages
+        </li>
+      </ul>
+
+      <h2>JavaScript Can Change HTML Content</h2>
+      <p>
+        One of many JavaScript HTML methods is <code>getElementById()</code>.
+      </p>
+      <p>
+        The example below "finds" an HTML element (with <code>id="demo"</code>),
+        and changes the element content (<code>innerHTML</code>) to "Hello
+        JavaScript":
+      </p>
+
+      <h3>Example</h3>
+      <pre><code class="language-javascript">document.getElementById("demo").innerHTML = "Hello JavaScript";</code></pre>
+
+      <p>JavaScript accepts both double and single quotes:</p>
+
+      <h3>Example</h3>
+      <pre><code class="language-javascript">document.getElementById('demo').innerHTML = 'Hello JavaScript';</code></pre>
+      <h2>JavaScript Can Change HTML Styles (CSS)</h2>
+      <p>
+        Changing the style of an HTML element is a variant of changing an HTML
+        attribute:
+      </p>
+
+      <h3>Example</h3>
+      <pre><code class="language-javascript">document.getElementById("demo").style.fontSize = "35px";</code></pre>
+
+      <h2>JavaScript Can Hide HTML Elements</h2>
+      <p>Hiding HTML elements can be done by changing the display style:</p>
+
+      <h3>Example</h3>
+      <pre><code class="language-javascript">document.getElementById("demo").style.display = "none";</code></pre>
+
+      <h2>JavaScript Can Show HTML Elements</h2>
+      <p>
+        Showing hidden HTML elements can also be done by changing the display
+        style:
+      </p>
+
+      <h3>Example</h3>
+      <pre><code class="language-javascript">document.getElementById("demo").style.display = "block";</code></pre>
+    </div>
+    <div id="lesson-2">
+      <h1>JS Where To</h1>
+      <h2>The &lt;script&gt; Tag</h2>
+
+      <p>
+        In HTML, JavaScript code is inserted between
+        <span class="datatype"> &lt;scritp&gt; </span>
+        and<span class="datatype"> &lt;/scritp&gt; </span>tags.
+      </p>
+
+      <pre><code class="language-javascript">
+      document.getElementById("demo").innerHTML = "My First JavaScript";
+      </code></pre>
+      <h2>Old JavaScript Examples</h2>
+
+      <p>
+        Old JavaScript examples may use a type attribute:
+        <span class="datatype">&lt;script type="text/javascript"&gt;</span>.
+      </p>
+
+      <p>
+        The <span class="datatype">type</span> attribute is not required.
+        JavaScript is the default scripting language in HTML.
+      </p>
+
+      <pre><code class="language-html">
+      &lt;script type="text/javascript"&gt;
+        document.getElementById("demo").innerHTML = "My First JavaScript";
+      &lt;/script&gt;
+      </code></pre>
+    </div>
+    <div id="lesson-3">
+      <h1>JS Output</h1>
+      <h2>JavaScript Display Possibilities</h2>
+
+      <p>This paragraph will be changed by JavaScript.</p>
+
+      <p>JavaScript can "display" data in different ways:</p>
+
+      <ul>
+        <li>
+          Writing into an HTML element, using
+          <span class="datatype">innerHTML</span> or
+          <span class="datatype">innerText</span>.
+        </li>
+        <li>
+          Writing into the HTML output using
+          <span class="datatype">document.write()</span>.
+        </li>
+        <li>
+          Writing into an alert box, using
+          <span class="datatype">window.alert()</span>.
+        </li>
+        <li>
+          Writing into the browser console, using
+          <span class="datatype">console.log()</span>.
+        </li>
+      </ul>
+
+      <h3>Using <span class="datatype">innerHTML</span></h3>
+      <p>
+        To access an HTML element, you can use the
+        <span class="datatype">document.getElementById(id)</span> method.
+      </p>
+      <p>
+        Use the <span class="datatype">id</span> attribute to identify the HTML
+        element. Then use the <span class="datatype">innerHTML</span> property
+        to change the HTML content of the HTML element.
+      </p>
+
+      <h3>Example Code:</h3>
+      <pre><code class="language-javascript">
+document.getElementById("demo").innerHTML = "This is the new content!";
+</code></pre>
+
+      <h3>Using <span class="datatype">document.write()</span></h3>
+      <p>
+        This method can be used to write content directly into the HTML page.
+        However, calling <span class="datatype">document.write()</span> after
+        the page is loaded will replace the entire page content.
+      </p>
+
+      <h3>Example Code:</h3>
+      <pre><code class="language-javascript">
+document.write("This content is written directly into the page.");
+</code></pre>
+
+      <h3>Using <span class="datatype">window.alert()</span></h3>
+      <p>This method is used to display a message in a dialog box.</p>
+
+      <h3>Example Code:</h3>
+      <pre><code class="language-javascript">
+window.alert("Hello, this is an alert!");
+</code></pre>
+
+      <h3>Using <span class="datatype">console.log()</span></h3>
+      <p>
+        This method logs messages to the browser's developer console. It is
+        commonly used for debugging and development purposes.
+      </p>
+
+      <h3>Example Code:</h3>
+      <pre><code class="language-javascript">
+console.log("This is a log message.");
+</code></pre>
+    </div>
+    <div id="lesson-4">
+      <h1>JS Statements</h1>
+      <h2>JavaScript Statements</h2>
+
+      <p>
+        A JavaScript statement is an instruction that the browser can execute.
+        The statement tells the browser to do something. Here's an example of
+        multiple statements:
+      </p>
+
+      <h3>Example Code:</h3>
+
+      <pre><code class="language-javascript">
+      let x, y, z;    // Statement 1
+      x = 5;          // Statement 2
+      y = 6;          // Statement 3
+      z = x + y;      // Statement 4
+      </code></pre>
+
+      <p>
+        Each of the lines above represents a statement that is executed one by
+        one.
+      </p>
+      <h2>JavaScript Programs</h2>
+
+      <p>
+        A computer program is a list of "instructions" to be "executed" by a
+        computer.
+      </p>
+
+      <p>
+        In a programming language, these programming instructions are called
+        <strong>statements</strong>.
+      </p>
+
+      <p>A JavaScript program is a list of programming statements.</p>
+
+      <p>In HTML, JavaScript programs are executed by the web browser.</p>
+
+      <h3>JavaScript Statements</h3>
+
+      <p>JavaScript statements are composed of:</p>
+      <ul>
+        <li>Values</li>
+        <li>Operators</li>
+        <li>Expressions</li>
+        <li>Keywords</li>
+        <li>Comments</li>
+      </ul>
+
+      <p>
+        This statement tells the browser to write "Hello Dolly." inside an HTML
+        element with <code>id="demo"</code>:
+      </p>
+
+      <h3>Example Code:</h3>
+
+      <pre><code class="language-javascript">
+      document.getElementById("demo").innerHTML = "Hello Dolly.";
+      </code></pre>
+    </div>
+    <div id="lesson-5">
+      <h1>JS Syntax</h1>
+      <h2>JavaScript Syntax</h2>
+
+      <p>
+        JavaScript syntax is the set of rules, how JavaScript programs are
+        constructed:
+      </p>
+
+      <h3>How to create variables:</h3>
+      <pre><code class="language-javascript">
+      var x;
+      let y;
+      </code></pre>
+
+      <h3>How to use variables:</h3>
+      <pre><code class="language-javascript">
+      x = 5;
+      y = 6;
+      let z = x + y;
+      </code></pre>
+
+      <p>
+        The above code demonstrates how variables are declared and used in
+        JavaScript.
+      </p>
+
+      <h2>JavaScript Values</h2>
+
+      <p>The JavaScript syntax defines two types of values:</p>
+
+      <ul>
+        <li><strong>Fixed values</strong> - called Literals.</li>
+        <li><strong>Variable values</strong> - called Variables.</li>
+      </ul>
+
+      <h3>JavaScript Literals</h3>
+
+      <p>
+        The two most important syntax rules for fixed values (Literals) are:
+      </p>
+
+      <ol>
+        <li>Numbers are written with or without decimals:</li>
+      </ol>
+
+      <pre><code class="language-javascript">
+      10.50
+      1001
+      </code></pre>
+
+      <p>
+        The above examples show number literals in JavaScript. Numbers can be
+        written with or without a decimal point.
+      </p>
+      <h2>JavaScript Strings</h2>
+
+      <p>2. Strings are text, written within double or single quotes:</p>
+
+      <pre><code class="language-javascript">
+      "John Doe"
+      'John Doe'
+      </code></pre>
+
+      <p>
+        The above examples demonstrate how strings are represented in
+        JavaScript. Strings can be enclosed in either double quotes or single
+        quotes.
+      </p>
+      <h2>JavaScript Variables</h2>
+
+      <p>In a programming language, variables are used to store data values.</p>
+
+      <p>
+        JavaScript uses the keywords <code>var</code>, <code>let</code>, and
+        <code>const</code> to declare variables.
+      </p>
+
+      <p>An equal sign is used to assign values to variables.</p>
+
+      <p>
+        In this example, <code>x</code> is defined as a variable. Then,
+        <code>x</code> is assigned (given) the value 6:
+      </p>
+
+      <pre><code class="language-javascript">
+      let x;
+      x = 6;
+      </code></pre>
+    </div>
+    <div id="lesson-6">
+      <h1>JS Comments</h1>
+      <h2>JavaScript Comments</h2>
+
+      <p>
+        JavaScript comments can be used to explain JavaScript code, and to make
+        it more readable.
+      </p>
+
+      <p>
+        JavaScript comments can also be used to prevent execution, when testing
+        alternative code.
+      </p>
+
+      <h3>Single Line Comments</h3>
+
+      <p>Single line comments start with <code>//</code>.</p>
+
+      <p>
+        Any text between <code>//</code> and the end of the line will be ignored
+        by JavaScript (will not be executed).
+      </p>
+
+      <p>This example uses a single-line comment before each code line:</p>
+
+      <pre><code class="language-javascript">
+      // Change heading:
+      document.getElementById("myH").innerHTML = "My First Page";
+      
+      // Change paragraph:
+      document.getElementById("myP").innerHTML = "My first paragraph.";
+      </code></pre>
+    </div>
+    <div id="lesson-7">
+      <h1>JS Variables</h1>
+      <h2>Variables are Containers for Storing Data</h2>
+
+      <p>JavaScript Variables can be declared in 4 ways:</p>
+
+      <ul>
+        <li>Automatically</li>
+        <li>Using <span class="datatype">var</span></li>
+        <li>Using <span class="datatype">let</span></li>
+        <li>Using <span class="datatype">const</span></li>
+      </ul>
+
+      <p>
+        In this first example, <code>x</code>, <code>y</code>, and
+        <code>z</code> are undeclared variables.
+      </p>
+      <p>They are automatically declared when first used:</p>
+
+      <h3>Example</h3>
+
+      <pre><code class="language-javascript">
+      x = 5;
+      y = 6;
+      z = x + y;
+      </code></pre>
+      <h2>Note</h2>
+
+      <p>
+        It is considered good programming practice to always declare variables
+        before use.
+      </p>
+
+      <p>From the examples you can guess:</p>
+
+      <ul>
+        <li><code>x</code> stores the value <code>5</code></li>
+        <li><code>y</code> stores the value <code>6</code></li>
+        <li><code>z</code> stores the value <code>11</code></li>
+      </ul>
+
+      <h3>Example using <span class="datatype">var</span></h3>
+
+      <pre><code class="language-javascript">
+      var x = 5;
+      var y = 6;
+      var z = x + y;
+      </code></pre>
+      <h2>Note</h2>
+
+      <p>
+        The <span class="datatype">var</span> keyword was used in all JavaScript
+        code from 1995 to 2015.
+      </p>
+
+      <p>
+        The <span class="datatype">let</span> and
+        <span class="datatype">const</span> keywords were added to JavaScript in
+        2015.
+      </p>
+
+      <p>
+        The <span class="datatype">var</span> keyword should only be used in
+        code written for older browsers.
+      </p>
+
+      <h3>Example using <span class="datatype">let</span></h3>
+
+      <pre><code class="language-javascript">
+      let x = 5;
+      let y = 6;
+      let z = x + y;
+      </code></pre>
+      <h3>Example using <span class="datatype">const</span></h3>
+
+      <pre><code class="language-javascript">
+      const x = 5;
+      const y = 6;
+      const z = x + y;
+      </code></pre>
+    </div>
+    <div id="lesson-8">
+      <h1>JS Operators</h1>
+      <h2>JavaScript Operators</h2>
+
+      <p>
+        Javascript operators are used to perform different types of mathematical
+        and logical computations.
+      </p>
+
+      <h3>Examples:</h3>
+
+      <ul>
+        <li>
+          The <span class="datatype">Assignment Operator</span>
+          <code>=</code> assigns values
+        </li>
+        <li>
+          The <span class="datatype">Addition Operator</span>
+          <code>+</code> adds values
+        </li>
+        <li>
+          The <span class="datatype">Multiplication Operator</span>
+          <code>*</code> multiplies values
+        </li>
+        <li>
+          The <span class="datatype">Comparison Operator</span>
+          <code>></code> compares values
+        </li>
+      </ul>
+
+      <h2>JavaScript Assignment</h2>
+
+      <p>
+        The <span class="datatype">Assignment Operator</span> (<code>=</code>)
+        assigns a value to a variable:
+      </p>
+
+      <h3>Assignment Example</h3>
+
+      <pre><code class="language-javascript">
+      let x = 10;
+      </code></pre>
+      <pre><code class="language-javascript">
+        // Assign the value 5 to x
+        let x = 5;
+        // Assign the value 2 to y
+        let y = 2;
+        // Assign the value x + y to z:
+        let z = x + y;
+        </code></pre>
+      <h2>Types of JavaScript Operators</h2>
+
+      <p>There are different types of JavaScript operators:</p>
+
+      <ul>
+        <li><span class="datatype">Arithmetic Operators</span></li>
+        <li><span class="datatype">Assignment Operators</span></li>
+        <li><span class="datatype">Comparison Operators</span></li>
+        <li><span class="datatype">String Operators</span></li>
+        <li><span class="datatype">Logical Operators</span></li>
+        <li><span class="datatype">Bitwise Operators</span></li>
+        <li><span class="datatype">Ternary Operators</span></li>
+        <li><span class="datatype">Type Operators</span></li>
+      </ul>
+
+      <h2>JavaScript Arithmetic Operators</h2>
+
+      <p>Arithmetic Operators are used to perform arithmetic on numbers:</p>
+
+      <h3>Arithmetic Operators Example</h3>
+
+      <pre><code class="language-javascript">
+        let a = 3;
+        let x = (100 + 50) * a;
+        </code></pre>
+      <h2>JavaScript Operators</h2>
+
+      <table>
+        <tr>
+          <th>Operator</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><span class="operator">+</span></td>
+          <td>Addition</td>
+        </tr>
+        <tr>
+          <td><span class="operator">-</span></td>
+          <td>Subtraction</td>
+        </tr>
+        <tr>
+          <td><span class="operator">*</span></td>
+          <td>Multiplication</td>
+        </tr>
+        <tr>
+          <td><span class="operator">**</span></td>
+          <td>Exponentiation (ES2016)</td>
+        </tr>
+        <tr>
+          <td><span class="operator">/</span></td>
+          <td>Division</td>
+        </tr>
+        <tr>
+          <td><span class="operator">%</span></td>
+          <td>Modulus (Division Remainder)</td>
+        </tr>
+        <tr>
+          <td><span class="operator">++</span></td>
+          <td>Increment</td>
+        </tr>
+        <tr>
+          <td><span class="operator">--</span></td>
+          <td>Decrement</td>
+        </tr>
+      </table>
+    </div>
+    <div id="lesson-9">
+      <h1>JS Data Types</h1>
+      <h2>JavaScript has 8 Datatypes</h2>
+      <ul>
+        <li><span class="datatype">String</span></li>
+        <li><span class="datatype">Number</span></li>
+        <li><span class="datatype">Bigint</span></li>
+        <li><span class="datatype">Boolean</span></li>
+        <li><span class="datatype">Undefined</span></li>
+        <li><span class="datatype">Null</span></li>
+        <li><span class="datatype">Symbol</span></li>
+        <li><span class="datatype">Object</span></li>
+      </ul>
+
+      <h3>The Object Datatype</h3>
+      <p>
+        The object data type can contain both built-in objects, and user defined
+        objects:
+      </p>
+      <ul>
+        <li>
+          <strong>Built-in object types</strong> can be: objects, arrays, dates,
+          maps, sets, intarrays, floatarrays, promises, and more.
+        </li>
+      </ul>
+
+      <h4>Examples:</h4>
+      <p><strong>Numbers:</strong></p>
+      <pre><code class="language-javascript">
+let length = 16;
+let weight = 7.5;
+</code></pre>
+
+      <p><strong>Strings:</strong></p>
+      <pre><code class="language-javascript">
+let color = "Yellow";
+let lastName = "Johnson";
+</code></pre>
+
+      <p><strong>Booleans:</strong></p>
+      <pre><code class="language-javascript">
+let x = true;
+let y = false;
+</code></pre>
+
+      <p><strong>Object:</strong></p>
+      <pre><code class="language-javascript">
+const person = {firstName: "John", lastName: "Doe"};
+</code></pre>
+
+      <p><strong>Array object:</strong></p>
+      <pre><code class="language-javascript">
+const cars = ["Saab", "Volvo", "BMW"];
+</code></pre>
+
+      <p><strong>Date object:</strong></p>
+      <pre><code class="language-javascript">
+const date = new Date("2022-03-25");
+</code></pre>
+
+      <h3>The Concept of Data Types</h3>
+      <p>
+        In programming, data types is an important concept. To be able to
+        operate on variables, it is important to know something about the type.
+        Without data types, a computer cannot safely solve this:
+      </p>
+
+      <pre><code class="language-javascript">
+let x = 16 + "Volvo"; // Does it make any sense to add "Volvo" to sixteen? 
+</code></pre>
+
+      <p>JavaScript will treat the above example as:</p>
+
+      <pre><code class="language-javascript">
+let x = "16" + "Volvo"; // Concatenates "16" and "Volvo" as strings
+</code></pre>
+
+      <h4>Examples:</h4>
+
+      <p><strong>Adding a number and a string:</strong></p>
+      <pre><code class="language-javascript">
+let x = 16 + "Volvo"; // Result: "16Volvo"
+</code></pre>
+
+      <p><strong>Adding a string and a number:</strong></p>
+      <pre><code class="language-javascript">
+let x = "Volvo" + 16; // Result: "Volvo16"
+</code></pre>
+
+      <p>
+        JavaScript evaluates expressions from left to right. Different sequences
+        can produce different results:
+      </p>
+
+      <p><strong>Example 1:</strong></p>
+      <pre><code class="language-javascript">
+let x = 16 + 4 + "Volvo"; // Result: "20Volvo"
+</code></pre>
+
+      <p><strong>Example 2:</strong></p>
+      <pre><code class="language-javascript">
+let x = "Volvo" + 16 + 4; // Result: "Volvo164"
+</code></pre>
+
+      <p>
+        In the first example, JavaScript treats 16 and 4 as numbers, until it
+        reaches the string "Volvo". In the second example, since the first
+        operand is a string, all operands are treated as strings.
+      </p>
+    </div>
+    <div id="lesson-10">
+      <h1>JS Functoin</h1>
+      <h2>JavaScript Functions</h2>
+
+      <p>
+        A JavaScript function is a block of code designed to perform a
+        particular task.
+      </p>
+      <p>
+        A JavaScript function is executed when "something" invokes it (calls
+        it).
+      </p>
+
+      <h3>Example</h3>
+      <p>// Function to compute the product of p1 and p2</p>
+
+      <pre><code class="language-javascript">
+        function myFunction(p1, p2) {
+        return p1 * p2;
+        }
+        </code></pre>
+      <h2>JavaScript Function Syntax</h2>
+
+      <p>
+        A JavaScript function is defined with the
+        <span class="datatype">function</span> keyword, followed by a name,
+        followed by parentheses <span class="datatype">()</span>.
+      </p>
+
+      <p>
+        Function names can contain letters, digits, underscores, and dollar
+        signs (same rules as variables).
+      </p>
+
+      <p>The parentheses may include parameter names separated by commas:</p>
+      <p><span class="datatype">(parameter1, parameter2, ...)</span></p>
+
+      <p>
+        The code to be executed, by the function, is placed inside curly
+        brackets <span class="datatype">{}</span>.
+      </p>
+
+      <pre><code class="language-javascript">
+        // Syntax example:
+        function name(parameter1, parameter2, parameter3) {
+          // code to be executed
+        }
+        </code></pre>
+
+      <h3>Function Parameters and Arguments</h3>
+      <p>
+        Function parameters are listed inside the parentheses () in the function
+        definition.
+      </p>
+      <p>
+        Function arguments are the values received by the function when it is
+        invoked.
+      </p>
+      <p>
+        Inside the function, the arguments (the parameters) behave as local
+        variables.
+      </p>
+
+      <h3>Function Invocation</h3>
+      <p>
+        The code inside the function will execute when "something" invokes
+        (calls) the function:
+      </p>
+
+      <ul>
+        <li>When an event occurs (e.g., when a user clicks a button)</li>
+        <li>When it is invoked (called) from JavaScript code</li>
+        <li>Automatically (self-invoked)</li>
+      </ul>
+
+      <p>
+        You will learn a lot more about function invocation later in this
+        tutorial.
+      </p>
+    </div>
+    <div id="lesson-11">
+      <h1>JS Objects</h1>
+      <h2>JavaScript Object Properties</h2>
+
+      <p>A real-life car has properties like weight and color:</p>
+      <p>
+        car.name = Fiat, car.model = 500, car.weight = 850kg, car.color = white.
+      </p>
+
+      <p>
+        Car objects have the same properties, but the values differ from car to
+        car.
+      </p>
+
+      <h3>JavaScript Variables</h3>
+      <p>JavaScript variables are containers for data values.</p>
+
+      <p>
+        This code assigns a simple value (Fiat) to a variable named
+        <span class="datatype">car</span>:
+      </p>
+
+      <pre><code class="language-javascript">let car = "Fiat";</code></pre>
+
+      <h3>JavaScript Objects</h3>
+      <p>Objects are variables too. But objects can contain many values.</p>
+
+      <p>
+        This code assigns many values (Fiat, 500, white) to an object named
+        <span class="datatype">car</span>:
+      </p>
+
+      <pre><code class="language-javascript">const car = {type:"Fiat", model:"500", color:"white"};</code></pre>
+
+      <p>
+        <strong>Note:</strong> It is a common practice to declare objects with
+        the <span class="datatype">const</span> keyword.
+      </p>
+
+      <h3>JavaScript Object Definition</h3>
+      <h4>How to Define a JavaScript Object</h4>
+      <ul>
+        <li>Using an <span class="datatype">Object Literal</span></li>
+        <li>Using the <span class="datatype">new</span> Keyword</li>
+        <li>Using an Object Constructor</li>
+      </ul>
+
+      <h3>JavaScript Object Literal</h3>
+      <p>
+        An object literal is a list of name:value pairs inside curly braces
+        <span class="datatype">{}.</span>
+      </p>
+
+      <pre><code class="language-javascript">// Create an Object using literal
+      const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};</code></pre>
+
+      <p>
+        <strong>Note:</strong> name:value pairs are also called key:value pairs.
+        Object literals are also called object initializers.
+      </p>
+
+      <h4>Creating a JavaScript Object</h4>
+      <p>This example creates a JavaScript object with 4 properties:</p>
+
+      <pre><code class="language-javascript">// Create an Object
+      const person = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 50,
+        eyeColor: "blue"
+      };</code></pre>
+
+      <p>
+        Spaces and line breaks are not important. An object initializer can span
+        multiple lines.
+      </p>
+
+      <h4>Adding Properties to an Empty Object</h4>
+      <p>
+        This example creates an empty JavaScript object, and then adds 4
+        properties:
+      </p>
+
+      <pre><code class="language-javascript">// Create an Object
+      const person = {};
+      
+      // Add Properties
+      person.firstName = "John";
+      person.lastName = "Doe";
+      person.age = 50;
+      person.eyeColor = "blue";</code></pre>
+
+      <h3>Using the new Keyword</h3>
+      <p>
+        This example creates a new JavaScript object using
+        <span class="datatype">new Object()</span>, and then adds 4 properties:
+      </p>
+
+      <pre><code class="language-javascript">// Create an Object using new keyword
+      const person = new Object();
+      
+      // Add Properties
+      person.firstName = "John";
+      person.lastName = "Doe";
+      person.age = 50;
+      person.eyeColor = "blue";</code></pre>
+
+      <p>
+        <strong>Note:</strong> The examples above do exactly the same. But,
+        there is no need to use <span class="datatype">new Object()</span>.
+      </p>
+
+      <p>
+        For readability, simplicity, and execution speed, use the object literal
+        method.
+      </p>
+    </div>
+    <div id="lesson-12">
+      <h1>JS Event</h1>
+      <h2>HTML Events</h2>
+
+      <p>
+        An HTML event can be something the browser does, or something a user
+        does.
+      </p>
+
+      <ul>
+        <li>An HTML web page has finished loading</li>
+        <li>An HTML input field was changed</li>
+        <li>An HTML button was clicked</li>
+      </ul>
+
+      <p>Often, when events happen, you may want to do something.</p>
+
+      <p>JavaScript lets you execute code when events are detected.</p>
+
+      <p>
+        HTML allows event handler attributes, with JavaScript code, to be added
+        to HTML elements.
+      </p>
+
+      <pre><code class="language-html">
+  &lt;element event='some JavaScript'&gt;
+  &lt;element event="some JavaScript"&gt;
+      </code></pre>
+
+      <p>
+        In the following example, an
+        <span class="datatype">&lt;onclick&gt;</span> attribute (with code), is
+        added to a <span class="datatype">&lt;button&gt;</span> element:
+      </p>
+
+      <pre><code class="language-html">
+  &lt;button onclick="document.getElementById('demo').innerHTML = Date()"&gt;The time is?&lt;/button&gt;
+      </code></pre>
+      <p>
+        In the example above, the JavaScript code changes the content of the
+        element with <span class="datatype">id="demo"</span>.
+      </p>
+
+      <p>
+        In the next example, the code changes the content of its own element
+        (using <span class="datatype">this.innerHTML</span>):
+      </p>
+
+      <pre><code class="language-html">
+&lt;button onclick="this.innerHTML = Date()"&gt;The time is?&lt;/button&gt;
+    </code></pre>
+
+      <p>
+        JavaScript code is often several lines long. It is more common to see
+        event attributes calling functions:
+      </p>
+
+      <pre><code class="language-html">
+&lt;button onclick="displayDate()"&gt;The time is?&lt;/button&gt;
+    </code></pre>
+    </div>
+    <div id="lesson-13">
+      <h1>JS Strings</h1>
+      <h2>JavaScript Strings</h2>
+
+      <p>Strings are for storing text.</p>
+      <p>Strings are written with quotes.</p>
+
+      <h3>Using Quotes</h3>
+      <p>
+        A JavaScript string is zero or more characters written inside quotes.
+      </p>
+
+      <pre><code class="language-javascript">
+  let text = "John Doe";
+      </code></pre>
+
+      <p>You can use single or double quotes:</p>
+
+      <pre><code class="language-javascript">
+  let carName1 = "Volvo XC60";  // Double quotes
+  let carName2 = 'Volvo XC60';  // Single quotes
+      </code></pre>
+
+      <h3>Quotes Inside Quotes</h3>
+      <p>
+        You can use quotes inside a string, as long as they don't match the
+        quotes surrounding the string:
+      </p>
+
+      <pre><code class="language-javascript">
+  let answer1 = "It's alright";
+  let answer2 = "He is called 'Johnny'";
+  let answer3 = 'He is called "Johnny"';
+      </code></pre>
+
+      <h3>Template Strings</h3>
+      <p>Templates were introduced with ES6 (JavaScript 2016).</p>
+      <p>
+        Templates are strings enclosed in backticks (<code
+          >`This is a template string`</code
+        >).
+      </p>
+
+      <pre><code class="language-javascript">
+  let text = `He's often called "Johnny"`;
+      </code></pre>
+
+      <p>
+        <strong>Note:</strong> Templates are not supported in Internet Explorer.
+      </p>
+
+      <h3>String Length</h3>
+      <p>To find the length of a string, use the built-in length property:</p>
+
+      <pre><code class="language-javascript">
+  let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let length = text.length;
+      </code></pre>
+
+      <h3>Escape Characters</h3>
+      <p>
+        Because strings must be written within quotes, JavaScript will
+        misunderstand this string:
+      </p>
+
+      <pre><code class="language-javascript">
+  let text = "We are the so-called "Vikings" from the north.";
+      </code></pre>
+
+      <p>The string will be chopped to <code>"We are the so-called "</code>.</p>
+      <p>To solve this problem, you can use a backslash escape character.</p>
+
+      <h3>Escape Characters List</h3>
+      <table>
+        <tr>
+          <th>Code</th>
+          <th>Result</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><span class="operator">\'</span></td>
+          <td>'</td>
+          <td>Single quote</td>
+        </tr>
+        <tr>
+          <td><span class="operator">\"</span></td>
+          <td>"</td>
+          <td>Double quote</td>
+        </tr>
+        <tr>
+          <td><span class="operator">\\</span></td>
+          <td>\</td>
+          <td>Backslash</td>
+        </tr>
+      </table>
+
+      <h3>Examples</h3>
+
+      <pre><code class="language-javascript">
+  // \" inserts a double quote in a string:
+  let text = "We are the so-called \"Vikings\" from the north.";
+  
+  // \' inserts a single quote in a string:
+  let text= 'It\'s alright.';
+  
+  // \\ inserts a backslash in a string:
+  let text = "The character \\ is called backslash.";
+      </code></pre>
+
+      <h3>Other Escape Sequences</h3>
+      <table>
+        <tr>
+          <th>Code</th>
+          <th>Result</th>
+        </tr>
+        <tr>
+          <td><span class="operator">\b</span></td>
+          <td>Backspace</td>
+        </tr>
+        <tr>
+          <td><span class="operator">\f</span></td>
+          <td>Form Feed</td>
+        </tr>
+        <tr>
+          <td><span class="operator">\n</span></td>
+          <td>New Line</td>
+        </tr>
+        <tr>
+          <td><span class="operator">\r</span></td>
+          <td>Carriage Return</td>
+        </tr>
+        <tr>
+          <td><span class="operator">\t</span></td>
+          <td>Horizontal Tabulator</td>
+        </tr>
+        <tr>
+          <td><span class="operator">\v</span></td>
+          <td>Vertical Tabulator</td>
+        </tr>
+      </table>
+
+      <p>
+        <strong>Note:</strong> The escape characters above were originally
+        designed for typewriters, teletypes, and fax machines. They do not make
+        any sense in HTML.
+      </p>
+    </div>
+    <div id="lesson-14">
+      <h1>JS Arrays</h1>
+      <h2>JavaScript Arrays</h2>
+
+      <p>An array is a special variable, which can hold more than one value.</p>
+
+      <pre><code class="language-javascript">
+  const cars = ["Saab", "Volvo", "BMW"];
+      </code></pre>
+
+      <h3>Why Use Arrays?</h3>
+      <p>
+        If you have a list of items (e.g., car names), storing them in single
+        variables could look like this:
+      </p>
+
+      <pre><code class="language-javascript">
+  let car1 = "Saab";
+  let car2 = "Volvo";
+  let car3 = "BMW";
+      </code></pre>
+
+      <p>
+        However, what if you want to loop through the cars and find a specific
+        one? And what if you had not 3 cars, but 300?
+      </p>
+      <p><strong>The solution is an array!</strong></p>
+
+      <p>
+        An array can hold many values under a single name, and you can access
+        the values by referring to an index number.
+      </p>
+
+      <h3>Creating an Array</h3>
+      <p>
+        Using an array literal is the easiest way to create a JavaScript Array.
+      </p>
+
+      <pre><code class="language-javascript">
+  const array_name = [item1, item2, ...];      
+      </code></pre>
+
+      <p>
+        It is a common practice to declare arrays with the
+        <code>const</code> keyword.
+      </p>
+
+      <h3>Example</h3>
+
+      <pre><code class="language-javascript">
+  const cars = ["Saab", "Volvo", "BMW"];
+      </code></pre>
+
+      <p>
+        Spaces and line breaks are not important. A declaration can span
+        multiple lines:
+      </p>
+
+      <pre><code class="language-javascript">
+  const cars = [
+    "Saab",
+    "Volvo",
+    "BMW"
+  ];
+      </code></pre>
+
+      <h3>Creating an Array and Assigning Elements Later</h3>
+
+      <pre><code class="language-javascript">
+  const cars = [];
+  cars[0] = "Saab";
+  cars[1] = "Volvo";
+  cars[2] = "BMW";
+      </code></pre>
+
+      <h3>Using the JavaScript Keyword <code>new</code></h3>
+      <p>
+        The following example also creates an array and assigns values to it:
+      </p>
+
+      <pre><code class="language-javascript">
+  const cars = new Array("Saab", "Volvo", "BMW");
+      </code></pre>
+
+      <p>The two examples above do exactly the same.</p>
+
+      <p>
+        <strong
+          >However, there is no need to use <code>new Array()</code>.</strong
+        >
+      </p>
+      <p>
+        For simplicity, readability, and execution speed, use the array literal
+        method.
+      </p>
+    </div>
+  </body>
+</html>
