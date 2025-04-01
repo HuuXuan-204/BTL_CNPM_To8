@@ -472,7 +472,33 @@ window.addEventListener("click", (event) => {
   }
 });
 
-//const GEMINI_API_KEY = "AIzaSyAhuGrC5PHUCJxfDszJuFh3U3_MzBuKU3Y";
+async function getApiKey() {
+  try {
+    const response = await fetch(
+      "https://gemini-api.nguyenhxuan204.workers.dev",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch API key: ${response.status}`);
+    }
+
+    const data = await response.json();
+    if (!data.apiKey) {
+      throw new Error("API key not found in response");
+    }
+
+    return data.apiKey;
+  } catch (error) {
+    console.error("Error fetching API key:", error.message);
+    throw error;
+  }
+}
 // Tải lịch sử trò chuyện khi mở chatbot
 function loadChatHistory() {
   const messagesDiv = document.getElementById("chatbot-messages");
@@ -583,14 +609,30 @@ async function sendMessage() {
 
   // Gửi yêu cầu
   try {
+    const apiKey = await getApiKey();
     const response = await fetch(
-      "https://gemini-api.nguyenhxuan204.workers.dev",
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ userMessage }),
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [
+                {
+                  text: userMessage,
+                },
+              ],
+            },
+          ],
+          generationConfig: {
+            temperature: 0.7,
+            topP: 0.9,
+            maxOutputTokens: 1000,
+          },
+        }),
       }
     );
 
