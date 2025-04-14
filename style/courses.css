@@ -1,0 +1,385 @@
+.toggleSidebar {
+  background: transparent;
+  border: none;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 280;
+  padding: 7px 23px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.5s ease-in-out;
+  opacity: 0.7;
+}
+
+.toggleSidebar:hover {
+  background: linear-gradient(90deg, #e7005e, #f07d18);
+  transform: scale(1.05);
+  opacity: 1;
+  color: #ffffff;
+}
+
+.toggleSidebar.active {
+  background: linear-gradient(90deg, #e7005e, #f07d18);
+  opacity: 1;
+  font-weight: 500;
+  color: #ffffff;
+}
+.toggleSidebar.active::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 2px;
+}
+.sidebar {
+  position: absolute;
+  top: 180px;
+  left: -400px;
+  width: 50px;
+  height: calc(100% - 290px);
+  color: rgb(190, 189, 189);
+  padding: 15px;
+  z-index: 10;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 280;
+  border: 2px solid rgba(255, 255, 255, 0.202);
+  border-radius: 15px;
+  transform: scale(0.1);
+  transform-origin: bottom left;
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    width 0.3s ease-in-out;
+}
+
+.sidebar.active {
+  left: 60px;
+  transform: scale(1);
+}
+.sidebar:hover {
+  width: 240px;
+}
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  white-space: nowrap;
+}
+.sidebar-icon {
+  padding: 13px;
+  display: block;
+}
+
+.sidebar-title {
+  display: none;
+  padding: 12px;
+  font-size: 23px;
+  font-weight: 550;
+  color: #ffffff;
+  letter-spacing: 2px;
+  font-family: "Montserrat", sans-serif;
+}
+.sidebar:hover .sidebar-icon {
+  display: none;
+}
+
+.sidebar:hover .sidebar-title {
+  display: block;
+}
+
+#lesson-list {
+  list-style: none;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  max-height: calc(100% - 70px);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+#lesson-list li {
+  padding: 8px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s, padding-left 0.3s;
+  font-size: 15px;
+  color: rgba(179, 176, 176, 0.9);
+  border-radius: 10px;
+}
+#lesson-list li:empty::before {
+  content: "Not Found!";
+  color: white;
+  text-align: center;
+  display: block;
+  padding: 15px;
+}
+.lesson-number {
+  display: block;
+  text-align: center;
+}
+
+.lesson-title {
+  display: none;
+  white-space: nowrap;
+}
+
+.sidebar:hover #lesson-list li .lesson-number {
+  display: none;
+}
+
+.sidebar:hover #lesson-list li .lesson-title {
+  display: block;
+}
+
+#lesson-list li:hover {
+  background: rgba(255, 255, 255, 0.15);
+  padding-left: 20px;
+}
+#lesson-list li.active {
+  background: rgba(169, 167, 168, 0.3);
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.lesson-content {
+  position: absolute;
+  top: 120px;
+  left: 350px;
+  right: 250px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  display: none;
+  z-index: 5;
+  padding: 30px;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+.lesson-content.active {
+  display: block;
+}
+
+.lesson-content h1 {
+  font-size: 40px;
+  margin: 0 0 20px;
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  padding-bottom: 10px;
+}
+
+.lesson-content p {
+  font-size: 15px;
+  font-weight: 320;
+  line-height: 2;
+  margin: 15px 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.lesson-content ul {
+  padding-left: 25px;
+  margin: 15px 0;
+  flex-direction: column;
+}
+
+.lesson-content ul li {
+  margin: 10px 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.lesson-content code {
+  background: #374857;
+  padding: none;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1;
+  text-align: left;
+  white-space: pre-wrap;
+  font-family: "Courier New", Courier, monospace;
+  padding: 0;
+  margin: 0;
+  display: block;
+  text-align: left;
+  scrollbar-width: none;
+}
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.navigation-buttons.bottom {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation-buttons.bottom .left-buttons {
+  display: flex;
+  gap: 10px;
+}
+#prev-lesson-top,
+#next-lesson-top,
+#prev-lesson-bottom,
+#next-lesson-bottom {
+  background: linear-gradient(90deg, #e7005e, #f07d18);
+  border: none;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 50px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.3s ease-in-out;
+}
+
+#prev-lesson-top:hover,
+#next-lesson-top:hover,
+#prev-lesson-bottom:hover,
+#next-lesson-bottom:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+#prev-lesson-top:disabled,
+#next-lesson-top:disabled,
+#prev-lesson-bottom:disabled,
+#next-lesson-bottom:disabled {
+  background: rgba(255, 255, 255, 0.2);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+#save-lesson-bottom {
+  background: linear-gradient(90deg, #00c4b4, #00e676);
+  border: none;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 50px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.3s ease-in-out;
+}
+
+#save-lesson-bottom:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.saved-lessons-btn {
+  background: rgba(0, 196, 180, 0.45);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 60px;
+  font-weight: 350;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background 0.3s;
+}
+
+.saved-lessons-btn:hover {
+  background: #00c4b4;
+}
+#saved-lessons-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 12px;
+}
+
+#saved-lessons-list li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: rgba(228, 122, 122, 0.1);
+  border-radius: 10px;
+  color: rgb(34, 34, 34);
+  font-family: "Montserrat", sans-serif;
+}
+
+#saved-lessons-list li span {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#saved-lessons-list li div {
+  display: flex;
+  gap: 2px;
+}
+
+#saved-lessons-list li button {
+  background: linear-gradient(90deg, #e7005e, #ff7a02);
+  border: none;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 450;
+  border-radius: 50px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.3s ease-in-out;
+}
+
+#saved-lessons-list li button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+#saved-lessons-list li button.delete-lesson {
+  background: linear-gradient(90deg, #ff1744, #d81b60);
+}
+
+#saved-lessons-list li button.delete-lesson:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+.datatype {
+  font-weight: bold;
+  color: #d63384;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: #485460;
+}
+
+th,
+td {
+  border: 1px solid #57606f;
+  padding: 12px;
+  text-align: left;
+  color: #f1f2f6; /* Màu chữ trắng */
+}
+
+th {
+  background-color: #227093; /* Màu xanh dương đậm */
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #2f3640; /* Màu xám đậm */
+}
+
+tr:hover {
+  background-color: #44bd32; /* Màu xanh lá khi hover */
+  transition: 0.3s;
+}
+.highlight {
+  color: red;
+  font-weight: bold;
+  background: #f8d7da;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
