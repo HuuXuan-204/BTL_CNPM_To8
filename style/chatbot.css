@@ -214,7 +214,7 @@
   display: inline-block;
   width: 20px;
   height: 20px;
-  background: url("img/icon-chatbot-chat.png") no-repeat center center;
+  background: url("../img/icon-chatbot-chat.png") no-repeat center center;
   background-size: cover;
   margin-right: 10px;
   flex-shrink: 0;
