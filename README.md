@@ -6,6 +6,11 @@
 
 Website được triển khai trên Cloudflare Pages, đảm bảo thời gian tải trang dưới 0.2 giây trên mạng 4G. Dự án này được phát triển bởi nhóm sinh viên với mục đích phi thương mại, nhằm phục vụ nhu cầu học tập của cộng đồng, đặc biệt là học sinh, sinh viên, và cả những người đi làm muốn trau dồi kỹ năng. CodeFinity không chỉ tập trung vào việc cung cấp nội dung học tập phong phú mà còn chú trọng đến trải nghiệm người dùng, đảm bảo giao diện thân thiện và dễ tiếp cận.
 
+![image](https://github.com/user-attachments/assets/4e9f1139-a2ab-4f27-9397-1a94a2bd327f)
+
+
+
+
 Website hiện có thể truy cập tại: https://btl-cnpm-to8.pages.dev
 
 ## Tính năng
