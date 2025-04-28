@@ -1,3 +1,4 @@
+//Lấy API Key
 async function getApiKey() {
   try {
     const response = await fetch(

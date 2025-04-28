@@ -19,7 +19,7 @@ document.querySelectorAll(".toggleSidebar").forEach((button) => {
     toggleSidebar(language);
   });
 });
-
+//Mở danh sách bài học
 function toggleSidebar(language) {
   const sidebar = document.getElementById("sidebar");
   const imgBackground = document.getElementById("img-background");

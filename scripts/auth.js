@@ -139,7 +139,6 @@ function updateUserInterface(user) {
           const index = button.getAttribute("data-index");
           const lesson = savedLessons[index];
 
-          // Kiểm tra nếu đang ở đúng ngôn ngữ và bài học
           if (
             isSidebarVisible &&
             currentLanguage === lesson.language &&
@@ -291,7 +290,6 @@ window.addEventListener("click", (event) => {
   }
 });
 
-// Xem trước avatar khi nhập URL
 userAvatarInput.oninput = (e) => {
   const url = e.target.value;
   avatarPreviewImg.src = url;
